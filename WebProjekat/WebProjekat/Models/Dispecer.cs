@@ -10,6 +10,8 @@ namespace WebProjekat.Models
         public Dispecer()
         {
             Voznja = new List<Voznja>();
+            Ulogovan = false;
+
         }
         public Dispecer(string user, string pass, string ime, string prezime, Pol pol, long jmbg, string broj, string mail, Uloga ul)
         {
@@ -23,6 +25,8 @@ namespace WebProjekat.Models
             Mail = mail;
             Uloga = ul;
             Voznja = new List<Voznja>();
+            Ulogovan = false;
+
         }
     }
 }

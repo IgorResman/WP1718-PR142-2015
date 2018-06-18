@@ -17,6 +17,7 @@ namespace WebProjekat.Models
         public string Mail { get; set; }
         public Uloga Uloga { get; set; }
         public List<Voznja> Voznja { get; set; }
+        public bool Ulogovan { get; set; }
 
         public Korisnik(string user,string pass,string ime,string prezime,Pol pol ,long jmbg,string broj,string mail,Uloga ul)
         {
@@ -30,11 +31,14 @@ namespace WebProjekat.Models
             Mail = mail;
             Uloga = ul;
             Voznja = new List<Voznja>();
+            Ulogovan = false;
         }
 
         public Korisnik()
         {
             Voznja = new List<Voznja>();
+            Ulogovan = false;
+
         }
 
     }

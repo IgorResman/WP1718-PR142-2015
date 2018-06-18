@@ -19,10 +19,14 @@ namespace WebProjekat.Models
             Mail = mail;
             Uloga = ul;
             Voznja = new List<Voznja>();
+            Ulogovan = false;
+
         }
         public Musterija()
         {
             Voznja = new List<Voznja>();
+            Ulogovan = false;
+
         }
     }
 }

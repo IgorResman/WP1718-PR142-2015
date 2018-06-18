@@ -1,17 +1,17 @@
 ﻿
 @{
-    ViewBag.Title = "Registracija";
+    ViewBag.Title = "DodajVozaca";
 }
 
 <html>
     <body style="background-color:skyblue">
 
-        <h2>Registracija</h2>
+        <h2>Unos novog vozača</h2>
 
-        <form action="/Taxi/RegistrujSe">
+        <form action="/Taxi/DodavanjeVozaca">
             <table>
                 <tr>
-                    <td colspan="2">Prijava</td>
+                    <td colspan="2">Popunite sledeća polja</td>
                 </tr>
                 <tr>
                     <td>Ime:</td>
@@ -51,9 +51,10 @@
                     <td><input type="text" name="broj" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" value="Registruj se"/></td>
+                    <td colspan="2"><input type="submit" value="Sačuvaj"/></td>
                 </tr>
             </table>
         </form>
     </body>
 </html>
+

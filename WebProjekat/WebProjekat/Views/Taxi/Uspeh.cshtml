@@ -1,10 +1,14 @@
-﻿@model WebProjekat.Models.Musterija
+﻿@model WebProjekat.Models.Korisnik
 @{
     ViewBag.Title = "Uspeh";
 }
 
-<h2>Uspesno ste se registrovali na korisnicko ime @Model.KorisnickoIme</h2>
-<p>
-    @Html.ActionLink("Vrati se na početnu stranicu!","Index")
-</p>
+<html>
+    <body style="background-color:skyblue">
+        <h2>Uspešno registrovan korisnik @Model.KorisnickoIme</h2>
+        <p>
+            @Html.ActionLink("Vrati se na početnu stranicu!","Index")
+        </p>
+    </body>
+</html>
 

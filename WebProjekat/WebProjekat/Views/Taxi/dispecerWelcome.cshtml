@@ -1,6 +1,23 @@
 ﻿@model WebProjekat.Models.Dispecer
 @{
     ViewBag.Title = "dispecerWelcome";
+    
 }
 
-<h2>Dobrodošli @Model.KorisnickoIme</h2>
+<html>
+    <body style="background-color:skyblue">
+
+        <h2>Dobrodošli @Model.KorisnickoIme</h2>
+
+        <form action="/Taxi/DodajVozaca">
+            <input type="submit" value="Dodaj vozaca"/>
+        </form>
+
+        <form action="/Taxi/Izmeni">
+            <input type="submit" value="Izmeni podatke"/>
+        </form>
+        <form action="/Taxi/OdjaviDispecer">
+            <input type="submit" value="Odjavi se"/>
+        </form>
+    </body>
+</html>

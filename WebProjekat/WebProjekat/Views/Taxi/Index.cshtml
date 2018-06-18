@@ -2,32 +2,45 @@
 @{
     ViewBag.Title = "Index";
 }
+<html>
+    <body style="background-color:skyblue">
+        <div style="text-align:center">
+            <h2 accesskey="">Dobrodošli na stranicu "Plavi taxi"</h2>
 
-<h2>Index</h2>
+            <form action="/Taxi/Uloguj">
+                    <table align="center" border="1">
+                        <tr>
+                            <td colspan="2" align="center">Ulogujte se</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Korisnicko ime:
+                            </td>
+                            <td>
+                                <div style="background-color:antiquewhite">
+                                    <input type="text" name="korisnickoIme"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Lozinka:
+                            </td>
+                            <td>
+                                <div style="background-color:antiquewhite">
+                                <input type="password" name="lozinka"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center"><input type="submit" value="Uloguj se"/></td>
+                        </tr>
+                    </table>
+            </form>
 
-<form action="/Taxi/Uloguj">
-    <table border="1">
-        <tr>
-            <td>
-                Korisnicko ime:
-            </td>
-            <td>
-                <input type="text" name="korisnickoIme"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Lozinka:
-            </td>
-            <td>
-                <input type="password" name="lozinka"/>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Uloguj se"/></td>
-        </tr>
-    </table>
-</form>
+            <h3>Nemate nalog?</h3>
+            @Html.ActionLink("Registrujte se ovde!", "Registracija")
+        </div>
+    </body>
+</html>
 
-<h3>Nemate nalog?</h3>
-@Html.ActionLink("Registrujte se ovde!", "Registracija")

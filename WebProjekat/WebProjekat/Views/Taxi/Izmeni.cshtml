@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Izmeni";
+}
+
+<html>
+    <body style="background-color:skyblue">
+        <h2>Izmena podataka </h2>
+        <form action="/Taxi/IzmeniPodatkeDispecer">
+            <table>
+                @foreach (WebProjekat.Models.Dispecer d in WebProjekat.Models.Registrovani.Dispeceri)
+                {
+                    if (d.Ulogovan == true)
+                    {
+                        <tr>
+                            <td>Ime:</td>
+                            <td><input type="text" value="@d.Ime" name="ime" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Prezime:</td>
+                            <td><input type="text" value="@d.Prezime" name="prezime" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Jmbg:</td>
+                            <td><input type="text" value="@d.Jmbg" name="jmbg" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Pol:</td>
+                            <td>
+                                <select name="pol">
+                                    @if (d.Pol == WebProjekat.Models.Pol.Muski)
+                                    {
+                                        <option value="Muski" selected="selected">Muski</option>
+                                        <option value="Zenski">Zenski</option>
+                                    }
+                                    else if (d.Pol == WebProjekat.Models.Pol.Zenski)
+                                    {
+                                        <option value="Muski">Muski</option>
+                                        <option value="Zenski" selected="selected" >Zenski</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Korisničko ime:</td>
+                            <td><input type="text" readonly="readonly" value="@d.KorisnickoIme" name="korisnicko" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Lozinka:</td>
+                            <td><input type="text" value="@d.Lozinka" name="lozinka"/></td>
+                        </tr>
+
+                        <tr>
+                            <td>E-Mail:</td>
+                            <td><input type="text" value="@d.Mail" name="mail" /></td>
+                        </tr>
+                        <tr>
+                            <td>Broj telefona:</td>
+                            <td><input type="text" value="@d.BrTelefona" name="broj"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="submit" value="Sačuvaj"/></td>
+                        </tr>
+                    }
+                }
+            </table>
+        </form>
+    </body>
+</html>
+

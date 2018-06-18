@@ -219,6 +219,8 @@
     <Content Include="Views\Taxi\vozacWelcome.cshtml" />
     <Content Include="Views\Taxi\musterijaWelcome.cshtml" />
     <Content Include="Views\Taxi\Uspeh.cshtml" />
+    <Content Include="Views\Taxi\DodajVozaca.cshtml" />
+    <Content Include="Views\Taxi\Izmeni.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
