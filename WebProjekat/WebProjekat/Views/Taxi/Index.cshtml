@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form action="/Taxi/Uloguj">
+    <table border="1">
+        <tr>
+            <td>
+                Korisnicko ime:
+            </td>
+            <td>
+                <input type="text" name="korisnickoIme"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Lozinka:
+            </td>
+            <td>
+                <input type="password" name="lozinka"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Uloguj se"/></td>
+        </tr>
+    </table>
+</form>
+
+<h3>Nemate nalog?</h3>
+@Html.ActionLink("Registrujte se ovde!", "Registracija")

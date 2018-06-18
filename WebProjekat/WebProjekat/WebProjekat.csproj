@@ -149,9 +149,27 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TaxiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adresa.cs" />
+    <Compile Include="Models\Automobil.cs" />
+    <Compile Include="Models\Dispecer.cs" />
+    <Compile Include="Models\Komentar.cs" />
+    <Compile Include="Models\Korisnik.cs" />
+    <Compile Include="Models\Lokacija.cs" />
+    <Compile Include="Models\Musterija.cs" />
+    <Compile Include="Models\Ocena.cs" />
+    <Compile Include="Models\Pol.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Registrovani.cs" />
+    <Compile Include="Models\StatusVoznje.cs" />
+    <Compile Include="Models\TipVozila.cs" />
+    <Compile Include="Models\Uloga.cs" />
+    <Compile Include="Models\Vozac.cs" />
+    <Compile Include="Models\Voznja.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,10 +211,17 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Taxi\Index.cshtml" />
+    <Content Include="Views\Taxi\Greska.cshtml" />
+    <Content Include="Views\Taxi\Registracija.cshtml" />
+    <Content Include="Views\Taxi\LozinkaGreska.cshtml" />
+    <Content Include="Views\Taxi\dispecerWelcome.cshtml" />
+    <Content Include="Views\Taxi\vozacWelcome.cshtml" />
+    <Content Include="Views\Taxi\musterijaWelcome.cshtml" />
+    <Content Include="Views\Taxi\Uspeh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
