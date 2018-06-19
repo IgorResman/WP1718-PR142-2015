@@ -4,66 +4,74 @@
 }
 
 <html>
+    <head>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </head>
     <body style="background-color:skyblue">
         <h2>Izmena podataka </h2>
         <form action="/Taxi/IzmeniPodatkeDispecer">
             <table>
-                        <tr>
-                            <td>Ime:</td>
-                            <td><input type="text" value="@Model.Ime" name="ime" /></td>
-                        </tr>
+                <tr>
+                    <td>Ime:</td>
+                    <td><input type="text" value="@Model.Ime" name="ime" /></td>
+                </tr>
 
-                        <tr>
-                            <td>Prezime:</td>
-                            <td><input type="text" value="@Model.Prezime" name="prezime" /></td>
-                        </tr>
+                <tr>
+                    <td>Prezime:</td>
+                    <td><input type="text" value="@Model.Prezime" name="prezime" /></td>
+                </tr>
 
-                        <tr>
-                            <td>Jmbg:</td>
-                            <td><input type="text" value="@Model.Jmbg" name="jmbg" /></td>
-                        </tr>
+                <tr>
+                    <td>Jmbg:</td>
+                    <td><input type="text" value="@Model.Jmbg" name="jmbg" /></td>
+                </tr>
 
-                        <tr>
-                            <td>Pol:</td>
-                            <td>
-                                <select name="pol">
-                                    @if (Model.Pol == WebProjekat.Models.Pol.Muski)
-                                    {
-                                        <option value="Muski" selected="selected">Muski</option>
-                                        <option value="Zenski">Zenski</option>
-                                    }
-                                    else if (Model.Pol == WebProjekat.Models.Pol.Zenski)
-                                    {
-                                        <option value="Muski">Muski</option>
-                                        <option value="Zenski" selected="selected" >Zenski</option>
-                                    }
-                                </select>
-                            </td>
-                        </tr>
+                <tr>
+                    <td>Pol:</td>
+                    <td>
+                        <select name="pol">
+                            @if (Model.Pol == WebProjekat.Models.Pol.Muski)
+                            {
+                                <option value="Muski" selected="selected">Muski</option>
+                                <option value="Zenski">Zenski</option>
+                            }
+                            else if (Model.Pol == WebProjekat.Models.Pol.Zenski)
+                            {
+                                <option value="Muski">Muski</option>
+                                <option value="Zenski" selected="selected">Zenski</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
 
-                        <tr>
-                            <td>Korisničko ime:</td>
-                            <td><input type="text" readonly="readonly" value="@Model.KorisnickoIme" name="korisnicko" /></td>
-                        </tr>
+                <tr>
+                    <td>Korisničko ime:</td>
+                    <td><input type="text" readonly="readonly" value="@Model.KorisnickoIme" name="korisnicko" /></td>
+                </tr>
 
-                        <tr>
-                            <td>Lozinka:</td>
-                            <td><input type="text" value="@Model.Lozinka" name="lozinka"/></td>
-                        </tr>
+                <tr>
+                    <td>Lozinka:</td>
+                    <td><input type="text" value="@Model.Lozinka" name="lozinka" /></td>
+                </tr>
 
-                        <tr>
-                            <td>E-Mail:</td>
-                            <td><input type="text" value="@Model.Mail" name="mail" /></td>
-                        </tr>
-                        <tr>
-                            <td>Broj telefona:</td>
-                            <td><input type="text" value="@Model.BrTelefona" name="broj"/></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><input type="submit" value="Sačuvaj"/></td>
-                        </tr>
+                <tr>
+                    <td>E-Mail:</td>
+                    <td><input type="text" value="@Model.Mail" name="mail" /></td>
+                </tr>
+                <tr>
+                    <td>Broj telefona:</td>
+                    <td><input type="text" value="@Model.BrTelefona" name="broj" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Sačuvaj" /></td>
+                </tr>
             </table>
         </form>
+        <button onclick="goBack()">Vrati se na profil</button>
     </body>
 </html>
 

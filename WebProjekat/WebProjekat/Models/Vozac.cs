@@ -11,7 +11,12 @@ namespace WebProjekat.Models
         public Automobil Automobil { get; set; }
         public Vozac()
         {
-            
+            Adresa a = new Adresa();
+            a.Naziv = "Narodnog fronta";
+            a.Broj = 67;
+            a.BrojMesta = 21000;
+            a.Mesto = "Novi Sad";
+            Lokacija l = new Lokacija(4, 7, a);
         }
         public Vozac(string user, string pass, string ime, string prezime, Pol pol, long jmbg, string broj, string mail, Uloga ul)
         {
@@ -25,6 +30,14 @@ namespace WebProjekat.Models
             Mail = mail;
             Uloga = ul;
             Voznja = new List<Voznja>();
+
+            Adresa a = new Adresa();
+            a.Naziv = "Narodnog fronta";
+            a.Broj = 67;
+            a.BrojMesta = 21000;
+            a.Mesto = "Novi Sad";
+            Lokacija l = new Lokacija(4, 7, a);
+            Lokacija = l;
         }
     }
 }

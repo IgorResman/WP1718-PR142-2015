@@ -1,0 +1,77 @@
+﻿@model WebProjekat.Models.Musterija
+@{
+    ViewBag.Title = "IzmeniMusterija";
+}
+<html>
+<head>
+    <script>
+            function goBack()
+            {
+                window.history.back();
+            }
+    </script>
+</head>
+<body style="background-color:skyblue">
+    <div style="text-align:left">
+        <h2>Izmena podataka </h2>
+        <form action="/Taxi/IzmeniPodatkeMusterija">
+            <table>
+                <tr>
+                    <td colspan="2">Popunite sledeća polja</td>
+                </tr>
+                <tr>
+                    <td>Ime:</td>
+                    <td><input type="text" name="ime" value="@Model.Ime" /></td>
+                </tr>
+                <tr>
+                    <td>Prezime:</td>
+                    <td><input type="text" name="prezime" value="@Model.Prezime" /></td>
+                </tr>
+                <tr>
+                    <td>Pol:</td>
+                    <td>
+                        <select name="pol">
+                            @if (Model.Pol == WebProjekat.Models.Pol.Muski)
+                            {
+                                <option value="muski" selected="selected">Muski</option>
+                                <option value="zenski">Zenski</option>
+                            }
+                            else
+                            {
+                                <option value="zenski" selected="selected">Zenski</option>
+                                <option value="muski">Muski</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jmbg:</td>
+                    <td><input type="text" name="jmbg" value="@Model.Jmbg" /></td>
+                </tr>
+                <tr>
+                    <td>Korisnicko ime:</td>
+                    <td><input type="text" readonly="readonly" name="korisnicko" value="@Model.KorisnickoIme" /></td>
+                </tr>
+                <tr>
+                    <td>Lozinka:</td>
+                    <td><input type="text" name="lozinka" value="@Model.Lozinka" /></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td><input type="text" name="mail" value="@Model.Mail" /></td>
+                </tr>
+                <tr>
+                    <td>Broj telefona:</td>
+                    <td><input type="text" name="broj" value="@Model.BrTelefona" /></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="submit" value="Sačuvaj" /></td>
+                </tr>
+            </table>
+        </form>
+        <button onclick="goBack()">Vrati se na profil</button>
+    </div>
+</body>
+</html>
+
+

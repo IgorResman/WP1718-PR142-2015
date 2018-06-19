@@ -225,6 +225,8 @@
     <Content Include="Views\Taxi\VozacPostoji.cshtml" />
     <Content Include="Views\Taxi\KorisnikPostoji.cshtml" />
     <Content Include="Views\Taxi\IzmeniVozac.cshtml" />
+    <Content Include="Views\Taxi\IzmeniMusterija.cshtml" />
+    <Content Include="Views\Taxi\ZatraziVoznjuMusterija.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

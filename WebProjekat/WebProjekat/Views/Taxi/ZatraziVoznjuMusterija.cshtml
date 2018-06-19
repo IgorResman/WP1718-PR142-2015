@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "ZatraziVoznjuMusterija";
+}
+
+<html>
+    <head>
+        <script>
+                function goBack()
+                {
+                    window.history.back();
+                }
+        </script>
+    </head>
+    <body style="background-color:skyblue">
+        <div style="text-align:center">
+            <h2><b>Zahtev za vožnju</b></h2>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <form action="/Taxi/ZatrazilaMusterija">
+            <table>
+                <tr>
+                    <td><b>Vaša lokacija(ulica,broj,mesto,postanški broj)</b></td>
+                    <td><input type="text" name="ulica" /></td>
+                    <td><input type="text" name="broj" /></td>
+                    <td><input type="text" name="mesto" /></td>
+                    <td><input type="text" name="postanski" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>
+                            Odaberite tip vozila:
+                        </b>
+                    </td>
+                    <td>
+                        <select name="vozilo">
+                            <option value="putnicko">Putničko</option>
+                            <option value="kombi">Kombi</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

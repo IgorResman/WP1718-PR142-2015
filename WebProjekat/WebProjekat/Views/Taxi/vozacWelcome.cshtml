@@ -8,6 +8,7 @@
     <body style="background-color:skyblue">
         <div style="text-align:center">
             <h2>Dobrodošli @Model.KorisnickoIme</h2>
+            <h3>Vasa trenutna lokacija je: @Model.Lokacija.Adresa.Naziv @Model.Lokacija.Adresa.Broj, @Model.Lokacija.Adresa.BrojMesta @Model.Lokacija.Adresa.Mesto</h3>
         </div>
         <div style="text-align:right">
             <form action="/Taxi/OdjaviVozac">
@@ -15,15 +16,58 @@
             </form>
         </div>
         <div style="text-align:center">
-            <form action="/Taxi/PromeniLokaciju">
-                <input type="hidden" value="@Model" />
-                <input type="submit" value="Promeni lokaciju" />
-            </form>
-
-            <form action="/Taxi/IzmeniVozac">
-                <input  type="submit" value="Izmeni profil"/>
-            </form>
+            <table>
+                <tr>
+                    <td>
+                        <form action="/Taxi/PromeniLokaciju">
+                            <input type="hidden" value="@Model" />
+                            <input type="submit" value="Promeni lokaciju" />
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/Taxi/IzmeniVozac">
+                            <input  type="submit" value="Izmeni lične podatke"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
         </div>
+
+        <table>
+            <tr>
+                <td>Vaši podaci</td>
+            </tr>
+            <tr>
+                <td>Ime:</td>
+                <td><label>@Model.Ime</label></td>
+            </tr>
+            <tr>
+                <td>Prezime:</td>
+                <td><label>@Model.Prezime</label></td>
+            </tr>
+            <tr>
+                <td>Pol:</td>
+                <td>
+                    <label>@Model.Pol</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Jmbg:</td>
+                <td><label>@Model.Jmbg</label></td>
+            </tr>
+            <tr>
+                <td>Korisnicko ime:</td>
+                <td><label>@Model.KorisnickoIme</label></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><label>@Model.Mail</label></td>
+            </tr>
+            <tr>
+                <td>Broj telefona:</td>
+                <td><label>@Model.BrTelefona</label></td>
+            </tr>
+        </table>
     </body>
 </html>
 

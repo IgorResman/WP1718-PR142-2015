@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,134 +26,180 @@ namespace WebProjekat
 
 
             // Read the file and display it line by line.
-
-            string ime;
-            string prezime;
-            string korisnicko;
-            string lozinka;
-            long jmbg;
-            string brTel;
-            Uloga uloga = Uloga.Dispecer;
-            Pol pol = Pol.Muski;
-            string mail;
-            List<Voznja> voznje = new List<Voznja>();
-
-            using (XmlReader reader = XmlReader.Create(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml"))
+            if(File.Exists(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml"))
             {
-                while (reader.Read())
+                string ime;
+                int x = 0;
+                int y = 0;
+                string ulica = "";
+                int broj = 0;
+                string grad = "";
+                int posta = 0;
+                string prezime;
+                string korisnicko;
+                string lozinka;
+                long jmbg;
+                string brTel;
+                Uloga uloga = Uloga.Dispecer;
+                Pol pol = Pol.Muski;
+                string mail;
+                List<Voznja> voznje = new List<Voznja>();
+
+                using (XmlReader reader = XmlReader.Create(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml"))
                 {
-                    if (reader.IsStartElement() && reader.Name.Equals("Korisnik"))
+                    while (reader.Read())
                     {
-                        bool postoji = false;
-                        bool postojid = false;
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        ime = reader.Value;
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        prezime = reader.Value;
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        jmbg = long.Parse(reader.Value);
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        korisnicko = reader.Value;
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        lozinka = reader.Value;
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        if (reader.Value == "Muski")
+                        if (reader.IsStartElement() && reader.Name.Equals("Korisnik"))
                         {
-                            pol = Pol.Muski;
-                        }
-                        else
-                        {
-                            pol = Pol.Zenski;
-                        }
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        mail = reader.Value;
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        brTel = reader.Value;
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        reader.Read();
-                        if (reader.Value == "Dispecer")
-                        {
-                            uloga = Uloga.Dispecer;
-                        }
-                        else if (reader.Value == "Musterija")
-                        {
-                            uloga = Uloga.Musterija;
-                        }
-                        else if (reader.Value == "Vozac")
-                        {
-                            uloga = Uloga.Vozac;
-                        }
-
-                        if (uloga == Uloga.Dispecer)
-                        {
-                            Korisnik k = new Dispecer(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
-
-                            foreach (Dispecer d in Registrovani.SviZajedno)
+                            bool postoji = false;
+                            bool postojid = false;
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            ime = reader.Value;
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            prezime = reader.Value;
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            jmbg = long.Parse(reader.Value);
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            korisnicko = reader.Value;
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            lozinka = reader.Value;
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            if (reader.Value == "Muski")
                             {
-                                if (k.KorisnickoIme == d.KorisnickoIme)
-                                {
-                                    postoji = true;
-                                }
-
+                                pol = Pol.Muski;
+                            }
+                            else
+                            {
+                                pol = Pol.Zenski;
+                            }
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            mail = reader.Value;
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            brTel = reader.Value;
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            reader.Read();
+                            if (reader.Value == "Dispecer")
+                            {
+                                uloga = Uloga.Dispecer;
+                            }
+                            else if (reader.Value == "Musterija")
+                            {
+                                uloga = Uloga.Musterija;
+                            }
+                            else if (reader.Value == "Vozac")
+                            {
+                                uloga = Uloga.Vozac;
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                ulica = reader.Value;
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                broj = int.Parse(reader.Value);
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                grad = reader.Value;
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                posta = int.Parse(reader.Value);
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                x = int.Parse(reader.Value);
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                reader.Read();
+                                y = int.Parse(reader.Value);
                             }
 
-                            if (!postoji)
+                            if (uloga == Uloga.Dispecer)
                             {
+                                Korisnik k = new Dispecer(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
+
+                                foreach (Dispecer d in Registrovani.SviZajedno)
+                                {
+                                    if (k.KorisnickoIme == d.KorisnickoIme)
+                                    {
+                                        postoji = true;
+                                    }
+
+                                }
+
+                                if (!postoji)
+                                {
+                                    Registrovani.SviZajedno.Add(k);
+                                }
+
+                                foreach (Dispecer d in Registrovani.Dispeceri)
+                                {
+                                    if (k.KorisnickoIme == d.KorisnickoIme)
+                                    {
+                                        postojid = true;
+                                    }
+                                }
+
+                                if (!postojid)
+                                {
+                                    Registrovani.Dispeceri.Add(k as Dispecer);
+                                }
+                            }
+                            else if (uloga == Uloga.Musterija)
+                            {
+                                Korisnik k = new Musterija(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
                                 Registrovani.SviZajedno.Add(k);
+                                Registrovani.Musterije.Add(k as Musterija);
                             }
-
-                            foreach (Dispecer d in Registrovani.Dispeceri)
+                            else if (uloga == Uloga.Vozac)
                             {
-                                if (k.KorisnickoIme == d.KorisnickoIme)
-                                {
-                                    postojid = true;
-                                }
+                                Vozac v = new Vozac(korisnicko,lozinka,ime,prezime,pol,jmbg,brTel,mail,uloga);
+                                Adresa a = new Adresa(ulica,broj,grad,posta);
+                                Lokacija l = new Lokacija(x, y, a);
+                                v.Lokacija = l;
+                                
+                                Korisnik k = new Vozac(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
+                                Registrovani.SviZajedno.Add(k);
+                                Registrovani.Vozaci.Add(v);
                             }
-
-                            if (!postojid)
-                            {
-                                Registrovani.Dispeceri.Add(k as Dispecer);
-                            }
-                        }
-                        else if (uloga == Uloga.Musterija)
-                        {
-                            Korisnik k = new Musterija(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
-                            Registrovani.SviZajedno.Add(k);
-                            Registrovani.Musterije.Add(k as Musterija);
-                        }
-                        else if (uloga == Uloga.Vozac)
-                        {
-                            Korisnik k = new Vozac(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
-                            Registrovani.SviZajedno.Add(k);
-                            Registrovani.Vozaci.Add(k as Vozac);
                         }
                     }
                 }
+
             }
 
 

@@ -7,11 +7,61 @@
 
 <html>
     <body style="background-color:skyblue">
-        <h2>Dobrodošli @Model.KorisnickoIme</h2>
         <div style="text-align:right">
             <form action="/Taxi/OdjaviMusterija">
                 <input type="submit" value="Odjavi se"/> 
             </form>
         </div>
+        <div style="text-align:center">
+            <h2>Dobrodošli @Model.KorisnickoIme</h2>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <form action="/Taxi/IzmeniMusterija">
+                        <input type="submit" value="Izmeni profil"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="/Taxi/ZatraziVoznjuMusterija">
+                        <input type="submit" value="Zatraži vožnju"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td colspan="2" align="center">Vaši podaci</td>
+            </tr>
+            <tr>
+                <td>Ime:</td>
+                <td><label>@Model.Ime</label></td>
+            </tr>
+            <tr>
+                <td>Prezime:</td>
+                <td><label>@Model.Prezime</label></td>
+            </tr>
+            <tr>
+                <td>Jmbg:</td>
+                <td><label>@Model.Jmbg</label></td>
+            </tr>
+            <tr>
+                <td>Korisničko ime:</td>
+                <td><label>@Model.KorisnickoIme</label></td>
+            </tr>
+            <tr>
+                <td>Pol:</td>
+                <td><label>@Model.Pol</label></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td><label>@Model.Mail</label></td>
+            </tr>
+            <tr>
+                <td>Broj telefona:</td>
+                <td><label>@Model.BrTelefona</label></td>
+            </tr>
+        </table>
     </body>
 </html>

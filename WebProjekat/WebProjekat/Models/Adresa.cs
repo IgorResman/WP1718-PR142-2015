@@ -22,7 +22,7 @@ namespace WebProjekat.Models
 
         public Adresa()
         {
-
+          
         }
         
     }
