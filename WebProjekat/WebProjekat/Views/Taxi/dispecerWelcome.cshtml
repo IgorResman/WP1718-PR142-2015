@@ -1,23 +1,76 @@
 ﻿@model WebProjekat.Models.Dispecer
 @{
     ViewBag.Title = "dispecerWelcome";
+    ViewBag.Dispecer = @Model;
     
 }
 
 <html>
     <body style="background-color:skyblue">
+        <div style="text-align:right">
+            <form action="/Taxi/OdjaviDispecer">
+                <input type="submit" value="Odjavi se" />
+            </form>
+        </div>
+        <div style="text-align:center">
+            <h2>Dobrodošli @Model.KorisnickoIme</h2>
+        </div>
+        <div style="text-align:center">
+            <table align="center">
+                <tr>
+                    <td width="50">
+                        <form action="/Taxi/DodajVozaca">
+                            <input type="submit" value="Dodaj vozaca" />
+                        </form>
+                    </td>
+                    <td width="50">
+                        <form action="/Taxi/Izmeni">
+                            <input type="submit" value="Izmeni podatke" />
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <table>
+            <tr>
+                <td colspan="2" align="center"><b>Vaši podaci</b></td>
+            </tr>
 
-        <h2>Dobrodošli @Model.KorisnickoIme</h2>
+            <tr>
+                <td>Ime:</td>
+                <td><label>@Model.Ime</label></td>
+            </tr>
 
-        <form action="/Taxi/DodajVozaca">
-            <input type="submit" value="Dodaj vozaca"/>
-        </form>
+            <tr>
+                <td>Prezime:</td>
+                <td><label>@Model.Prezime</label></td>
+            </tr>
 
-        <form action="/Taxi/Izmeni">
-            <input type="submit" value="Izmeni podatke"/>
-        </form>
-        <form action="/Taxi/OdjaviDispecer">
-            <input type="submit" value="Odjavi se"/>
-        </form>
+            <tr>
+                <td>Jmbg:</td>
+                <td><label>@Model.Jmbg</label></td>
+            </tr>
+
+            <tr>
+                <td>Pol:</td>
+                <td>
+                    <label >@Model.Pol</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Korisničko ime:</td>
+                <td><label>@Model.KorisnickoIme</label></td>
+            </tr>
+            <tr>
+                <td>E-Mail:</td>
+                <td><label>@Model.Mail</label></td>
+            </tr>
+            <tr>
+                <td>Broj telefona:</td>
+                <td><label>@Model.BrTelefona</label></td>
+            </tr>
+        </table>
     </body>
 </html>

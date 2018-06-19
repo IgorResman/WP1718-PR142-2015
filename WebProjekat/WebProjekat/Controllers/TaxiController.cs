@@ -38,9 +38,34 @@ namespace WebProjekat.Controllers
 
             Vozac v = new Vozac(korisnicko, lozinka, ime, prezime, p, jmb, broj, mail, Uloga.Vozac);
 
+
+            foreach(Vozac voz in Registrovani.Vozaci)
+            {
+                if(v.KorisnickoIme == voz.KorisnickoIme)
+                {
+                    return View("VozacPostoji");
+                }
+            }
+
             Registrovani.Vozaci.Add(v);
 
-            return View("Uspeh",v);
+            foreach(Korisnik k in Registrovani.SviZajedno)
+            {
+                if(k.KorisnickoIme == v.KorisnickoIme)
+                {
+                    return View("KorisnickoPostoji");
+                }
+            }
+
+            Registrovani.SviZajedno.Add(v);
+
+            Sacuvaj(Registrovani.SviZajedno);
+
+            Dispecer d = HttpContext.Application["Dispecer"] as Dispecer;
+
+            
+
+            return View("Uspeh",d);
         }
         public ActionResult RegistrujSe(string ime ,string prezime, string pol,string jmbg,string korisnicko,string lozinka,string mail,string broj)
         {
@@ -57,24 +82,52 @@ namespace WebProjekat.Controllers
 
             long jmb = long.Parse(jmbg);
 
-            Musterija m = new Musterija(korisnicko, lozinka, ime, prezime, p, jmb, broj, mail, Uloga.Musterija);
+            Korisnik m = new Musterija(korisnicko, lozinka, ime, prezime, p, jmb, broj, mail, Uloga.Musterija);
 
-            Registrovani.Musterije.Add(m);
 
-            Sacuvaj(Registrovani.Musterije);
+            foreach(Korisnik k in Registrovani.Musterije)
+            {
+                if(k.KorisnickoIme == m.KorisnickoIme)
+                {
+                    return View("KorisnickoPostoji");
+                }
+            }
+            Registrovani.SviZajedno.Add(m);
+            Registrovani.Musterije.Add(m as Musterija);
+
+            Sacuvaj(Registrovani.SviZajedno);
 
             return View("Uspeh",m);
             
         }
 
+        public ActionResult VratiProfilDisp()
+        {
+            Dispecer d =HttpContext.Application["Dispecer"] as Dispecer;
+
+            return View("dispecerWelcome", d);
+        }
+
         public ActionResult Izmeni()
+        {
+            Dispecer d = HttpContext.Application["Dispecer"] as Dispecer;
+            return View(d);
+        }
+
+        public ActionResult IzmeniVozac()
+        {
+            Vozac v = HttpContext.Application["Vozac"] as Vozac;
+            return View(v);
+        }
+
+        public ActionResult dispecerWelcome()
         {
             return View();
         }
 
-        private void Sacuvaj(List<Musterija> musterije)
+        private void Sacuvaj(List<Korisnik> musterije)
         {
-            string filename = @"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\proba.xml";
+            string filename = @"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml";
             XmlWriter writer = null;
             try
             {
@@ -85,7 +138,7 @@ namespace WebProjekat.Controllers
 
                 writer = XmlWriter.Create(filename, settings);
                 writer.WriteStartElement("Ulogovani");
-                foreach (Musterija m in musterije)
+                foreach (Korisnik m in musterije)
                 {
                     m.Jmbg.ToString();
                     writer.WriteStartElement("Korisnik");
@@ -96,6 +149,7 @@ namespace WebProjekat.Controllers
                     writer.WriteElementString("Lozinka", m.Lozinka);
                     writer.WriteElementString("Pol", m.Pol.ToString());
                     writer.WriteElementString("E-Mail", m.Mail);
+                    writer.WriteElementString("BrojTelefona", m.BrTelefona);
                     writer.WriteElementString("Uloga", m.Uloga.ToString());
                     writer.WriteStartElement("Voznje");
                     int i = 1;
@@ -116,6 +170,7 @@ namespace WebProjekat.Controllers
                         writer.WriteEndElement();
                         i++;
                     }
+                    writer.WriteEndElement();
                     writer.WriteEndElement();
                 }
                 writer.WriteEndElement();
@@ -147,6 +202,7 @@ namespace WebProjekat.Controllers
                 else if (m.KorisnickoIme == korisnickoIme && m.Lozinka == lozinka)
                 {
                     m.Ulogovan = true;
+                    HttpContext.Application["Musterija"] = m;
                     return View("musterijaWelcome",m);
                 }
             }
@@ -161,6 +217,7 @@ namespace WebProjekat.Controllers
                 else if (v.KorisnickoIme == korisnickoIme && v.Lozinka == lozinka)
                 {
                     v.Ulogovan = true;
+                    HttpContext.Application["Vozac"] = v;
                     return View("vozacWelcome",v);
                 }
             }
@@ -175,6 +232,7 @@ namespace WebProjekat.Controllers
                 else if (d.KorisnickoIme == korisnickoIme && d.Lozinka == lozinka)
                 {
                     d.Ulogovan = true;
+                    HttpContext.Application["Dispecer"] = d;
                     return View("dispecerWelcome", d);
                 }
             }
@@ -216,7 +274,6 @@ namespace WebProjekat.Controllers
                     break;
                 }
             }
-
             return View("dispecerWelcome",ret);
         }
 
@@ -224,12 +281,64 @@ namespace WebProjekat.Controllers
         {
             foreach(Dispecer d in Registrovani.Dispeceri)
             {
-                if(d.Ulogovan == true)
+                if(d == HttpContext.Application["Dispecer"])
                 {
                     d.Ulogovan = false;
+                    HttpContext.Application["Dispecer"] = null;
                 }
             }
             return View("Index");
+        }
+
+        public ActionResult OdjaviVozac()
+        {
+            foreach(Vozac v in Registrovani.Vozaci)
+            {
+                if(v == HttpContext.Application["Vozac"])
+                {
+                    v.Ulogovan = false;
+                    HttpContext.Application["Vozac"] = null;
+                }
+            }
+            return View("Index");
+        }
+
+        public ActionResult OdjaviMusterija()
+        {
+            foreach (Musterija v in Registrovani.Musterije)
+            {
+                if (v == HttpContext.Application["Musterija"])
+                {
+                    v.Ulogovan = false;
+                    HttpContext.Application["Musterija"] = null;
+                }
+            }
+            return View("Index");
+        }
+
+        public ActionResult PromeniLokaciju()
+        {
+            Vozac v = HttpContext.Application["Vozac"] as Vozac;
+            return View(v);
+        }
+
+        public ActionResult PromeniLokVozac(string x,string y,string ulica,string broj,string grad,string pozivni)
+        {
+            int xx = int.Parse(x);
+            int yy = int.Parse(y);
+            int br = int.Parse(broj);
+            int poz = int.Parse(pozivni);
+
+            Adresa a = new Adresa(ulica, br, grad, poz);
+
+            Lokacija l = new Lokacija(xx, yy, a);
+
+            Vozac v = HttpContext.Application["Vozac"] as Vozac;
+
+            v.Lokacija = l;
+
+            return View("vozacWelcome",v);
+
         }
     }
 }

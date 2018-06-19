@@ -4,6 +4,14 @@
 }
 
 <html>
+<head>
+    <script>
+        function goBack()
+        {
+            window.history.back();
+        }
+    </script>
+</head>
     <body style="background-color:skyblue">
 
         <h2>Unos novog vozača</h2>
@@ -51,10 +59,11 @@
                     <td><input type="text" name="broj" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" value="Sačuvaj"/></td>
+                    <td align="center"><input type="submit" value="Sačuvaj"/></td>
                 </tr>
             </table>
         </form>
+        <button onclick="goBack()">Vrati se na profil</button>
     </body>
 </html>
 

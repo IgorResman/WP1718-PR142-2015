@@ -1,11 +1,17 @@
 ﻿@model WebProjekat.Models.Musterija
 @{
     ViewBag.Title = "musterijaWelcome";
+    ViewBag.Musterija = Model;
 }
 
 
 <html>
     <body style="background-color:skyblue">
         <h2>Dobrodošli @Model.KorisnickoIme</h2>
+        <div style="text-align:right">
+            <form action="/Taxi/OdjaviMusterija">
+                <input type="submit" value="Odjavi se"/> 
+            </form>
+        </div>
     </body>
 </html>

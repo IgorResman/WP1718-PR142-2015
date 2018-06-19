@@ -221,6 +221,10 @@
     <Content Include="Views\Taxi\Uspeh.cshtml" />
     <Content Include="Views\Taxi\DodajVozaca.cshtml" />
     <Content Include="Views\Taxi\Izmeni.cshtml" />
+    <Content Include="Views\Taxi\PromeniLokaciju.cshtml" />
+    <Content Include="Views\Taxi\VozacPostoji.cshtml" />
+    <Content Include="Views\Taxi\KorisnikPostoji.cshtml" />
+    <Content Include="Views\Taxi\IzmeniVozac.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

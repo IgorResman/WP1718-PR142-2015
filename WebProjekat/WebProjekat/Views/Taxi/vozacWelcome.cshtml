@@ -1,11 +1,29 @@
 ﻿@model WebProjekat.Models.Vozac
 @{
     ViewBag.Title = "vozacWelcome";
+    ViewBag.Vozac = Model;
 }
 
 <html>
     <body style="background-color:skyblue">
-        <h2>Dobrodošli @Model.KorisnickoIme</h2>
+        <div style="text-align:center">
+            <h2>Dobrodošli @Model.KorisnickoIme</h2>
+        </div>
+        <div style="text-align:right">
+            <form action="/Taxi/OdjaviVozac">
+                <input type="submit" value="Odjavi se" />
+            </form>
+        </div>
+        <div style="text-align:center">
+            <form action="/Taxi/PromeniLokaciju">
+                <input type="hidden" value="@Model" />
+                <input type="submit" value="Promeni lokaciju" />
+            </form>
+
+            <form action="/Taxi/IzmeniVozac">
+                <input  type="submit" value="Izmeni profil"/>
+            </form>
+        </div>
     </body>
 </html>
 

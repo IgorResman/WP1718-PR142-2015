@@ -1,0 +1,57 @@
+﻿@model WebProjekat.Models.Vozac
+@{
+    ViewBag.Title = "PromeniLokaciju";
+}
+
+<html>
+    <body style="background-color:skyblue">
+        <div style="text-align:center">
+            <h2>Izmena lokacije</h2>
+        </div>
+
+        <div>
+            <form action="/Taxi/PromeniLokVozac">
+                <table>
+                    <tr>
+                        <td>X koordinata:</td>
+                        <td>
+                            <input type="text" name="x" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Y koordinata:</td>
+                        <td>
+                            <input type="text" name="y" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Naziv ulice:</td>
+                        <td>
+                            <input type="text" name="ulica" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Broj:</td>
+                        <td>
+                            <input type="text" name="broj" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Grad:</td>
+                        <td>
+                            <input type="text" name="grad" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Pozivni broj mesta:</td>
+                        <td>
+                            <input type="text" name="pozivni" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
