@@ -13,7 +13,8 @@ namespace WebProjekat.Models
 
         public Lokacija()
         {
-
+            X = 1;
+            Y = 1;
         }
 
         public Lokacija(int x, int y,Adresa a)

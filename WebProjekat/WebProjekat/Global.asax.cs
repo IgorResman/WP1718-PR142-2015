@@ -22,7 +22,7 @@ namespace WebProjekat
             Registrovani r = new Registrovani();
 
             List<Korisnik> registrov = new List<Korisnik>();
-
+            Voznje sveVoznje = new Voznje();
 
 
             // Read the file and display it line by line.
@@ -181,9 +181,10 @@ namespace WebProjekat
                             }
                             else if (uloga == Uloga.Musterija)
                             {
-                                Korisnik k = new Musterija(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
+                                Musterija m = new Musterija(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
+                                Korisnik k = m;
                                 Registrovani.SviZajedno.Add(k);
-                                Registrovani.Musterije.Add(k as Musterija);
+                                Registrovani.Musterije.Add(m);
                             }
                             else if (uloga == Uloga.Vozac)
                             {

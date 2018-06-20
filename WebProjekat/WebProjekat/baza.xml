@@ -77,6 +77,20 @@
 		<E-Mail>bs.990@hotmail.com</E-Mail>
 		<BrojTelefona>061348965</BrojTelefona>
 		<Uloga>Musterija</Uloga>
-		<Voznje />
+		<Voznje>
+			<VoznjaBroj1>
+				<DatumPorudzbine>20-Jun-18 18:37:55</DatumPorudzbine>
+				<PocetnaLokacija>Pavla Bakića 2,Novi Sad 21000</PocetnaLokacija>
+				<KrajnjaLokacija>Nepoznato 0,Nepoznato 0</KrajnjaLokacija>
+				<TipVozila>Putnicko</TipVozila>
+				<MusterijaIme>Bogoljub</MusterijaIme>
+				<MusterijaPrezime>Srdić</MusterijaPrezime>
+				<VozacIme>nema</VozacIme>
+				<VozacPrezime>nema</VozacPrezime>
+				<DispecerIme>nema</DispecerIme>
+				<DispececrPrezime>nema</DispececrPrezime>
+				<Iznos>0</Iznos>
+			</VoznjaBroj1>
+		</Voznje>
 	</Korisnik>
 </Ulogovani>

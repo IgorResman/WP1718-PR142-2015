@@ -170,6 +170,7 @@
     <Compile Include="Models\Uloga.cs" />
     <Compile Include="Models\Vozac.cs" />
     <Compile Include="Models\Voznja.cs" />
+    <Compile Include="Models\Voznje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +228,8 @@
     <Content Include="Views\Taxi\IzmeniVozac.cshtml" />
     <Content Include="Views\Taxi\IzmeniMusterija.cshtml" />
     <Content Include="Views\Taxi\ZatraziVoznjuMusterija.cshtml" />
+    <Content Include="Views\Taxi\UspesnoZatrazenaVoznja.cshtml" />
+    <Content Include="Views\Taxi\UspesnoOtkazanaVoznja.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

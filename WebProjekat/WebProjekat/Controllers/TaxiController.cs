@@ -146,9 +146,9 @@ namespace WebProjekat.Controllers
                 writer.WriteStartElement("Ulogovani");
                 foreach (Korisnik m in musterije)
                 {
-                    if(m.Uloga == Uloga.Vozac)
+                    if (m.Uloga == Uloga.Vozac)
                     {
-                        foreach(Vozac vo in Registrovani.Vozaci)
+                        foreach (Vozac vo in Registrovani.Vozaci)
                         {
                             if (vo.KorisnickoIme == m.KorisnickoIme)
                             {
@@ -174,10 +174,14 @@ namespace WebProjekat.Controllers
                                 int i = 1;
                                 foreach (Voznja v in m.Voznja)
                                 {
+                                    string odrediste = v.Odrediste.Adresa.Mesto + " " + v.Odrediste.Adresa.Broj.ToString() + "," + v.Odrediste.Adresa.Mesto + " " + v.Odrediste.Adresa.BrojMesta.ToString();
+                                    string pocetna = v.PocetnaLokacija.Adresa.Naziv + " " + v.PocetnaLokacija.Adresa.Broj.ToString() + "," + v.PocetnaLokacija.Adresa.Mesto + " " + v.PocetnaLokacija.Adresa.BrojMesta.ToString();
+
+
                                     writer.WriteStartElement("VoznjaBroj" + i.ToString());
                                     writer.WriteElementString("DatumPorudzbine", v.DatumIVremePorudzbine.ToString());
-                                    writer.WriteElementString("PocetnaLokacija", v.PocetnaLokacija.ToString());
-                                    writer.WriteElementString("KrajnjaLokacija", v.Odrediste.ToString());
+                                    writer.WriteElementString("PocetnaLokacija", pocetna);
+                                    writer.WriteElementString("KrajnjaLokacija", odrediste);
                                     writer.WriteElementString("TipVozila", v.Tip.ToString());
                                     writer.WriteElementString("MusterijaIme", v.Musterija.Ime);
                                     writer.WriteElementString("MusterijaPrezime", v.Musterija.Prezime);
@@ -210,33 +214,116 @@ namespace WebProjekat.Controllers
                         writer.WriteElementString("BrojTelefona", m.BrTelefona);
                         writer.WriteElementString("Uloga", m.Uloga.ToString());
                         writer.WriteStartElement("Voznje");
-                        int i = 1;
-                        foreach(Voznja v in m.Voznja)
+
+                        if (m.Uloga == Uloga.Musterija)
                         {
-                            writer.WriteStartElement("VoznjaBroj" + i.ToString());
-                            writer.WriteElementString("DatumPorudzbine" , v.DatumIVremePorudzbine.ToString());
-                            writer.WriteElementString("PocetnaLokacija", v.PocetnaLokacija.ToString());
-                            writer.WriteElementString("KrajnjaLokacija", v.Odrediste.ToString());
-                            writer.WriteElementString("TipVozila",v.Tip.ToString());
-                            writer.WriteElementString("MusterijaIme", v.Musterija.Ime);
-                            writer.WriteElementString("MusterijaPrezime", v.Musterija.Prezime);
-                            writer.WriteElementString("VozacIme", v.Vozac.Ime);
-                            writer.WriteElementString("VozacPrezime", v.Vozac.Prezime);
-                            writer.WriteElementString("DispecerIme", v.Dispecer.Ime);
-                            writer.WriteElementString("DispececrPrezime", v.Dispecer.Prezime);
-                            writer.WriteElementString("Iznos", v.Iznos.ToString());
-                            writer.WriteEndElement();
-                            i++;
+                            foreach (Musterija musterija in Registrovani.Musterije)
+                            {
+                                if (m.KorisnickoIme == musterija.KorisnickoIme)
+                                {
+                                    int i = 1;
+                                    foreach (Voznja v in musterija.Voznja)
+                                    {
+                                        if (v.Odrediste == null)
+                                        {
+                                            Adresa a = new Adresa("Nepoznata", 0, "Nepoznato", 0);
+                                            Lokacija l = new Lokacija(0, 0, a);
+                                            v.Odrediste = l;
+                                        }
+                                        if (v.Vozac == null)
+                                        {
+                                            Vozac voz = new Vozac("nema", "nema", "nema", "nema", Pol.Muski, 0000000000, "nema", "nema", Uloga.Vozac);
+                                            v.Vozac = voz;
+                                        }
+                                        if (v.Dispecer == null)
+                                        {
+                                            Dispecer d = new Dispecer("nema", "nema", "nema", "nema", Pol.Muski, 0000000000, "nema", "nema", Uloga.Dispecer);
+                                            v.Dispecer = d;
+                                        }
+
+                                        string odrediste = v.Odrediste.Adresa.Mesto + " " + v.Odrediste.Adresa.Broj.ToString() + "," + v.Odrediste.Adresa.Mesto + " " + v.Odrediste.Adresa.BrojMesta.ToString();
+                                        string pocetna = v.PocetnaLokacija.Adresa.Naziv + " " + v.PocetnaLokacija.Adresa.Broj.ToString() + "," + v.PocetnaLokacija.Adresa.Mesto + " " + v.PocetnaLokacija.Adresa.BrojMesta.ToString();
+
+                                        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                        writer.WriteStartElement("VoznjaBroj" + i.ToString());
+                                        writer.WriteElementString("DatumPorudzbine", v.DatumIVremePorudzbine.ToString());
+                                        writer.WriteElementString("PocetnaLokacija", pocetna);
+                                        writer.WriteElementString("KrajnjaLokacija", odrediste);
+                                        writer.WriteElementString("TipVozila", v.Tip.ToString());
+                                        writer.WriteElementString("MusterijaIme", v.Musterija.Ime);
+                                        writer.WriteElementString("MusterijaPrezime", v.Musterija.Prezime);
+                                        writer.WriteElementString("VozacIme", v.Vozac.Ime);
+                                        writer.WriteElementString("VozacPrezime", v.Vozac.Prezime);
+                                        writer.WriteElementString("DispecerIme", v.Dispecer.Ime);
+                                        writer.WriteElementString("DispececrPrezime", v.Dispecer.Prezime);
+                                        writer.WriteElementString("Iznos", v.Iznos.ToString());
+                                        writer.WriteEndElement();
+                                        i++;
+                                    }
+                                    writer.WriteEndElement();
+                                    writer.WriteEndElement();
+
+                                }
+                            }
                         }
-                        writer.WriteEndElement();
-                        writer.WriteEndElement();
+                        else if (m.Uloga == Uloga.Dispecer)
+                        {
+                            foreach (Dispecer musterija in Registrovani.Dispeceri)
+                            {
+                                if (m.KorisnickoIme == musterija.KorisnickoIme)
+                                {
+                                    int i = 1;
+                                    foreach (Voznja v in musterija.Voznja)
+                                    {
+                                        if (v.Odrediste == null)
+                                        {
+                                            Adresa a = new Adresa("Nepoznata", 0, "Nepoznato", 0);
+                                            Lokacija l = new Lokacija(0, 0, a);
+                                            v.Odrediste = l;
+                                        }
+                                        if (v.Vozac == null)
+                                        {
+                                            Vozac voz = new Vozac("nema", "nema", "nema", "nema", Pol.Muski, 0000000000, "nema", "nema", Uloga.Vozac);
+                                            v.Vozac = voz;
+                                        }
+                                        if (v.Dispecer == null)
+                                        {
+                                            Dispecer d = new Dispecer("nema", "nema", "nema", "nema", Pol.Muski, 0000000000, "nema", "nema", Uloga.Dispecer);
+                                            v.Dispecer = d;
+                                        }
+
+                                        string odrediste = v.Odrediste.Adresa.Mesto + " " + v.Odrediste.Adresa.Broj.ToString() + ","+ v.Odrediste.Adresa.Mesto + " " + v.Odrediste.Adresa.BrojMesta.ToString();
+                                        string pocetna = v.PocetnaLokacija.Adresa.Naziv + " " + v.PocetnaLokacija.Adresa.Broj.ToString() + "," + v.PocetnaLokacija.Adresa.Mesto + " " + v.PocetnaLokacija.Adresa.BrojMesta.ToString();
+                                        
+                                        
+                                        
+                                        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                        writer.WriteStartElement("VoznjaBroj" + i.ToString());
+                                        writer.WriteElementString("DatumPorudzbine", v.DatumIVremePorudzbine.ToString());
+                                        writer.WriteElementString("PocetnaLokacija", pocetna );
+                                        writer.WriteElementString("KrajnjaLokacija", odrediste);
+                                        writer.WriteElementString("TipVozila", v.Tip.ToString());
+                                        writer.WriteElementString("MusterijaIme", v.Musterija.Ime);
+                                        writer.WriteElementString("MusterijaPrezime", v.Musterija.Prezime);
+                                        writer.WriteElementString("VozacIme", v.Vozac.Ime);
+                                        writer.WriteElementString("VozacPrezime", v.Vozac.Prezime);
+                                        writer.WriteElementString("DispecerIme", v.Dispecer.Ime);
+                                        writer.WriteElementString("DispececrPrezime", v.Dispecer.Prezime);
+                                        writer.WriteElementString("Iznos", v.Iznos.ToString());
+                                        writer.WriteEndElement();
+                                        i++;
+                                    }
+                                    writer.WriteEndElement();
+                                    writer.WriteEndElement();
+
+                                }
+                            }
+                        } 
                     }
-                    }
+                }
                 writer.WriteEndElement();
 
                 writer.Flush();
-
-                
             }
             finally
             {
@@ -531,14 +618,221 @@ namespace WebProjekat.Controllers
             return View();
         }
 
-        public ActionResult ZatrazilaMusterija(string ulica,string broj,string grad,string postanski,string vozilo)
+        public ActionResult ZatrazilaMusterija(string ulica,string broj,string mesto, string postanski,string vozilo)
         {
             int br = int.Parse(broj);
             int post = int.Parse(postanski);
 
+            Musterija m = HttpContext.Application["Musterija"] as Musterija;
+
+            Voznja v = new Voznja();
+            Adresa a = new Adresa(ulica, br, mesto, post);
+            Lokacija l = new Lokacija(1,1,a);
+            v.DatumIVremePorudzbine = DateTime.Now;
+            v.PocetnaLokacija = l;
+
+            switch(vozilo)
+            {
+                case "putnicko":
+                    v.Tip = TipVozila.Putnicko;
+                    break;
+                case "kombi":
+                    v.Tip = TipVozila.Kombi;
+                    break;
+            }
+
+            v.Musterija = m;
+            v.Status = StatusVoznje.Kreirana;
+            m.Voznja.Add(v);
+
+            Voznje.SveVoznje.Add(v);
+            
+            foreach(Musterija mu in Registrovani.Musterije)
+            {
+                if(mu.KorisnickoIme == m.KorisnickoIme)
+                {
+                    mu.Voznja = m.Voznja;
+                    break;
+                }
+            }
+
+            Sacuvaj(Registrovani.SviZajedno);
 
 
-            return View();
+
+            return View("UspesnoZatrazenaVoznja",v);
+        }
+
+        public ActionResult VratiProfilMusterija()
+        {
+            Musterija m = HttpContext.Application["Musterija"] as Musterija;
+
+            return View("musterijaWelcome", m);
+        }
+
+        public ActionResult VratiProfilMusterijaKomentar(string komentar,string datum)
+        {
+            Musterija m = HttpContext.Application["Musterija"] as Musterija;
+
+            string[] dat = datum.Split(' ', '-', ':');
+
+            int day = int.Parse(dat[0]);
+            int month = 0;
+            switch (dat[1])
+            {
+                case "Jan":
+                    month = 1;
+                    break;
+                case "Feb":
+                    month = 2;
+                    break;
+                case "Mar":
+                    month = 3;
+                    break;
+                case "Apr":
+                    month = 4;
+                    break;
+                case "May":
+                    month = 5;
+                    break;
+                case "Jun":
+                    month = 6;
+                    break;
+                case "Jul":
+                    month = 7;
+                    break;
+                case "Aug":
+                    month = 8;
+                    break;
+                case "Sep":
+                    month = 9;
+                    break;
+                case "Oct":
+                    month = 10;
+                    break;
+                case "Nov":
+                    month = 11;
+                    break;
+                case "Dec":
+                    month = 12;
+                    break;
+            }
+
+            int year = int.Parse(dat[2]);
+            year = year + 2000;
+            int hour = int.Parse(dat[3]);
+            int minute = int.Parse(dat[4]);
+            int second = int.Parse(dat[5]);
+
+            DateTime d = new DateTime(year, month, day, hour, minute, second);
+            Korisnik kor = m;
+            
+
+            foreach(Voznja v in m.Voznja)
+            {
+                if (v.DatumIVremePorudzbine.Date == d.Date && v.DatumIVremePorudzbine.Day == d.Day && v.DatumIVremePorudzbine.Year == d.Year)
+                {
+                    foreach (Voznja voz in Voznje.SveVoznje)
+                    {
+                        if (voz == v)
+                        {
+                            Komentar k = new Komentar(komentar, DateTime.Now, kor, v, Ocena.neocenjen);
+                            v.Komentar = k;
+                            break;
+                        }
+                    }
+                    Komentar kom = new Komentar(komentar, DateTime.Now, kor, v, Ocena.neocenjen);
+                    v.Komentar = kom;
+                }
+            }
+            return View("musterijaWelcome", m);
+        }
+
+        public ActionResult OtazujeMusterija(string korisnik, string datum)
+        {
+            string[] dat = datum.Split(' ', '-', ':');
+
+            int day = int.Parse(dat[0]);
+            int month = 0;
+            switch(dat[1])
+            {
+                case "Jan":
+                    month = 1;
+                    break;
+                case "Feb":
+                    month = 2;
+                    break;
+                case "Mar":
+                    month = 3;
+                    break;
+                case "Apr":
+                    month = 4;
+                    break;
+                case "May":
+                    month = 5;
+                    break;
+                case "Jun":
+                    month = 6;
+                    break;
+                case "Jul":
+                    month = 7;
+                    break;
+                case "Aug":
+                    month = 8;
+                    break;
+                case "Sep":
+                    month = 9;
+                    break;
+                case "Oct":
+                    month = 10;
+                    break;
+                case "Nov":
+                    month = 11;
+                    break;
+                case "Dec":
+                    month = 12;
+                    break;
+            }
+
+            int year = int.Parse(dat[2]);
+            year = year + 2000;
+            int hour = int.Parse(dat[3]);
+            int minute = int.Parse(dat[4]);
+            int second = int.Parse(dat[5]);
+
+            DateTime d = new DateTime(year, month, day, hour, minute, second);
+
+            Voznja vo = new Voznja();
+
+            foreach(Voznja v in Voznje.SveVoznje)
+            {
+                if (v.DatumIVremePorudzbine.Date == d.Date && v.DatumIVremePorudzbine.Day == d.Day && v.DatumIVremePorudzbine.Year == d.Year && v.Musterija.KorisnickoIme == korisnik)
+                {
+                    v.Status = StatusVoznje.Otkazana;
+                    vo = v;
+                }
+            }
+            Musterija musterija = new Musterija();
+            foreach(Musterija m in Registrovani.Musterije)
+            {
+                if (m.KorisnickoIme == korisnik)
+                {
+                    foreach(Voznja v in m.Voznja)
+                    {
+                        if(v.DatumIVremePorudzbine.Date == d.Date && v.DatumIVremePorudzbine.Day == d.Day && v.DatumIVremePorudzbine.Year == d.Year)
+                        {
+                            v.Status = StatusVoznje.Otkazana;
+                            musterija = m;
+                            break;
+                        }
+                    }
+
+                }
+            }
+
+
+            Sacuvaj(Registrovani.SviZajedno);
+            return View("UspesnoOtkazanaVoznja",vo);
         }
     }
 }

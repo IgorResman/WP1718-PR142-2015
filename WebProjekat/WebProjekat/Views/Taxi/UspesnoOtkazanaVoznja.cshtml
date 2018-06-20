@@ -1,0 +1,19 @@
+﻿@model WebProjekat.Models.Voznja
+@{
+    ViewBag.Title = "UspesnoOtkazanaVoznja";
+}
+
+<html>
+<body style="background-color:skyblue">
+    <div style="text-align:center">
+        <h1>Uspešno ste otkazali vožnju</h1>
+        <form action="/Taxi/VratiProfilMusterijaKomentar">
+            <textarea name="komentar" rows="5" cols="50">
+                
+            </textarea>
+            <input type="hidden" name="datum" value="@Model.DatumIVremePorudzbine"/>
+            <input type="submit" value="Vrati se na profil" />
+        </form>
+    </div>
+</body>
+</html>
