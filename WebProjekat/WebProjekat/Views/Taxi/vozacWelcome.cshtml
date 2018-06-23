@@ -8,7 +8,34 @@
     <body style="background-color:skyblue">
         <div style="text-align:center">
             <h2>Dobrodošli @Model.KorisnickoIme</h2>
-            <h3>Vasa trenutna lokacija je: @Model.Lokacija.Adresa.Naziv @Model.Lokacija.Adresa.Broj, @Model.Lokacija.Adresa.BrojMesta @Model.Lokacija.Adresa.Mesto</h3>
+            <h3>Vaša trenutna lokacija je: @Model.Lokacija.Adresa.Naziv @Model.Lokacija.Adresa.Broj, @Model.Lokacija.Adresa.BrojMesta @Model.Lokacija.Adresa.Mesto</h3>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        Podaci o vašem automobilu:
+                    </td>
+                </tr>
+                <tr>
+                    <td>Broj vozila</td>
+                    <td>Godište</td>
+                    <td>Registraciona oznaka</td>
+                    <td>Tip automobila</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Model.Automobil.BrojVozila
+                    </td>
+                    <td>
+                        @Model.Automobil.Godiste
+                    </td>
+                    <td>
+                        @Model.Automobil.Registracija
+                    </td>
+                    <td>
+                        @Model.Automobil.Tip
+                    </td>
+                </tr>
+            </table>
         </div>
         <div style="text-align:right">
             <form action="/Taxi/OdjaviVozac">

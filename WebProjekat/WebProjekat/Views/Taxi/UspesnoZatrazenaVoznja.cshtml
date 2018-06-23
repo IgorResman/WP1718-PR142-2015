@@ -7,9 +7,18 @@
     <body style="background-color:skyblue">
         <div style="text-align:center">
             <h1>Uspešno ste zatražili vožnju na adresu: @Model.PocetnaLokacija.Adresa.Naziv @Model.PocetnaLokacija.Adresa.Broj, @Model.PocetnaLokacija.Adresa.Mesto @Model.PocetnaLokacija.Adresa.BrojMesta </h1>
-            <form action="/Taxi/VratiProfilMusterija">
-                <input type="submit" value="Vrati se na profil" />
-            </form>
+            @if(Model.Musterija.KorisnickoIme != "")
+            {
+                <form action="/Taxi/VratiProfilMusterija">
+                    <input type="submit" value="Vrati se na profil" />
+                </form>
+            }
+            else
+            {
+                <form action="/Taxi/VratiProfilDisp">
+                    <input type="submit" value="Vrati se na profil" />
+                </form>
+            }
         </div>
     </body>
 </html>

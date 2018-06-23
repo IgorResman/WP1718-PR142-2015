@@ -12,7 +12,10 @@ namespace WebProjekat.Models
         public Korisnik Korisnik { get; set; }
         public Voznja Voznja { get; set; }
         public Ocena Ocena { get; set; }
+        public Komentar()
+        {
 
+        }
         public Komentar(string op,DateTime date , Korisnik k , Voznja v,Ocena o)
         {
             Opis = op;

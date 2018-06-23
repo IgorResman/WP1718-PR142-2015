@@ -36,38 +36,6 @@
 		<Voznje />
 	</Korisnik>
 	<Korisnik>
-		<Ime>Aleksandra</Ime>
-		<Prezime>Resman</Prezime>
-		<Jmbg>2310991800654</Jmbg>
-		<KorisnickoIme>saska</KorisnickoIme>
-		<Lozinka>232323</Lozinka>
-		<Pol>Zenski</Pol>
-		<E-Mail>saska.resman@gmail.com</E-Mail>
-		<BrojTelefona>0600239123</BrojTelefona>
-		<Uloga>Vozac</Uloga>
-		<Adresa>
-			<NazivUlice>Pavla Bakića</NazivUlice>
-			<BrojUlice>2</BrojUlice>
-			<Grad>Novi Sad</Grad>
-			<PostanskiBroj>21100</PostanskiBroj>
-			<X>77</X>
-			<Y>88</Y>
-		</Adresa>
-		<Voznje />
-	</Korisnik>
-	<Korisnik>
-		<Ime>Bojana</Ime>
-		<Prezime>Babić</Prezime>
-		<Jmbg>2907997800865</Jmbg>
-		<KorisnickoIme>babicb4</KorisnickoIme>
-		<Lozinka>bokacar</Lozinka>
-		<Pol>Zenski</Pol>
-		<E-Mail>babicb4@hotmail.com</E-Mail>
-		<BrojTelefona>0625849842</BrojTelefona>
-		<Uloga>Musterija</Uloga>
-		<Voznje />
-	</Korisnik>
-	<Korisnik>
 		<Ime>Bogoljub</Ime>
 		<Prezime>Srdić</Prezime>
 		<Jmbg>3108990800145</Jmbg>
@@ -79,9 +47,9 @@
 		<Uloga>Musterija</Uloga>
 		<Voznje>
 			<VoznjaBroj1>
-				<DatumPorudzbine>20-Jun-18 18:37:55</DatumPorudzbine>
-				<PocetnaLokacija>Pavla Bakića 2,Novi Sad 21000</PocetnaLokacija>
-				<KrajnjaLokacija>Nepoznato 0,Nepoznato 0</KrajnjaLokacija>
+				<DatumPorudzbine>23-Jun-18 1:03:33</DatumPorudzbine>
+				<PocetnaLokacija>Pavla Bakića_2,Novi Sad_21000</PocetnaLokacija>
+				<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
 				<TipVozila>Putnicko</TipVozila>
 				<MusterijaIme>Bogoljub</MusterijaIme>
 				<MusterijaPrezime>Srdić</MusterijaPrezime>
@@ -89,8 +57,232 @@
 				<VozacPrezime>nema</VozacPrezime>
 				<DispecerIme>nema</DispecerIme>
 				<DispececrPrezime>nema</DispececrPrezime>
+				<Status>Otkazana</Status>
+				<KomentarOpis>ggggg</KomentarOpis>
+				<KomentarDatum>23-Jun-18 1:23:48</KomentarDatum>
+				<KomentarOcena>neocenjen</KomentarOcena>
 				<Iznos>0</Iznos>
 			</VoznjaBroj1>
+			<VoznjaBroj2>
+				<DatumPorudzbine>23-Jun-18 1:07:02</DatumPorudzbine>
+				<PocetnaLokacija>Modene_7,Novi Sad_21000</PocetnaLokacija>
+				<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+				<TipVozila>Putnicko</TipVozila>
+				<MusterijaIme>Bogoljub</MusterijaIme>
+				<MusterijaPrezime>Srdić</MusterijaPrezime>
+				<VozacIme>nema</VozacIme>
+				<VozacPrezime>nema</VozacPrezime>
+				<DispecerIme>nema</DispecerIme>
+				<DispececrPrezime>nema</DispececrPrezime>
+				<Status>Kreirana</Status>
+				<KomentarOpis>
+				</KomentarOpis>
+				<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
+				<KomentarOcena>neocenjen</KomentarOcena>
+				<Iznos>0</Iznos>
+			</VoznjaBroj2>
 		</Voznje>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Bojana</Ime>
+		<Prezime>Babić</Prezime>
+		<Jmbg>2907997800865</Jmbg>
+		<KorisnickoIme>babicb4</KorisnickoIme>
+		<Lozinka>bokacar</Lozinka>
+		<Pol>Zenski</Pol>
+		<E-Mail>babicb4@hotmail.com</E-Mail>
+		<BrojTelefona>0625849842</BrojTelefona>
+		<Uloga>Musterija</Uloga>
+		<Voznje>
+			<VoznjaBroj1>
+				<DatumPorudzbine>23-Jun-18 1:07:42</DatumPorudzbine>
+				<PocetnaLokacija>Narodnog fronta_47,Novi Sad_21000</PocetnaLokacija>
+				<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+				<TipVozila>Putnicko</TipVozila>
+				<MusterijaIme>Bojana</MusterijaIme>
+				<MusterijaPrezime>Babić</MusterijaPrezime>
+				<VozacIme>nema</VozacIme>
+				<VozacPrezime>nema</VozacPrezime>
+				<DispecerIme>nema</DispecerIme>
+				<DispececrPrezime>nema</DispececrPrezime>
+				<Status>Kreirana</Status>
+				<KomentarOpis>
+				</KomentarOpis>
+				<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
+				<KomentarOcena>neocenjen</KomentarOcena>
+				<Iznos>0</Iznos>
+			</VoznjaBroj1>
+			<VoznjaBroj2>
+				<DatumPorudzbine>23-Jun-18 1:07:58</DatumPorudzbine>
+				<PocetnaLokacija>Bulevar Cara Dušana_69,Novi Sad_21000</PocetnaLokacija>
+				<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+				<TipVozila>Putnicko</TipVozila>
+				<MusterijaIme>Bojana</MusterijaIme>
+				<MusterijaPrezime>Babić</MusterijaPrezime>
+				<VozacIme>nema</VozacIme>
+				<VozacPrezime>nema</VozacPrezime>
+				<DispecerIme>nema</DispecerIme>
+				<DispececrPrezime>nema</DispececrPrezime>
+				<Status>Kreirana</Status>
+				<KomentarOpis>
+				</KomentarOpis>
+				<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
+				<KomentarOcena>neocenjen</KomentarOcena>
+				<Iznos>0</Iznos>
+			</VoznjaBroj2>
+		</Voznje>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Maja</Ime>
+		<Prezime>Resman</Prezime>
+		<Jmbg>12029668126485</Jmbg>
+		<KorisnickoIme>maja966</KorisnickoIme>
+		<Lozinka>resman</Lozinka>
+		<Pol>Zenski</Pol>
+		<E-Mail>maja.resman@gmail.com</E-Mail>
+		<BrojTelefona>064549845</BrojTelefona>
+		<Uloga>Musterija</Uloga>
+		<Voznje>
+			<VoznjaBroj1>
+				<DatumPorudzbine>23-Jun-18 1:08:45</DatumPorudzbine>
+				<PocetnaLokacija>Beogradski kej_2,Novi Sad_21000</PocetnaLokacija>
+				<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+				<TipVozila>Putnicko</TipVozila>
+				<MusterijaIme>Maja</MusterijaIme>
+				<MusterijaPrezime>Resman</MusterijaPrezime>
+				<VozacIme>nema</VozacIme>
+				<VozacPrezime>nema</VozacPrezime>
+				<DispecerIme>nema</DispecerIme>
+				<DispececrPrezime>nema</DispececrPrezime>
+				<Status>Kreirana</Status>
+				<KomentarOpis>
+				</KomentarOpis>
+				<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
+				<KomentarOcena>neocenjen</KomentarOcena>
+				<Iznos>0</Iznos>
+			</VoznjaBroj1>
+			<VoznjaBroj2>
+				<DatumPorudzbine>23-Jun-18 1:09:17</DatumPorudzbine>
+				<PocetnaLokacija>Bulevar Cara Lazara_47,Novi Sad_21000</PocetnaLokacija>
+				<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+				<TipVozila>Putnicko</TipVozila>
+				<MusterijaIme>Maja</MusterijaIme>
+				<MusterijaPrezime>Resman</MusterijaPrezime>
+				<VozacIme>nema</VozacIme>
+				<VozacPrezime>nema</VozacPrezime>
+				<DispecerIme>nema</DispecerIme>
+				<DispececrPrezime>nema</DispececrPrezime>
+				<Status>Kreirana</Status>
+				<KomentarOpis>
+				</KomentarOpis>
+				<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
+				<KomentarOcena>neocenjen</KomentarOcena>
+				<Iznos>0</Iznos>
+			</VoznjaBroj2>
+		</Voznje>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Aleksandra</Ime>
+		<Prezime>Resman</Prezime>
+		<Jmbg>2310991800654</Jmbg>
+		<KorisnickoIme>saska</KorisnickoIme>
+		<Lozinka>232323</Lozinka>
+		<Pol>Zenski</Pol>
+		<E-Mail>saska.resman@gmail.com</E-Mail>
+		<BrojTelefona>0600239123</BrojTelefona>
+		<Uloga>Vozac</Uloga>
+		<Automobil>
+			<Godiste>2002</Godiste>
+			<Registracija>NS-152-AR</Registracija>
+			<TaxiBroj>23</TaxiBroj>
+			<TipVozila>Putnicko</TipVozila>
+		</Automobil>
+		<Adresa>
+			<NazivUlice>Bulevar Despota Stefana</NazivUlice>
+			<BrojUlice>8</BrojUlice>
+			<Grad>Novi Sad</Grad>
+			<PostanskiBroj>21000</PostanskiBroj>
+			<X>78</X>
+			<Y>54</Y>
+		</Adresa>
+		<Voznje />
+	</Korisnik>
+	<Korisnik>
+		<Ime>Bogdan</Ime>
+		<Prezime>Kovačev</Prezime>
+		<Jmbg>2004996800154</Jmbg>
+		<KorisnickoIme>bosha96</KorisnickoIme>
+		<Lozinka>karavukovo</Lozinka>
+		<Pol>Muski</Pol>
+		<E-Mail>bosha.kovachev@gmail.com</E-Mail>
+		<BrojTelefona>063249872</BrojTelefona>
+		<Uloga>Vozac</Uloga>
+		<Automobil>
+			<Godiste>2009</Godiste>
+			<Registracija>NS-777-BK</Registracija>
+			<TaxiBroj>154</TaxiBroj>
+			<TipVozila>Kombi</TipVozila>
+		</Automobil>
+		<Adresa>
+			<NazivUlice>Futoški put</NazivUlice>
+			<BrojUlice>77</BrojUlice>
+			<Grad>Novi Sad</Grad>
+			<PostanskiBroj>21000</PostanskiBroj>
+			<X>4</X>
+			<Y>7</Y>
+		</Adresa>
+		<Voznje />
+	</Korisnik>
+	<Korisnik>
+		<Ime>Aleksandar</Ime>
+		<Prezime>Jančikin</Prezime>
+		<Jmbg>2405996800144</Jmbg>
+		<KorisnickoIme>ajsrb</KorisnickoIme>
+		<Lozinka>apialeksandar</Lozinka>
+		<Pol>Muski</Pol>
+		<E-Mail>api.jancikin@hotmail.com</E-Mail>
+		<BrojTelefona>061352488</BrojTelefona>
+		<Uloga>Vozac</Uloga>
+		<Automobil>
+			<Godiste>2015</Godiste>
+			<Registracija>NS-SRB AJ</Registracija>
+			<TaxiBroj>78</TaxiBroj>
+			<TipVozila>Kombi</TipVozila>
+		</Automobil>
+		<Adresa>
+			<NazivUlice>Beogradski kej</NazivUlice>
+			<BrojUlice>47</BrojUlice>
+			<Grad>Novi Sad</Grad>
+			<PostanskiBroj>21000</PostanskiBroj>
+			<X>77</X>
+			<Y>99</Y>
+		</Adresa>
+		<Voznje />
+	</Korisnik>
+	<Korisnik>
+		<Ime>Goran</Ime>
+		<Prezime>Resman</Prezime>
+		<Jmbg>1802967800456</Jmbg>
+		<KorisnickoIme>gresman</KorisnickoIme>
+		<Lozinka>goranresman</Lozinka>
+		<Pol>Muski</Pol>
+		<E-Mail>g.resman.ns@hotmail.com</E-Mail>
+		<BrojTelefona>0642046542</BrojTelefona>
+		<Uloga>Vozac</Uloga>
+		<Automobil>
+			<Godiste>2014</Godiste>
+			<Registracija>NS-182-GR</Registracija>
+			<TaxiBroj>2323</TaxiBroj>
+			<TipVozila>Putnicko</TipVozila>
+		</Automobil>
+		<Adresa>
+			<NazivUlice>Narodnog fronta</NazivUlice>
+			<BrojUlice>67</BrojUlice>
+			<Grad>Novi Sad</Grad>
+			<PostanskiBroj>21000</PostanskiBroj>
+			<X>4</X>
+			<Y>7</Y>
+		</Adresa>
+		<Voznje />
 	</Korisnik>
 </Ulogovani>

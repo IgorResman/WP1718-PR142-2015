@@ -9,6 +9,7 @@ namespace WebProjekat.Models
     {
         public Lokacija Lokacija { get; set; }
         public Automobil Automobil { get; set; }
+        public bool Zauzet { get; set; } = false;
         public Vozac()
         {
             Adresa a = new Adresa();

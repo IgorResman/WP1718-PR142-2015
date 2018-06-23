@@ -230,6 +230,8 @@
     <Content Include="Views\Taxi\ZatraziVoznjuMusterija.cshtml" />
     <Content Include="Views\Taxi\UspesnoZatrazenaVoznja.cshtml" />
     <Content Include="Views\Taxi\UspesnoOtkazanaVoznja.cshtml" />
+    <Content Include="Views\Taxi\DispecerZakazujeVoznju.cshtml" />
+    <Content Include="Views\Taxi\IzmenaVoznjeMusterija.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

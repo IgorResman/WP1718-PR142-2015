@@ -90,3 +90,4 @@ D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\ob
 D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\obj\Debug\WebProjekat.dll
 D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\obj\Debug\WebProjekat.pdb
 D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\bin\roslyn\System.Collections.Immutable.dll
+D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\obj\Debug\WebProjekat.csprojAssemblyReference.cache

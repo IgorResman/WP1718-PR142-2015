@@ -1,0 +1,57 @@
+﻿@model WebProjekat.Models.Voznja
+@{
+    ViewBag.Title = "IzmenaVoznjeMusterija";
+}
+
+<html>
+<body style="background-color:skyblue">
+    <div style="text-align:center">
+        <h2><b>Izmena vožnje</b></h2>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <form action="/Taxi/IzmenilaMusterija">
+        <table>
+            <tr>
+                <td><b>Vaša lokacija(ulica,broj,mesto,postanški broj)</b></td>
+                <td><input type="text" name="ulica" value="@Model.PocetnaLokacija.Adresa.Naziv" /></td>
+                <td><input type="text" name="broj" value="@Model.PocetnaLokacija.Adresa.Broj"/></td>
+                <td><input type="text" name="mesto" value="@Model.PocetnaLokacija.Adresa.Mesto"/></td>
+                <td><input type="text" name="postanski" value="@Model.PocetnaLokacija.Adresa.BrojMesta"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <b>
+                        Odaberite tip vozila:
+                    </b>
+                </td>
+                <td>
+                    <select name="vozilo">
+                        @if (Model.Tip == WebProjekat.Models.TipVozila.Kombi)
+                        {
+                            <option value="putnicko">Putničko</option>
+                            <option selected value="kombi">Kombi</option>
+                        }
+                        else
+                        {
+                            <option selected value="putnicko">Putničko</option>
+                            <option value="kombi">Kombi</option>
+                        }
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="hidden" name="korisnicko" value="@Model.Musterija.KorisnickoIme"/>
+                    <input type="hidden" name="datum" value="@Model.DatumIVremePorudzbine"/>
+                    <input type="submit" value="Izmeni vožnju" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+

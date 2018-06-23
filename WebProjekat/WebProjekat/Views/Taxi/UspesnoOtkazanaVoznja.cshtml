@@ -7,12 +7,22 @@
 <body style="background-color:skyblue">
     <div style="text-align:center">
         <h1>Uspešno ste otkazali vožnju</h1>
-        <form action="/Taxi/VratiProfilMusterijaKomentar">
+        <form action="/Taxi/OstaviKomentar">
             <textarea name="komentar" rows="5" cols="50">
                 
             </textarea>
             <input type="hidden" name="datum" value="@Model.DatumIVremePorudzbine"/>
             <input type="submit" value="Vrati se na profil" />
+            <input type="hidden" name="korisnicko" value="@Model.Musterija.KorisnickoIme"/>
+            <input type="hidden" name="datum" value="@Model.DatumIVremePorudzbine"/>
+            <select name="ocena">
+                <option name="neocenjen">Neocenjen</option>
+                <option name="veomaLose">Veoma loša</option>
+                <option name="losa">loša</option>
+                <option name="dobra">Dobra</option>
+                <option name="veomaDobra">Veoma dobra</option>
+                <option name="odlicna">Odlična</option>
+            </select>
         </form>
     </div>
 </body>

@@ -96,6 +96,11 @@
                                     <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine"/>
                                     <input type="submit" value="Otkaži vožnju!" />
                                 </form>
+                                <form action="/Taxi/IzmeniVoznjuMusterija">
+                                    <input type="hidden" name="korisnik" value="@Model.KorisnickoIme"/>
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine"/>
+                                    <input type="submit" value="Izmeni vožnju"/>
+                                </form>
                             }
                         </td>
                     </tr>
