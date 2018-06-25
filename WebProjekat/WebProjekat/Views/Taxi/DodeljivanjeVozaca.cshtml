@@ -1,0 +1,30 @@
+﻿@model WebProjekat.Models.Voznja
+@{
+    ViewBag.Title = "DodeljivanjeVozaca";
+}
+
+<html>
+    <body style="background-color:skyblue">
+        <div style="text-align:center">
+            <h1>Odaberite nekog vozača iz liste slobodnih vozača sa traženim tipom automobila</h1>
+            <form action="/Taxi/Dodeli">
+                    <select name="vozac">
+                    @foreach(WebProjekat.Models.Vozac v in WebProjekat.Models.Registrovani.Vozaci)
+                    {
+                        if(v.Automobil.Tip == Model.Tip && v.Zauzet == false)
+                        {
+                            <option value="@v.KorisnickoIme">@v.Ime</option>
+                        }
+                    }
+                   </select>
+                   <input type="hidden" value="@Model.DatumIVremePorudzbine" name="datum"/>
+                   <input type="hidden" value="@Model.Musterija.KorisnickoIme" name="musterija"/>
+                <input type="submit" value="Dodeli"/>
+                @{ 
+                    Model.Status = WebProjekat.Models.StatusVoznje.Obradjena;
+                }
+            </form>
+        </div>
+    </body>
+</html>
+

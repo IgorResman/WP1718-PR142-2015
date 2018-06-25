@@ -232,6 +232,13 @@
     <Content Include="Views\Taxi\UspesnoOtkazanaVoznja.cshtml" />
     <Content Include="Views\Taxi\DispecerZakazujeVoznju.cshtml" />
     <Content Include="Views\Taxi\IzmenaVoznjeMusterija.cshtml" />
+    <Content Include="Views\Taxi\GreskaAuto.cshtml" />
+    <Content Include="Views\Taxi\DodeljivanjeVozaca.cshtml" />
+    <Content Include="Views\Taxi\UspesnoDodatVozac.cshtml" />
+    <Content Include="Views\Taxi\VozacMenjaStatus.cshtml" />
+    <Content Include="Views\Taxi\vozacOstavljaKomentar.cshtml" />
+    <Content Include="Views\Taxi\vozacUspesnaVoznja.cshtml" />
+    <Content Include="Views\Taxi\PrikazKomentara.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,8 @@
 ﻿@model WebProjekat.Models.Dispecer
 @{
     ViewBag.Title = "DispecerZakazujeVoznju";
+    bool kombi = false;
+    bool putnicki = false;
 }
 
 <html>
@@ -34,6 +36,18 @@
                         <option value="kombi">Kombi</option>
                     </select>
                 </td>
+            </tr>
+            <tr>
+                <td>Slobodni vozači</td>
+                <td>
+                    <select name="korisnickoVozac">
+                        @foreach (WebProjekat.Models.Vozac v in WebProjekat.Models.Registrovani.Vozaci)
+                        {
+                            <option value="@v.KorisnickoIme">@v.Ime @v.Automobil.Tip.ToString()</option>
+                        }
+                    </select>
+                </td>
+                
             </tr>
             <tr>
                 <td colspan="2">

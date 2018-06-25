@@ -1,0 +1,34 @@
+﻿@model WebProjekat.Models.Voznja
+@{
+    ViewBag.Title = "vozacUspesnaVoznja";
+}
+
+<html>
+    <body style="background-color:skyblue">
+        <div style="text-align:center">
+            <h2>Popunite sledeće podatke</h2>
+            <form action="/Taxi/UspesnaVoznjaVozac">
+                <table>
+                    <tr>
+                        <td>Odredište(ulica,broj,grad,poštanski broj)</td>
+                        <td><input type="text" name="ulica" /></td>
+                        <td><input type="text" name="broj" /></td>
+                        <td><input type="text" name="grad" /></td>
+                        <td><input type="text" name="posta" /></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Iznos</td>
+                        <td><input type="text" name="iznos"/></td>
+                        
+                    </tr>
+                </table>
+                <input type="hidden" value="@Model.DatumIVremePorudzbine" name="datum"/>
+                <input type="hidden" value="@Model.Musterija.KorisnickoIme" name="musterija"/>
+                <input type="hidden" value="@Model.Vozac.KorisnickoIme" name="vozac"/>
+                <input type="hidden" value="@Model.Dispecer.KorisnickoIme" name="di"/>
+                <input type="submit" value="Završi vožnju"/>
+            </form>
+        </div>
+    </body>
+</html>

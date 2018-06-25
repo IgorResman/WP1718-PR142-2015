@@ -5,97 +5,199 @@
 }
 
 <html>
-    <body style="background-color:skyblue">
-        <div style="text-align:center">
-            <h2>Dobrodošli @Model.KorisnickoIme</h2>
-            <h3>Vaša trenutna lokacija je: @Model.Lokacija.Adresa.Naziv @Model.Lokacija.Adresa.Broj, @Model.Lokacija.Adresa.BrojMesta @Model.Lokacija.Adresa.Mesto</h3>
-            <table>
-                <tr>
-                    <td colspan="2">
-                        Podaci o vašem automobilu:
-                    </td>
-                </tr>
-                <tr>
-                    <td>Broj vozila</td>
-                    <td>Godište</td>
-                    <td>Registraciona oznaka</td>
-                    <td>Tip automobila</td>
-                </tr>
-                <tr>
-                    <td>
-                        @Model.Automobil.BrojVozila
-                    </td>
-                    <td>
-                        @Model.Automobil.Godiste
-                    </td>
-                    <td>
-                        @Model.Automobil.Registracija
-                    </td>
-                    <td>
-                        @Model.Automobil.Tip
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div style="text-align:right">
-            <form action="/Taxi/OdjaviVozac">
-                <input type="submit" value="Odjavi se" />
-            </form>
-        </div>
-        <div style="text-align:center">
-            <table>
-                <tr>
-                    <td>
-                        <form action="/Taxi/PromeniLokaciju">
-                            <input type="hidden" value="@Model" />
-                            <input type="submit" value="Promeni lokaciju" />
-                        </form>
-                    </td>
-                    <td>
-                        <form action="/Taxi/IzmeniVozac">
-                            <input  type="submit" value="Izmeni lične podatke"/>
-                        </form>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
+<body style="background-color:skyblue">
+    <div style="text-align:center">
+        <h2>Dobrodošli @Model.KorisnickoIme</h2>
+        <h3>Vaša trenutna lokacija je: @Model.Lokacija.Adresa.Naziv @Model.Lokacija.Adresa.Broj, @Model.Lokacija.Adresa.BrojMesta @Model.Lokacija.Adresa.Mesto</h3>
         <table>
             <tr>
-                <td>Vaši podaci</td>
-            </tr>
-            <tr>
-                <td>Ime:</td>
-                <td><label>@Model.Ime</label></td>
-            </tr>
-            <tr>
-                <td>Prezime:</td>
-                <td><label>@Model.Prezime</label></td>
-            </tr>
-            <tr>
-                <td>Pol:</td>
-                <td>
-                    <label>@Model.Pol</label>
+                <td colspan="2">
+                    Podaci o vašem automobilu:
                 </td>
             </tr>
             <tr>
-                <td>Jmbg:</td>
-                <td><label>@Model.Jmbg</label></td>
+                <td>Broj vozila</td>
+                <td>Godište</td>
+                <td>Registraciona oznaka</td>
+                <td>Tip automobila</td>
             </tr>
             <tr>
-                <td>Korisnicko ime:</td>
-                <td><label>@Model.KorisnickoIme</label></td>
-            </tr>
-            <tr>
-                <td>E-mail:</td>
-                <td><label>@Model.Mail</label></td>
-            </tr>
-            <tr>
-                <td>Broj telefona:</td>
-                <td><label>@Model.BrTelefona</label></td>
+                <td>
+                    @Model.Automobil.BrojVozila
+                </td>
+                <td>
+                    @Model.Automobil.Godiste
+                </td>
+                <td>
+                    @Model.Automobil.Registracija
+                </td>
+                <td>
+                    @Model.Automobil.Tip
+                </td>
             </tr>
         </table>
-    </body>
+    </div>
+    <div style="text-align:right">
+        <form action="/Taxi/OdjaviVozac">
+            <input type="submit" value="Odjavi se" />
+        </form>
+    </div>
+    <div style="text-align:center">
+        <table>
+            <tr>
+                <td>
+                    <form action="/Taxi/PromeniLokaciju">
+                        <input type="hidden" value="@Model" />
+                        <input type="submit" value="Promeni lokaciju" />
+                    </form>
+                </td>
+                <td>
+                    <form action="/Taxi/IzmeniVozac">
+                        <input type="submit" value="Izmeni lične podatke" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table>
+        <tr>
+            <td>Vaši podaci</td>
+        </tr>
+        <tr>
+            <td>Ime:</td>
+            <td><label>@Model.Ime</label></td>
+        </tr>
+        <tr>
+            <td>Prezime:</td>
+            <td><label>@Model.Prezime</label></td>
+        </tr>
+        <tr>
+            <td>Pol:</td>
+            <td>
+                <label>@Model.Pol</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Jmbg:</td>
+            <td><label>@Model.Jmbg</label></td>
+        </tr>
+        <tr>
+            <td>Korisnicko ime:</td>
+            <td><label>@Model.KorisnickoIme</label></td>
+        </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td><label>@Model.Mail</label></td>
+        </tr>
+        <tr>
+            <td>Broj telefona:</td>
+            <td><label>@Model.BrTelefona</label></td>
+        </tr>
+    </table>
+
+    <div style="text-align:center"><h2>Sve kreirane vožnje</h2></div>
+    <table align="center" border="1">
+        <tr>
+            <td>Datum i vreme porudžbine vožnje</td>
+            <td>Ime i prezime mušterije</td>
+            <td>Status vožnje</td>
+        </tr>
+            @foreach (WebProjekat.Models.Voznja v in WebProjekat.Models.Voznje.SveVoznje)
+            {
+                if (v.Status == WebProjekat.Models.StatusVoznje.Kreirana)
+                {
+                <tr>
+                    <td>
+                        @v.DatumIVremePorudzbine
+                    </td>
+                    <td>
+                        @v.Musterija.Ime @v.Musterija.Prezime
+                    </td>
+                    <td>
+                        @v.Status.ToString()
+                    </td>
+                    @if(v.Status == WebProjekat.Models.StatusVoznje.Kreirana)
+                    {
+                    <td>
+                        <form method="post" action="/Taxi/VozacPrihvata">
+                            <input type="submit" value="Prihvati  vožnju" />
+                            <input type="hidden" value="@v.DatumIVremePorudzbine" name="datum" />
+                            <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
+                            <input type="hidden" value="@Model.KorisnickoIme" name="vozac" />
+                        </form>
+                        <form action="/Taxi/PrikaziKomentar">
+                            <input type="submit" value="Prikaži vožnju" />
+                            <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                            <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                        </form>
+                    </td>
+                    }
+                    else
+                    {
+                    <td>
+                        <form action="/Taxi/PrikaziKomentar">
+                            <input type="submit" value="Prikaži vožnju" />
+                            <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                            <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                        </form>
+                    </td>
+                    }
+                </tr>
+                }
+            }
+    </table>
+    <div style="text-align:center"><h2>Sve vaše vožnje</h2></div>
+
+    <table align="center" border="1">
+        <tr>
+            <td>Datum i vreme porudžbine vožnje</td>
+            <td>Ime i prezime mušterije</td>
+            <td>Status vožnje</td>
+        </tr>
+            @foreach (WebProjekat.Models.Voznja v in WebProjekat.Models.Voznje.SveVoznje)
+            {
+                if (v.Vozac.KorisnickoIme == Model.KorisnickoIme)
+                {
+                    <tr>
+                    <td>
+                        @v.DatumIVremePorudzbine
+                    </td>
+                    <td>
+                        @v.Musterija.Ime @v.Musterija.Prezime
+                    </td>
+                    <td>
+                        @v.Status.ToString()
+                    </td>
+                    <td>
+                        @if (v.Status != WebProjekat.Models.StatusVoznje.Neuspesna || v.Status != WebProjekat.Models.StatusVoznje.Uspesna)
+                        {
+                            <form action="/Taxi/VozacMenjaStatus">
+                                <input type="hidden" value="@v.DatumIVremePorudzbine" name="datum" />
+                                <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
+                                <input type="submit" value="Promeni status vožnje" />
+                            </form>
+                            <form action="/Taxi/PrikaziKomentar">
+                                <input type="submit" value="Prikaži vožnju" />
+                                <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                            </form>
+                        }
+                        else
+                        {
+                            <form action="/Taxi/PrikaziKomentar">
+                                <input type="submit" value="Prikaži vožnju" />
+                                <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                            </form>
+                        }
+                    </td>
+                    </tr>
+                }
+            }
+        
+    </table>
+</body>
 </html>
 
 

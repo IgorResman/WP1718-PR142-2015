@@ -24,845 +24,855 @@ namespace WebProjekat
             List<Korisnik> registrov = new List<Korisnik>();
             Voznje sveVoznje = new Voznje();
 
+            Ucitavanje();
+        }
 
-            // Read the file and display it line by line.
-            if(File.Exists(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml"))
-            {
-                string ime;
-                string i = "";
-                string p = "";
-                string dispecerI = "";
-                string dispecerP = "";
-                string vozacI = "";
-                string vozacP = "";
-                int x = 0;
-                int y = 0;
-                string reg = "";
-                int taxibr = 0;
-                TipVozila t = TipVozila.Kombi ;
-                int godiste = 0;
-                string ulica = "";
-                int broj = 0;
-                string grad = "";
-                int posta = 0;
-                string prezime;
-                string korisnicko;
-                string lozinka;
-                long jmbg;
-                string brTel;
-                Uloga uloga = Uloga.Dispecer;
-                Pol pol = Pol.Muski;
-                StatusVoznje status = StatusVoznje.Otkazana;
-                Ocena ocen = Ocena.neocenjen;
-                string mail;
-                List<Voznja> voznje = new List<Voznja>();
-                Voznja voznja = new Voznja();
-                
-
-                using (XmlReader reader = XmlReader.Create(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml"))
-                {
-                    while (reader.Read())
-                    {
-                        if (reader.IsStartElement() && reader.Name.Equals("Korisnik"))
-                        {
-                            bool postoji = false;
-                            bool postojid = false;
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            ime = reader.Value;
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            prezime = reader.Value;
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            jmbg = long.Parse(reader.Value);
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            korisnicko = reader.Value;
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            lozinka = reader.Value;
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            if (reader.Value == "Muski")
-                            {
-                                pol = Pol.Muski;
-                            }
-                            else
-                            {
-                                pol = Pol.Zenski;
-                            }
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            mail = reader.Value;
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            brTel = reader.Value;
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            reader.Read();
-                            if (reader.Value == "Dispecer")
-                            {
-                                uloga = Uloga.Dispecer;
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                if (reader.Name.Contains("VoznjaBroj"))
-                                {
-                                    while (reader.Name.Contains("VoznjaBroj"))
-                                    {
-                                        bool imakomentar = false;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        string datum = reader.Value;
-                                        DateTime d = ToDate(datum);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        string[] lok = reader.Value.Split(',');
-                                        string[] ul = lok[0].Split('_');
-                                        string[] gr = lok[1].Split('_');
-                                        Adresa a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
-                                        Lokacija pocetna = new Lokacija(1, 1, a);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        lok = reader.Value.Split(',');
-                                        ul = lok[0].Split('_');
-                                        gr = lok[1].Split('_');
-                                        a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
-                                        Lokacija krajnja = new Lokacija(1, 1, a);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        if (reader.Value == "Putnicko")
-                                        {
-                                            t = TipVozila.Putnicko;
-                                        }
-                                        else
-                                        {
-                                            t = TipVozila.Kombi;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        i = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        p = reader.Value;
-                                        Musterija mu = new Musterija();
-                                        mu.Ime = i;
-                                        mu.Prezime = p;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        vozacI = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        vozacP = reader.Value;
-                                        Vozac vozac = new Vozac();
-                                        vozac.Ime = vozacI;
-                                        vozac.Prezime = vozacP;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        dispecerI = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        dispecerP = reader.Value;
-                                        Dispecer dispecer = new Dispecer();
-                                        dispecer.Ime = dispecerI;
-                                        dispecer.Prezime = dispecerP;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        switch (reader.Value)
-                                        {
-                                            case "Formirana":
-                                                status = StatusVoznje.Formirana;
-                                                break;
-                                            case "Kreirana":
-                                                status = StatusVoznje.Kreirana;
-                                                break;
-                                            case "Neuspesna":
-                                                status = StatusVoznje.Neuspesna;
-                                                break;
-                                            case "Obradjena":
-                                                status = StatusVoznje.Obradjena;
-                                                break;
-                                            case "Otkazana":
-                                                status = StatusVoznje.Otkazana;
-                                                break;
-                                            case "Prihvacena":
-                                                status = StatusVoznje.Prihvacena;
-                                                break;
-                                            case "Uspesna":
-                                                status = StatusVoznje.Uspesna;
-                                                break;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-
-                                        Komentar komentar = new Komentar();
-                                        komentar.Opis = reader.Value;
-
-                                        if (komentar.Opis != null)
-                                        {
-                                            imakomentar = true;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        if (imakomentar)
-                                        {
-                                            reader.Read();
-                                            reader.Read();
-                                        }
-                                        string datu = reader.Value;
-                                        komentar.Datum = ToDate(datu);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        switch (reader.Value)
-                                        {
-                                            case "neocenjen":
-                                                ocen = Ocena.neocenjen;
-                                                break;
-                                            case "lose":
-                                                ocen = Ocena.lose;
-                                                break;
-                                            case "dobro":
-                                                ocen = Ocena.dobro;
-                                                break;
-                                            case "odlicno":
-                                                ocen = Ocena.odlicno;
-                                                break;
-                                            case "veomaDobro":
-                                                ocen = Ocena.veomaDobro;
-                                                break;
-                                            case "veomaLose":
-                                                ocen = Ocena.veomaLose;
-                                                break;
-
-                                        }
-                                        komentar.Ocena = ocen;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        int iznos = int.Parse(reader.Value);
-                                        Voznja voz = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
-                                        komentar.Korisnik = mu;
-                                        komentar.Voznja = voz;
-                                        Voznja voo = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
-                                        voznje.Add(voo);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                    }
-                                }
-
-                            }
-                            else if (reader.Value == "Musterija")
-                            {
-                                uloga = Uloga.Musterija;
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();                                
-                                if (reader.Name.Contains("VoznjaBroj"))
-                                {
-                                    while (reader.Name.Contains("VoznjaBroj"))
-                                    {
-                                        bool imakomentar = false;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        string datum = reader.Value;
-                                        DateTime d = ToDate(datum);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        string[] lok = reader.Value.Split(',');
-                                        string[] ul = lok[0].Split('_');
-                                        string[] gr = lok[1].Split('_');
-                                        Adresa a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
-                                        Lokacija pocetna = new Lokacija(1, 1, a);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        lok = reader.Value.Split(',');
-                                        ul = lok[0].Split('_');
-                                        gr = lok[1].Split('_');
-                                        a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
-                                        Lokacija krajnja = new Lokacija(1, 1, a);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        if(reader.Value == "Putnicko")
-                                        {
-                                            t = TipVozila.Putnicko;
-                                        }
-                                        else
-                                        {
-                                            t = TipVozila.Kombi;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        i = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        p = reader.Value;
-                                        Musterija mu = new Musterija();
-                                        mu.Ime = i;
-                                        mu.Prezime = p;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        vozacI = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        vozacP = reader.Value;
-                                        Vozac vozac = new Vozac();
-                                        vozac.Ime = vozacI;
-                                        vozac.Prezime = vozacP;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        dispecerI = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        dispecerP = reader.Value;
-                                        Dispecer dispecer = new Dispecer();
-                                        dispecer.Ime = dispecerI;
-                                        dispecer.Prezime = dispecerP;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        switch(reader.Value)
-                                        {
-                                            case "Formirana":
-                                                status = StatusVoznje.Formirana;
-                                                break;
-                                            case "Kreirana":
-                                                status = StatusVoznje.Kreirana;
-                                                break;
-                                            case "Neuspesna":
-                                                status = StatusVoznje.Neuspesna;
-                                                break;
-                                            case "Obradjena":
-                                                status = StatusVoznje.Obradjena;
-                                                break;
-                                            case "Otkazana":
-                                                status = StatusVoznje.Otkazana;
-                                                break;
-                                            case "Prihvacena":
-                                                status = StatusVoznje.Prihvacena;
-                                                break;
-                                            case "Uspesna":
-                                                status = StatusVoznje.Uspesna;
-                                                break;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-
-                                        Komentar komentar = new Komentar();
-                                        komentar.Opis = reader.Value;
-                                        
-                                        if (komentar.Opis != null)
-                                        {
-                                            imakomentar = true;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        if (imakomentar)
-                                        {
-                                            reader.Read();
-                                            reader.Read();
-                                        }
-                                        string datu = reader.Value;
-                                        komentar.Datum = ToDate(datu);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        switch(reader.Value)
-                                        {
-                                            case "neocenjen":
-                                                ocen = Ocena.neocenjen;
-                                                break;
-                                            case "lose":
-                                                ocen = Ocena.lose;
-                                                break;
-                                            case "dobro":
-                                                ocen = Ocena.dobro;
-                                                break;
-                                            case "odlicno":
-                                                ocen = Ocena.odlicno;
-                                                break;
-                                            case "veomaDobro":
-                                                ocen = Ocena.veomaDobro;
-                                                break;
-                                            case "veomaLose":
-                                                ocen = Ocena.veomaLose;
-                                                break;
-
-                                        }
-                                        komentar.Ocena = ocen;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        int iznos = int.Parse(reader.Value);
-                                        Voznja voz = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
-                                        komentar.Korisnik = mu;
-                                        komentar.Voznja = voz;
-                                        Voznja voo = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
-                                        voznje.Add(voo);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                    }
-                                }
-                            }
-                            else if (reader.Value == "Vozac")
-                            {
-                                uloga = Uloga.Vozac;
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                godiste = int.Parse(reader.Value);
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reg = reader.Value;
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                taxibr = int.Parse(reader.Value);
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                switch(reader.Value)
-                                {
-                                    case "Kombi":
-                                        t = TipVozila.Kombi;
-                                        break;
-                                    case "Putnicko":
-                                        t = TipVozila.Putnicko;
-                                        break;
-                                }
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                ulica = reader.Value;
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                broj = int.Parse(reader.Value);
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                grad = reader.Value;
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                posta = int.Parse(reader.Value);
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                x = int.Parse(reader.Value);
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                y = int.Parse(reader.Value);
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                reader.Read();
-                                if (reader.Name.Contains("VoznjaBroj"))
-                                {
-                                    while (reader.Name.Contains("VoznjaBroj"))
-                                    {
-                                        bool imakomentar = false;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        string datum = reader.Value;
-                                        DateTime d = ToDate(datum);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        string[] lok = reader.Value.Split(',');
-                                        string[] ul = lok[0].Split('_');
-                                        string[] gr = lok[1].Split('_');
-                                        Adresa a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
-                                        Lokacija pocetna = new Lokacija(1, 1, a);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        lok = reader.Value.Split(',');
-                                        ul = lok[0].Split('_');
-                                        gr = lok[1].Split('_');
-                                        a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
-                                        Lokacija krajnja = new Lokacija(1, 1, a);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        if (reader.Value == "Putnicko")
-                                        {
-                                            t = TipVozila.Putnicko;
-                                        }
-                                        else
-                                        {
-                                            t = TipVozila.Kombi;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        i = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        p = reader.Value;
-                                        Musterija mu = new Musterija();
-                                        mu.Ime = i;
-                                        mu.Prezime = p;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        vozacI = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        vozacP = reader.Value;
-                                        Vozac vozac = new Vozac();
-                                        vozac.Ime = vozacI;
-                                        vozac.Prezime = vozacP;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        dispecerI = reader.Value;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        dispecerP = reader.Value;
-                                        Dispecer dispecer = new Dispecer();
-                                        dispecer.Ime = dispecerI;
-                                        dispecer.Prezime = dispecerP;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        switch (reader.Value)
-                                        {
-                                            case "Formirana":
-                                                status = StatusVoznje.Formirana;
-                                                break;
-                                            case "Kreirana":
-                                                status = StatusVoznje.Kreirana;
-                                                break;
-                                            case "Neuspesna":
-                                                status = StatusVoznje.Neuspesna;
-                                                break;
-                                            case "Obradjena":
-                                                status = StatusVoznje.Obradjena;
-                                                break;
-                                            case "Otkazana":
-                                                status = StatusVoznje.Otkazana;
-                                                break;
-                                            case "Prihvacena":
-                                                status = StatusVoznje.Prihvacena;
-                                                break;
-                                            case "Uspesna":
-                                                status = StatusVoznje.Uspesna;
-                                                break;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-
-                                        Komentar komentar = new Komentar();
-                                        komentar.Opis = reader.Value;
-
-                                        if (komentar.Opis != null)
-                                        {
-                                            imakomentar = true;
-                                        }
-                                        reader.Read();
-                                        reader.Read();
-                                        if (imakomentar)
-                                        {
-                                            reader.Read();
-                                            reader.Read();
-                                        }
-                                        string datu = reader.Value;
-                                        komentar.Datum = ToDate(datu);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        switch (reader.Value)
-                                        {
-                                            case "neocenjen":
-                                                ocen = Ocena.neocenjen;
-                                                break;
-                                            case "lose":
-                                                ocen = Ocena.lose;
-                                                break;
-                                            case "dobro":
-                                                ocen = Ocena.dobro;
-                                                break;
-                                            case "odlicno":
-                                                ocen = Ocena.odlicno;
-                                                break;
-                                            case "veomaDobro":
-                                                ocen = Ocena.veomaDobro;
-                                                break;
-                                            case "veomaLose":
-                                                ocen = Ocena.veomaLose;
-                                                break;
-
-                                        }
-                                        komentar.Ocena = ocen;
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        int iznos = int.Parse(reader.Value);
-                                        Voznja voz = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
-                                        komentar.Korisnik = mu;
-                                        komentar.Voznja = voz;
-                                        Voznja voo = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
-                                        voznje.Add(voo);
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                        reader.Read();
-                                    }
-                                }
-                            }
-
-                            if (uloga == Uloga.Dispecer)
-                            {
-                                Dispecer k = new Dispecer(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
-                                Musterija musterija = new Musterija();
-                                Vozac voz = new Vozac();
-
-                                foreach (Voznja vo in voznje)
-                                {
-                                    vo.Dispecer = k;
-                                    foreach (Musterija m in Registrovani.Musterije)
-                                    {
-                                        if (i == m.Ime && p == m.Prezime)
-                                        {
-                                            musterija = m;
-                                        }
-                                    }
-                                    foreach (Vozac v in Registrovani.Vozaci)
-                                    {
-                                        if (vozacI == v.Ime && vozacP == v.Prezime)
-                                        {
-                                            voz = v;
-                                        }
-                                    }
-                                    Voznje.SveVoznje.Add(vo);
+        private void Ucitavanje()
+        {
+            #region
+            //if (File.Exists(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml"))
+            //{
+            //    string ime;
+            //    bool postojiMusterijaUDispeceru = false;
+            //    string i = "";
+            //    string p = "";
+            //    string dispecerI = "";
+            //    string dispecerP = "";
+            //    string vozacI = "";
+            //    string vozacP = "";
+            //    int x = 0;
+            //    int y = 0;
+            //    string reg = "";
+            //    int taxibr = 0;
+            //    TipVozila t = TipVozila.Kombi;
+            //    int godiste = 0;
+            //    string ulica = "";
+            //    int broj = 0;
+            //    string grad = "";
+            //    int posta = 0;
+            //    string prezime;
+            //    string korisnicko;
+            //    string lozinka;
+            //    long jmbg;
+            //    string brTel;
+            //    Uloga uloga = Uloga.Dispecer;
+            //    Pol pol = Pol.Muski;
+            //    StatusVoznje status = StatusVoznje.Otkazana;
+            //    Ocena ocen = Ocena.neocenjen;
+            //    string mail;
+            //    List<Voznja> voznje = new List<Voznja>();
+            //    Voznja voznja = new Voznja();
 
 
-                                }
-                                k.Voznja = voznje;
-                                
-                                voznje = new List<Voznja>();
+            //    using (XmlReader reader = XmlReader.Create(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml"))
+            //    {
+            //        while (reader.Read())
+            //        {
+            //            if (reader.IsStartElement() && reader.Name.Equals("Korisnik"))
+            //            {
+            //                bool postoji = false;
+            //                bool postojid = false;
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                ime = reader.Value;
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                prezime = reader.Value;
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                jmbg = long.Parse(reader.Value);
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                korisnicko = reader.Value;
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                lozinka = reader.Value;
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                if (reader.Value == "Muski")
+            //                {
+            //                    pol = Pol.Muski;
+            //                }
+            //                else
+            //                {
+            //                    pol = Pol.Zenski;
+            //                }
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                mail = reader.Value;
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                brTel = reader.Value;
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                reader.Read();
+            //                if (reader.Value == "Dispecer")
+            //                {
+            //                    uloga = Uloga.Dispecer;
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    if (reader.Name.Contains("VoznjaBroj"))
+            //                    {
+            //                        while (reader.Name.Contains("VoznjaBroj"))
+            //                        {
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string datum = reader.Value;
+            //                            DateTime d = ToDate(datum);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string[] lok = reader.Value.Split(',');
+            //                            string[] ul = lok[0].Split('_');
+            //                            string[] gr = lok[1].Split('_');
+            //                            Adresa a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
+            //                            Lokacija pocetna = new Lokacija(1, 1, a);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            lok = reader.Value.Split(',');
+            //                            ul = lok[0].Split('_');
+            //                            gr = lok[1].Split('_');
+            //                            a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
+            //                            Lokacija krajnja = new Lokacija(1, 1, a);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            if (reader.Value == "Putnicko")
+            //                            {
+            //                                t = TipVozila.Putnicko;
+            //                            }
+            //                            else
+            //                            {
+            //                                t = TipVozila.Kombi;
+            //                            }
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            Musterija mu = new Musterija();
+            //                            if(reader.Value != "\n\t\t\t\t")
+            //                            {
+            //                                i = reader.Value;
+            //                                reader.Read();
+            //                                reader.Read();
+            //                                reader.Read();
+            //                                reader.Read();
+            //                                p = reader.Value;
+            //                                mu.Ime = i;
+            //                                mu.Prezime = p;
+            //                                postojiMusterijaUDispeceru = true;
+            //                            }
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            vozacI = reader.Value;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            vozacP = reader.Value;
+            //                            Vozac vozac = new Vozac();
+            //                            vozac.Ime = vozacI;
+            //                            vozac.Prezime = vozacP;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            dispecerI = reader.Value;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            dispecerP = reader.Value;
+            //                            Dispecer dispecer = new Dispecer();
+            //                            dispecer.Ime = dispecerI;
+            //                            dispecer.Prezime = dispecerP;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            switch (reader.Value)
+            //                            {
+            //                                case "Formirana":
+            //                                    status = StatusVoznje.Formirana;
+            //                                    break;
+            //                                case "Kreirana":
+            //                                    status = StatusVoznje.Kreirana;
+            //                                    break;
+            //                                case "Neuspesna":
+            //                                    status = StatusVoznje.Neuspesna;
+            //                                    break;
+            //                                case "Obradjena":
+            //                                    status = StatusVoznje.Obradjena;
+            //                                    break;
+            //                                case "Otkazana":
+            //                                    status = StatusVoznje.Otkazana;
+            //                                    break;
+            //                                case "Prihvacena":
+            //                                    status = StatusVoznje.Prihvacena;
+            //                                    break;
+            //                                case "Uspesna":
+            //                                    status = StatusVoznje.Uspesna;
+            //                                    break;
+            //                            }
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            Komentar komentar = new Komentar();
+            //                            if (reader.Value == "bez opisa")
+            //                            {
+            //                                komentar.Opis = "";
+            //                            }
+            //                            komentar.Opis = reader.Value;
+
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string datu = reader.Value;
+            //                            komentar.Datum = ToDate(datu);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            switch (reader.Value)
+            //                            {
+            //                                case "neocenjen":
+            //                                    ocen = Ocena.neocenjen;
+            //                                    break;
+            //                                case "lose":
+            //                                    ocen = Ocena.lose;
+            //                                    break;
+            //                                case "dobro":
+            //                                    ocen = Ocena.dobro;
+            //                                    break;
+            //                                case "odlicno":
+            //                                    ocen = Ocena.odlicno;
+            //                                    break;
+            //                                case "veomaDobro":
+            //                                    ocen = Ocena.veomaDobro;
+            //                                    break;
+            //                                case "veomaLose":
+            //                                    ocen = Ocena.veomaLose;
+            //                                    break;
+
+            //                            }
+            //                            komentar.Ocena = ocen;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            int iznos = int.Parse(reader.Value);
+            //                            Voznja voz = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
+            //                            komentar.Korisnik = mu;
+            //                            komentar.Voznja = voz;
+            //                            Voznja voo = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
+            //                            voznje.Add(voo);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                        }
+            //                    }
+
+            //                }
+            //                else if (reader.Value == "Musterija")
+            //                {
+            //                    uloga = Uloga.Musterija;
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    if (reader.Name.Contains("VoznjaBroj"))
+            //                    {
+            //                        while (reader.Name.Contains("VoznjaBroj"))
+            //                        {
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string datum = reader.Value;
+            //                            DateTime d = ToDate(datum);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string[] lok = reader.Value.Split(',');
+            //                            string[] ul = lok[0].Split('_');
+            //                            string[] gr = lok[1].Split('_');
+            //                            Adresa a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
+            //                            Lokacija pocetna = new Lokacija(1, 1, a);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            lok = reader.Value.Split(',');
+            //                            ul = lok[0].Split('_');
+            //                            gr = lok[1].Split('_');
+            //                            a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
+            //                            Lokacija krajnja = new Lokacija(1, 1, a);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            if (reader.Value == "Putnicko")
+            //                            {
+            //                                t = TipVozila.Putnicko;
+            //                            }
+            //                            else
+            //                            {
+            //                                t = TipVozila.Kombi;
+            //                            }
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            i = reader.Value;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            p = reader.Value;
+            //                            Musterija mu = new Musterija();
+            //                            mu.Ime = i;
+            //                            mu.Prezime = p;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            vozacI = reader.Value;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            vozacP = reader.Value;
+            //                            Vozac vozac = new Vozac();
+            //                            vozac.Ime = vozacI;
+            //                            vozac.Prezime = vozacP;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            dispecerI = reader.Value;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            dispecerP = reader.Value;
+            //                            Dispecer dispecer = new Dispecer();
+            //                            dispecer.Ime = dispecerI;
+            //                            dispecer.Prezime = dispecerP;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            switch (reader.Value)
+            //                            {
+            //                                case "Formirana":
+            //                                    status = StatusVoznje.Formirana;
+            //                                    break;
+            //                                case "Kreirana":
+            //                                    status = StatusVoznje.Kreirana;
+            //                                    break;
+            //                                case "Neuspesna":
+            //                                    status = StatusVoznje.Neuspesna;
+            //                                    break;
+            //                                case "Obradjena":
+            //                                    status = StatusVoznje.Obradjena;
+            //                                    break;
+            //                                case "Otkazana":
+            //                                    status = StatusVoznje.Otkazana;
+            //                                    break;
+            //                                case "Prihvacena":
+            //                                    status = StatusVoznje.Prihvacena;
+            //                                    break;
+            //                                case "Uspesna":
+            //                                    status = StatusVoznje.Uspesna;
+            //                                    break;
+            //                            }
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+
+            //                            Komentar komentar = new Komentar();
+            //                            if(reader.Value == "bez opisa")
+            //                            {
+            //                                komentar.Opis = "";
+            //                            }
+            //                            komentar.Opis = reader.Value;
+
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string datu = reader.Value;
+            //                            komentar.Datum = ToDate(datu);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            switch (reader.Value)
+            //                            {
+            //                                case "neocenjen":
+            //                                    ocen = Ocena.neocenjen;
+            //                                    break;
+            //                                case "lose":
+            //                                    ocen = Ocena.lose;
+            //                                    break;
+            //                                case "dobro":
+            //                                    ocen = Ocena.dobro;
+            //                                    break;
+            //                                case "odlicno":
+            //                                    ocen = Ocena.odlicno;
+            //                                    break;
+            //                                case "veomaDobro":
+            //                                    ocen = Ocena.veomaDobro;
+            //                                    break;
+            //                                case "veomaLose":
+            //                                    ocen = Ocena.veomaLose;
+            //                                    break;
+
+            //                            }
+            //                            komentar.Ocena = ocen;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            int iznos = int.Parse(reader.Value);
+            //                            Voznja voz = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
+            //                            komentar.Korisnik = mu;
+            //                            komentar.Voznja = voz;
+            //                            Voznja voo = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
+            //                            voznje.Add(voo);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                        }
+            //                    }
+            //                }
+            //                else if (reader.Value == "Vozac")
+            //                {
+            //                    uloga = Uloga.Vozac;
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    godiste = int.Parse(reader.Value);
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reg = reader.Value;
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    taxibr = int.Parse(reader.Value);
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    switch (reader.Value)
+            //                    {
+            //                        case "Kombi":
+            //                            t = TipVozila.Kombi;
+            //                            break;
+            //                        case "Putnicko":
+            //                            t = TipVozila.Putnicko;
+            //                            break;
+            //                    }
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    ulica = reader.Value;
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    broj = int.Parse(reader.Value);
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    grad = reader.Value;
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    posta = int.Parse(reader.Value);
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    x = int.Parse(reader.Value);
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    y = int.Parse(reader.Value);
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    reader.Read();
+            //                    if (reader.Name.Contains("VoznjaBroj"))
+            //                    {
+            //                        while (reader.Name.Contains("VoznjaBroj"))
+            //                        {
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string datum = reader.Value;
+            //                            DateTime d = ToDate(datum);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string[] lok = reader.Value.Split(',');
+            //                            string[] ul = lok[0].Split('_');
+            //                            string[] gr = lok[1].Split('_');
+            //                            Adresa a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
+            //                            Lokacija pocetna = new Lokacija(1, 1, a);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            lok = reader.Value.Split(',');
+            //                            ul = lok[0].Split('_');
+            //                            gr = lok[1].Split('_');
+            //                            a = new Adresa(ul[0], int.Parse(ul[1]), gr[0], int.Parse(gr[1]));
+            //                            Lokacija krajnja = new Lokacija(1, 1, a);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            if (reader.Value == "Putnicko")
+            //                            {
+            //                                t = TipVozila.Putnicko;
+            //                            }
+            //                            else
+            //                            {
+            //                                t = TipVozila.Kombi;
+            //                            }
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            i = reader.Value;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            p = reader.Value;
+            //                            Musterija mu = new Musterija();
+            //                            mu.Ime = i;
+            //                            mu.Prezime = p;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            vozacI = reader.Value;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            vozacP = reader.Value;
+            //                            Vozac vozac = new Vozac();
+            //                            vozac.Ime = vozacI;
+            //                            vozac.Prezime = vozacP;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            dispecerI = reader.Value;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            dispecerP = reader.Value;
+            //                            Dispecer dispecer = new Dispecer();
+            //                            dispecer.Ime = dispecerI;
+            //                            dispecer.Prezime = dispecerP;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            switch (reader.Value)
+            //                            {
+            //                                case "Formirana":
+            //                                    status = StatusVoznje.Formirana;
+            //                                    break;
+            //                                case "Kreirana":
+            //                                    status = StatusVoznje.Kreirana;
+            //                                    break;
+            //                                case "Neuspesna":
+            //                                    status = StatusVoznje.Neuspesna;
+            //                                    break;
+            //                                case "Obradjena":
+            //                                    status = StatusVoznje.Obradjena;
+            //                                    break;
+            //                                case "Otkazana":
+            //                                    status = StatusVoznje.Otkazana;
+            //                                    break;
+            //                                case "Prihvacena":
+            //                                    status = StatusVoznje.Prihvacena;
+            //                                    break;
+            //                                case "Uspesna":
+            //                                    status = StatusVoznje.Uspesna;
+            //                                    break;
+            //                            }
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            Komentar komentar = new Komentar();
+            //                            if (reader.Value == "bez opisa")
+            //                            {
+            //                                komentar.Opis = "";
+            //                            }
+            //                            komentar.Opis = reader.Value;
+
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            string datu = reader.Value;
+            //                            komentar.Datum = ToDate(datu);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            switch (reader.Value)
+            //                            {
+            //                                case "neocenjen":
+            //                                    ocen = Ocena.neocenjen;
+            //                                    break;
+            //                                case "lose":
+            //                                    ocen = Ocena.lose;
+            //                                    break;
+            //                                case "dobro":
+            //                                    ocen = Ocena.dobro;
+            //                                    break;
+            //                                case "odlicno":
+            //                                    ocen = Ocena.odlicno;
+            //                                    break;
+            //                                case "veomaDobro":
+            //                                    ocen = Ocena.veomaDobro;
+            //                                    break;
+            //                                case "veomaLose":
+            //                                    ocen = Ocena.veomaLose;
+            //                                    break;
+
+            //                            }
+            //                            komentar.Ocena = ocen;
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            int iznos = int.Parse(reader.Value);
+            //                            Voznja voz = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
+            //                            komentar.Korisnik = mu;
+            //                            komentar.Voznja = voz;
+            //                            Voznja voo = new Voznja(d, pocetna, t, mu, krajnja, dispecer, vozac, iznos, komentar, status);
+            //                            voznje.Add(voo);
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                            reader.Read();
+            //                        }
+            //                    }
+            //                }
+
+            //                if (uloga == Uloga.Dispecer)
+            //                {
+            //                    Dispecer k = new Dispecer(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
+            //                    Musterija musterija = new Musterija();
+            //                    Vozac voz = new Vozac();
+
+            //                    foreach (Voznja vo in voznje)
+            //                    {
+            //                        vo.Dispecer = k;
+            //                        foreach (Musterija m in Registrovani.Musterije)
+            //                        {
+            //                            if (i == m.Ime && p == m.Prezime)
+            //                            {
+            //                                musterija = m;
+            //                            }
+            //                        }
+            //                        foreach (Vozac v in Registrovani.Vozaci)
+            //                        {
+            //                            if (vozacI == v.Ime && vozacP == v.Prezime)
+            //                            {
+            //                                voz = v;
+            //                            }
+            //                        }
+
+            //                        if(vo.Musterija.KorisnickoIme == null)
+            //                        {
+
+            //                        }
+            //                        else
+            //                        {
+            //                            Voznje.SveVoznje.Add(vo);
+            //                        }
 
 
-                                foreach (Dispecer d in Registrovani.SviZajedno)
-                                {
-                                    if (k.KorisnickoIme == d.KorisnickoIme)
-                                    {
-                                        postoji = true;
-                                    }
+            //                    }
+            //                    k.Voznja = voznje;
 
-                                }
+            //                    voznje = new List<Voznja>();
 
-                                if (!postoji)
-                                {
-                                    Registrovani.SviZajedno.Add(k);
-                                }
 
-                                foreach (Dispecer d in Registrovani.Dispeceri)
-                                {
-                                    if (k.KorisnickoIme == d.KorisnickoIme)
-                                    {
-                                        postojid = true;
-                                    }
-                                }
+            //                    foreach (Dispecer d in Registrovani.SviZajedno)
+            //                    {
+            //                        if (k.KorisnickoIme == d.KorisnickoIme)
+            //                        {
+            //                            postoji = true;
+            //                        }
 
-                                if (!postojid)
-                                {
-                                    Registrovani.Dispeceri.Add(k as Dispecer);
-                                }
-                            }
-                            else if (uloga == Uloga.Musterija)
-                            {
-                                Musterija m = new Musterija(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
+            //                    }
 
-                                foreach(Voznja vo in voznje)
-                                {
-                                    vo.Musterija = m;
-                                    foreach(Vozac v in Registrovani.Vozaci)
-                                    {
-                                        if(v.Ime == vozacI && v.Prezime==vozacP)
-                                        {
-                                            vo.Vozac = v;
-                                        }
-                                    }
-                                    foreach (Dispecer d in Registrovani.Dispeceri)
-                                    {
-                                        if (dispecerI == d.Ime && dispecerP == d.Prezime)
-                                        {
-                                            vo.Dispecer = d;
-                                        }
-                                    }
+            //                    if (!postoji)
+            //                    {
+            //                        Registrovani.SviZajedno.Add(k);
+            //                    }
 
-                                    Voznje.SveVoznje.Add(vo);
-                                }
-                                m.Voznja = voznje;
-                                voznje = new List<Voznja>();
-                                Korisnik k = m;
-                                Registrovani.SviZajedno.Add(k);
-                                Registrovani.Musterije.Add(m);
-                            }
-                            else if (uloga == Uloga.Vozac)
-                            {
-                                Vozac v = new Vozac(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
-                                Adresa a = new Adresa(ulica, broj, grad, posta);
-                                Lokacija l = new Lokacija(x, y, a);
-                                Automobil auto = new Automobil(v, godiste, reg, taxibr, t);
-                                v.Automobil = auto;
-                                v.Lokacija = l;
-                                Korisnik k = new Vozac(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
-                                foreach (Voznja vo in voznje)
-                                {
-                                    vo.Vozac = v;
-                                    foreach (Musterija m in Registrovani.Musterije)
-                                    {
-                                        if (i == m.Ime && p == m.Prezime)
-                                        {
-                                            vo.Musterija = m;
-                                        }
-                                    }
-                                    foreach(Dispecer d in Registrovani.Dispeceri)
-                                    {
-                                        if (dispecerI == d.Ime && dispecerP == d.Prezime)
-                                        {
-                                            vo.Dispecer = d;
-                                        }
-                                    }
-                                    Voznje.SveVoznje.Add(vo);
+            //                    foreach (Dispecer d in Registrovani.Dispeceri)
+            //                    {
+            //                        if (k.KorisnickoIme == d.KorisnickoIme)
+            //                        {
+            //                            postojid = true;
+            //                        }
+            //                    }
 
-                                }
-                                v.Voznja = voznje;
-                                k.Voznja = voznje;
-                                voznje = new List<Voznja>();
+            //                    if (!postojid)
+            //                    {
+            //                        Registrovani.Dispeceri.Add(k as Dispecer);
+            //                    }
+            //                }
+            //                else if (uloga == Uloga.Musterija)
+            //                {
+            //                    Musterija m = new Musterija(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
 
-                                Registrovani.SviZajedno.Add(k);
-                                Registrovani.Vozaci.Add(v);
-                            }
-                        }
-                    }
-                }
+            //                    foreach (Voznja vo in voznje)
+            //                    {
+            //                        vo.Musterija = m;
+            //                        foreach (Vozac v in Registrovani.Vozaci)
+            //                        {
+            //                            if (v.Ime == vozacI && v.Prezime == vozacP)
+            //                            {
+            //                                vo.Vozac = v;
+            //                            }
+            //                        }
+            //                        foreach (Dispecer d in Registrovani.Dispeceri)
+            //                        {
+            //                            if (dispecerI == d.Ime && dispecerP == d.Prezime)
+            //                            {
+            //                                vo.Dispecer = d;
+            //                            }
+            //                        }
 
-            }
+            //                        if (!Voznje.SveVoznje.Contains(vo))
+            //                        {
+            //                            Voznje.SveVoznje.Add(vo);
+            //                        }
+            //                    }
+            //                    m.Voznja = voznje;
+            //                    voznje = new List<Voznja>();
+            //                    Korisnik k = m;
+            //                    Registrovani.SviZajedno.Add(k);
+            //                    Registrovani.Musterije.Add(m);
+            //                }
+            //                else if (uloga == Uloga.Vozac)
+            //                {
+            //                    Vozac v = new Vozac(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
+            //                    Adresa a = new Adresa(ulica, broj, grad, posta);
+            //                    Lokacija l = new Lokacija(x, y, a);
+            //                    Automobil auto = new Automobil(v, godiste, reg, taxibr, t);
+            //                    v.Automobil = auto;
+            //                    v.Lokacija = l;
+            //                    Korisnik k = new Vozac(korisnicko, lozinka, ime, prezime, pol, jmbg, brTel, mail, uloga);
+            //                    foreach (Voznja vo in voznje)
+            //                    {
+            //                        vo.Vozac = v;
+            //                        foreach (Musterija m in Registrovani.Musterije)
+            //                        {
+            //                            if (i == m.Ime && p == m.Prezime)
+            //                            {
+            //                                vo.Musterija = m;
+            //                            }
+            //                        }
+            //                        foreach (Dispecer d in Registrovani.Dispeceri)
+            //                        {
+            //                            if (dispecerI == d.Ime && dispecerP == d.Prezime)
+            //                            {
+            //                                vo.Dispecer = d;
+            //                            }
+            //                        }
+            //                        if(!Voznje.SveVoznje.Contains(vo))
+            //                        {
+            //                            Voznje.SveVoznje.Add(vo);
+            //                        }
+
+            //                    }
+            //                    v.Voznja = voznje;
+            //                    k.Voznja = voznje;
+            //                    voznje = new List<Voznja>();
+
+            //                    Registrovani.SviZajedno.Add(k);
+            //                    Registrovani.Vozaci.Add(v);
+            //                }
+            //            }
+            //        }
+            //    }
+
+            //}
+            #endregion
 
 
             string line;
 
-            if(Registrovani.Dispeceri.Count == 0)
+            if (Registrovani.Dispeceri.Count == 0)
             {
                 System.IO.StreamReader file = new System.IO.StreamReader(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\dispeceri.txt");
                 while ((line = file.ReadLine()) != null)
@@ -965,8 +975,6 @@ namespace WebProjekat
                     }
                 }
             }
-            
-
         }
 
         private DateTime ToDate(string datum)

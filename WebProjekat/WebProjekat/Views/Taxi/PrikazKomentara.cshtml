@@ -1,0 +1,46 @@
+﻿@model WebProjekat.Models.Voznja
+@{
+    ViewBag.Title = "PrikazKomentara";
+}
+
+<html><head>
+    <script>
+        function goBack()
+        {
+            window.history.back();
+        }
+    </script>
+</head>
+      <body style="background-color:skyblue">
+          <div style="text-align:center">
+              <h2>Prikaz detalja vožnje naručene u @Model.DatumIVremePorudzbine</h2>
+              <table border="1">
+                  <tr>
+                      <td>Datum i vreme porudžbine</td>
+                      <td>Početna lokacija</td>
+                      <td>Željeni tip automobila</td>
+                      <td>Mušterija</td>
+                      <td>Odredište</td>
+                      <td>Dispečer</td>
+                      <td>Vozač</td>
+                      <td>Iznos</td>
+                      <td>Komentar</td>
+                      <td>Status vožnje</td>
+                  </tr>
+                  <tr>
+                      <td>@Model.DatumIVremePorudzbine.ToString()</td>
+                      <td>@Model.PocetnaLokacija.Adresa.Naziv @Model.PocetnaLokacija.Adresa.Broj,@Model.PocetnaLokacija.Adresa.Mesto @Model.PocetnaLokacija.Adresa.BrojMesta</td>
+                      <td>@Model.Tip.ToString()</td>
+                      <td>@Model.Musterija.Ime @Model.Musterija.Prezime</td>
+                      <td>@Model.Odrediste.Adresa.Naziv @Model.Odrediste.Adresa.Broj,@Model.Odrediste.Adresa.Mesto @Model.Odrediste.Adresa.BrojMesta</td>
+                      <td>@Model.Dispecer.Ime @Model.Dispecer.Prezime</td>
+                      <td>@Model.Vozac.Ime @Model.Vozac.Prezime</td>
+                      <td>@Model.Iznos.ToString()</td>
+                      <td>@Model.Komentar.Korisnik.KorisnickoIme: @Model.Komentar.Opis.<br />Ocena: @Model.Komentar.Ocena<br />Datum: @Model.Komentar.Datum.ToString()</td>
+                      <td>@Model.Status</td>
+                  </tr>
+              </table>
+          </div>
+          <button onclick="goBack()">Vrati se nazad</button>
+      </body>
+</html>

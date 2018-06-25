@@ -1,0 +1,92 @@
+﻿@model WebProjekat.Models.Voznja
+@{
+    ViewBag.Title = "VozacMenjaStatus";
+}
+
+
+<html>
+    <body style="background-color:skyblue">
+        <div style="text-align:center">
+            <h2>Menjate status za vožnju naručenu u @Model.DatumIVremePorudzbine.ToString() od strane @Model.Musterija.Ime @Model.Musterija.Prezime </h2>
+        </div>
+        <form action="/Taxi/IzmenaStatusaVozac">
+
+            <select name="status">
+                @if (Model.Status == WebProjekat.Models.StatusVoznje.Formirana)
+                {
+                    <option id="kreirana">Kreirana</option>
+                    <option id="formirana" selected>Formirana</option>
+                    <option id="obradjena">Obradjena</option>
+                    <option id="prihvacena">Prihvacena</option>
+                    <option id="Otkazana">Otkazana</option>
+                    <option id="neuspesna">Neuspesna</option>
+                    <option id="uspesna">Uspesna</option>
+                }
+                else if (Model.Status == WebProjekat.Models.StatusVoznje.Kreirana)
+                {
+                    <option id="kreirana" selected>Kreirana</option>
+                    <option id="formirana">Formirana</option>
+                    <option id="obradjena">Obradjena</option>
+                    <option id="prihvacena">Prihvacena</option>
+                    <option id="Otkazana">Otkazana</option>
+                    <option id="neuspesna">Neuspesna</option>
+                    <option id="uspesna">Uspesna</option>
+                }
+                else if (Model.Status == WebProjekat.Models.StatusVoznje.Neuspesna)
+                {
+                    <option id="kreirana">Kreirana</option>
+                    <option id="formirana">Formirana</option>
+                    <option id="obradjena">Obradjena</option>
+                    <option id="prihvacena">Prihvacena</option>
+                    <option id="Otkazana">Otkazana</option>
+                    <option id="neuspesna" selected>Neuspesna</option>
+                    <option id="uspesna">Uspesna</option>
+                }
+                else if (Model.Status == WebProjekat.Models.StatusVoznje.Obradjena)
+                {
+                    <option id="kreirana">Kreirana</option>
+                    <option id="formirana">Formirana</option>
+                    <option id="obradjena" selected>Obradjena</option>
+                    <option id="prihvacena">Prihvacena</option>
+                    <option id="Otkazana">Otkazana</option>
+                    <option id="neuspesna">Neuspesna</option>
+                    <option id="uspesna">Uspesna</option>
+                }
+                else if (Model.Status == WebProjekat.Models.StatusVoznje.Otkazana)
+                {
+                    <option id="kreirana">Kreirana</option>
+                    <option id="formirana">Formirana</option>
+                    <option id="obradjena">Obradjena</option>
+                    <option id="prihvacena">Prihvacena</option>
+                    <option id="Otkazana" selected>Otkazana</option>
+                    <option id="neuspesna">Neuspesna</option>
+                    <option id="uspesna">Uspesna</option>
+                }
+                else if (Model.Status == WebProjekat.Models.StatusVoznje.Prihvacena)
+                {
+                    <option id="kreirana">Kreirana</option>
+                    <option id="formirana">Formirana</option>
+                    <option id="obradjena">Obradjena</option>
+                    <option id="prihvacena" selected>Prihvacena</option>
+                    <option id="Otkazana">Otkazana</option>
+                    <option id="neuspesna">Neuspesna</option>
+                    <option id="uspesna">Uspesna</option>
+                }
+                else if (Model.Status == WebProjekat.Models.StatusVoznje.Uspesna)
+                {
+                    <option id="kreirana">Kreirana</option>
+                    <option id="formirana">Formirana</option>
+                    <option id="obradjena">Obradjena</option>
+                    <option id="prihvacena">Prihvacena</option>
+                    <option id="Otkazana">Otkazana</option>
+                    <option id="neuspesna">Neuspesna</option>
+                    <option id="uspesna" selected>Uspesna</option>
+                }
+            </select>
+            <input type="hidden" value="@Model.DatumIVremePorudzbine" name="datum"/>
+            <input type="hidden" value="@Model.Musterija.KorisnickoIme" name="musterija"/>
+            <input type="submit" value="Promeni"/>
+        </form>
+        
+    </body>
+</html>
