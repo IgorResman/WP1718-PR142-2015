@@ -25,6 +25,14 @@ namespace WebProjekat
             Voznje sveVoznje = new Voznje();
 
             Ucitavanje();
+
+            Musterija m = new Musterija("bojana4", "bokacar", "Bojana", "Babić", Pol.Zenski, 29079978001456, "0600239123", "babicb@gmail.com", Uloga.Musterija);
+            Registrovani.SviZajedno.Add(m);
+            Registrovani.Musterije.Add(m);
+
+            Musterija m1 = new Musterija("BoleDoktor", "bolesaadica", "Bogoljub", "Srdić", Pol.Muski, 29079908001456, "0600239123", "b.srdic@gmail.com", Uloga.Musterija);
+            Registrovani.SviZajedno.Add(m1);
+            Registrovani.Musterije.Add(m1);
         }
 
         private void Ucitavanje()
@@ -870,6 +878,8 @@ namespace WebProjekat
             #endregion
 
 
+
+
             string line;
 
             if (Registrovani.Dispeceri.Count == 0)
@@ -1038,5 +1048,8 @@ namespace WebProjekat
             return ret;
 
         }
+
+        
+        
     }
 }

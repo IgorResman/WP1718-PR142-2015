@@ -129,7 +129,9 @@
                         <form action="/Taxi/PrikaziKomentar">
                             <input type="submit" value="Prikaži vožnju" />
                             <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                            <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                            <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                            <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                            <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
                         </form>
                     </td>
                     }
@@ -139,7 +141,9 @@
                         <form action="/Taxi/PrikaziKomentar">
                             <input type="submit" value="Prikaži vožnju" />
                             <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                            <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                            <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                            <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                            <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
                         </form>
                     </td>
                     }
@@ -180,7 +184,9 @@
                             <form action="/Taxi/PrikaziKomentar">
                                 <input type="submit" value="Prikaži vožnju" />
                                 <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                                <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
                             </form>
                         }
                         else
@@ -188,7 +194,9 @@
                             <form action="/Taxi/PrikaziKomentar">
                                 <input type="submit" value="Prikaži vožnju" />
                                 <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                                <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
                             </form>
                         }
                     </td>

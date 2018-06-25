@@ -1617,14 +1617,16 @@ namespace WebProjekat.Controllers
             return View("UspesnoOtkazanaVoznja",v);
         }
 
-        public ActionResult PrikaziKomentar(string datum,string korisnik)
+        public ActionResult PrikaziKomentar(string datum,string korisnik,string vozac,string dispecer)
         {
+
+
             Voznja ret = new Voznja();
             foreach(Korisnik k in Registrovani.SviZajedno)
             {
                 foreach(Voznja v in k.Voznja)
                 {
-                    if(v.DatumIVremePorudzbine.ToString() == datum && k.KorisnickoIme == korisnik)
+                    if(v.DatumIVremePorudzbine.ToString() == datum && k.KorisnickoIme == korisnik && vozac==v.Vozac.KorisnickoIme && dispecer == v.Dispecer.KorisnickoIme)
                     {
                         ret = v;
                         break;
@@ -1632,6 +1634,133 @@ namespace WebProjekat.Controllers
                 }
             }
             return View("PrikazKomentara",ret);
+        }
+
+        public ActionResult FiltriraMusterija(string filterStatus,string musterija)
+        {
+            Musterija ret = new Musterija();
+            foreach(Musterija m in Registrovani.Musterije)
+            {
+                if(m.KorisnickoIme == musterija)
+                {
+                    ret = m;
+                }
+            }
+            ret.Filter = true;
+
+            StatusVoznje status = StatusVoznje.Formirana;
+
+            switch(filterStatus)
+            {
+                case "Formirana":
+                    status = StatusVoznje.Formirana;
+                    break;
+                case "Kreirana":
+                    status = StatusVoznje.Kreirana;
+                    break;
+                case "Neuspešna":
+                    status = StatusVoznje.Neuspesna;
+                    break;
+                case "Uspešna":
+                    status = StatusVoznje.Uspesna;
+                    break;
+                case "Prihvaćena":
+                    status = StatusVoznje.Prihvacena;
+                    break;
+                case "Otkazana":
+                    status = StatusVoznje.Otkazana;
+                    break;
+                case "Obrađena":
+                    status = StatusVoznje.Obradjena;
+                    break;
+            }
+
+            foreach(Voznja v in ret.Voznja)
+            {
+                if(v.Status == status)
+                {
+                    ret.Filtrirane.Add(v);
+                }
+            }
+
+            return View("musterijaWelcome",ret);
+        }
+
+        public ActionResult SoriraMusterija(string datum,string ocena,string musterija)
+        {
+            Musterija ret = new Musterija();
+            foreach (Musterija m in Registrovani.Musterije)
+            {
+                if (m.KorisnickoIme == musterija)
+                {
+                    ret = m;
+                }
+            }
+
+            ret.Sortiranje = true;
+
+            if(ret.Filter)
+            {
+                ret.Sortirane = ret.Filtrirane;
+            }
+            else if(ret.Pretrazivanje)
+            {
+                ret.Sortirane = ret.Pretrazene;
+            }
+            else
+            {
+                foreach (Voznja v in ret.Voznja)
+                {
+                    ret.Sortirane.Add(v);
+                }
+            }
+
+            bool dat = false;
+            bool oc = false;
+
+            if(datum != null)
+            {
+                dat = true;
+            }
+
+            if(ocena != null)
+            {
+                oc = true;
+            }
+
+            if(dat)
+            {
+                ret.Sortirane = ret.Voznja.OrderBy(o => o.DatumIVremePorudzbine).ToList();
+            }
+            else if(oc)
+            {
+                ret.Sortirane = ret.Voznja.OrderBy(o => o.Komentar.Ocena).ToList();
+            }
+
+
+            return View("musterijaWelcome",ret);
+        }
+
+        public ActionResult PonistiFilter(string musterija)
+        {
+            Musterija ret = new Musterija();
+            foreach (Musterija m in Registrovani.Musterije)
+            {
+                if (m.KorisnickoIme == musterija)
+                {
+                    ret = m;
+                }
+            }
+
+            ret.Filter = false;
+            ret.Sortiranje = false;
+            ret.Pretrazivanje = false;
+
+            ret.Filtrirane = new List<Voznja>();
+            ret.Sortirane = new List<Voznja>();
+            ret.Pretrazene = new List<Voznja>();
+
+            return View("musterijaWelcome",ret);
         }
     }
 }
