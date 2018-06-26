@@ -1,0 +1,19 @@
+﻿<Voznje>
+	<Voznja>
+		<DatumPorudzbine>26-Jun-18 19:06:39</DatumPorudzbine>
+		<PocetnaLokacija>Pavla Bakića_2,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+		<TipVozila>Putnicko</TipVozila>
+		<MusterijaIme>Bojana</MusterijaIme>
+		<MusterijaPrezime>Babić</MusterijaPrezime>
+		<VozacIme>Aleksandra</VozacIme>
+		<VozacPrezime>Resman</VozacPrezime>
+		<DispecerIme>Igor</DispecerIme>
+		<DispececrPrezime>Resman</DispececrPrezime>
+		<Status>Obradjena</Status>
+		<KomentarOpis>bez opisa</KomentarOpis>
+		<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
+		<KomentarOcena>neocenjen</KomentarOcena>
+		<Iznos>0</Iznos>
+	</Voznja>
+</Voznje>

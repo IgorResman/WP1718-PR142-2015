@@ -239,6 +239,7 @@
     <Content Include="Views\Taxi\vozacOstavljaKomentar.cshtml" />
     <Content Include="Views\Taxi\vozacUspesnaVoznja.cshtml" />
     <Content Include="Views\Taxi\PrikazKomentara.cshtml" />
+    <Content Include="Views\Taxi\GreskaTrazenje.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

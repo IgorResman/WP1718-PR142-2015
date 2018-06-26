@@ -18,6 +18,10 @@ namespace WebProjekat.Models
             a.BrojMesta = 21000;
             a.Mesto = "Novi Sad";
             Lokacija l = new Lokacija(4, 7, a);
+            Voznja = new List<Voznja>();
+            Filtrirane = new List<Voznja>();
+            Sortirane = new List<Voznja>();
+            Pretrazene = new List<Voznja>();
         }
         public Vozac(string user, string pass, string ime, string prezime, Pol pol, long jmbg, string broj, string mail, Uloga ul)
         {
@@ -31,7 +35,9 @@ namespace WebProjekat.Models
             Mail = mail;
             Uloga = ul;
             Voznja = new List<Voznja>();
-
+            Filtrirane = new List<Voznja>();
+            Sortirane = new List<Voznja>();
+            Pretrazene = new List<Voznja>();
             Adresa a = new Adresa();
             a.Naziv = "Narodnog fronta";
             a.Broj = 67;

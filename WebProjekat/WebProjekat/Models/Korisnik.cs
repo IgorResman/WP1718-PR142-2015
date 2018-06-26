@@ -18,6 +18,13 @@ namespace WebProjekat.Models
         public Uloga Uloga { get; set; }
         public List<Voznja> Voznja { get; set; }
         public bool Ulogovan { get; set; }
+        public bool Filter { get; set; } = false;
+        public bool Sortiranje { get; set; } = false;
+        public bool Pretrazivanje { get; set; } = false;
+
+        public List<Voznja> Filtrirane { get; set; }
+        public List<Voznja> Sortirane { get; set; }
+        public List<Voznja> Pretrazene { get; set; }
 
         public Korisnik(string user,string pass,string ime,string prezime,Pol pol ,long jmbg,string broj,string mail,Uloga ul)
         {
@@ -32,12 +39,18 @@ namespace WebProjekat.Models
             Uloga = ul;
             Voznja = new List<Voznja>();
             Ulogovan = false;
+            Filtrirane = new List<Voznja>();
+            Sortirane = new List<Voznja>();
+            Pretrazene = new List<Voznja>();
         }
 
         public Korisnik()
         {
             Voznja = new List<Voznja>();
             Ulogovan = false;
+            Filtrirane = new List<Voznja>();
+            Sortirane = new List<Voznja>();
+            Pretrazene = new List<Voznja>();
 
         }
 

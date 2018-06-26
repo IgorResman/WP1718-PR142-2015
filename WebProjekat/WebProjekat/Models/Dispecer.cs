@@ -7,10 +7,21 @@ namespace WebProjekat.Models
 {
     public class Dispecer:Korisnik
     {
+
+        public bool TraziVozac { get; set; } = false;
+        public bool TraziMusteriju { get; set; } = false;
+
+        public List<Voznja> NadjeniVozaci { get; set; }
+        public List<Voznja> NadjeneMusterije { get; set; }
         public Dispecer()
         {
+            NadjeniVozaci = new List<Voznja>();
+            NadjeneMusterije = new List<Voznja>();
             Voznja = new List<Voznja>();
             Ulogovan = false;
+            Filtrirane = new List<Voznja>();
+            Sortirane = new List<Voznja>();
+            Pretrazene = new List<Voznja>();
 
         }
         public Dispecer(string user, string pass, string ime, string prezime, Pol pol, long jmbg, string broj, string mail, Uloga ul)
@@ -26,6 +37,11 @@ namespace WebProjekat.Models
             Uloga = ul;
             Voznja = new List<Voznja>();
             Ulogovan = false;
+            Filtrirane = new List<Voznja>();
+            Sortirane = new List<Voznja>();
+            NadjeniVozaci = new List<Voznja>();
+            NadjeneMusterije = new List<Voznja>();
+            Pretrazene = new List<Voznja>();
 
         }
     }

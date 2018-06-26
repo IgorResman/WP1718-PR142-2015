@@ -37,7 +37,7 @@ namespace WebProjekat
 
         private void Ucitavanje()
         {
-            #region
+            #region ucitavanje
             //if (File.Exists(@"D:\fakultet\III godina\WEB\Projekat\WP1718-PR142-2015\WebProjekat\WebProjekat\baza.xml"))
             //{
             //    string ime;
@@ -876,10 +876,6 @@ namespace WebProjekat
 
             //}
             #endregion
-
-
-
-
             string line;
 
             if (Registrovani.Dispeceri.Count == 0)
