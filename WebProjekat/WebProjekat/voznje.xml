@@ -84,4 +84,21 @@
 		<KomentarOcena>lose</KomentarOcena>
 		<Iznos>450</Iznos>
 	</Voznja>
+	<Voznja>
+		<DatumPorudzbine>28-Jun-18 0:17:24</DatumPorudzbine>
+		<PocetnaLokacija>Pavla Bakića_2,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+		<TipVozila>Putnicko</TipVozila>
+		<MusterijaIme>Bojana</MusterijaIme>
+		<MusterijaPrezime>Babić</MusterijaPrezime>
+		<VozacIme>nema</VozacIme>
+		<VozacPrezime>nema</VozacPrezime>
+		<DispecerIme>nema</DispecerIme>
+		<DispececrPrezime>nema</DispececrPrezime>
+		<Status>Otkazana</Status>
+		<KomentarOpis>Ipak mi ne treba taksi</KomentarOpis>
+		<KomentarDatum>28-Jun-18 0:17:37</KomentarDatum>
+		<KomentarOcena>neocenjen</KomentarOcena>
+		<Iznos>0</Iznos>
+	</Voznja>
 </Voznje>

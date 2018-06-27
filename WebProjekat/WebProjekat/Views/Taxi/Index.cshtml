@@ -47,7 +47,9 @@
             <script>validateLogin()</script>
 
             <h3>Nemate nalog?</h3>
-            @Html.ActionLink("Registrujte se ovde!", "Registracija")
+            <form action="/Taxi/Registracija">
+                <input type="submit" value="Registrujte se ovde!"/>
+            </form>
         </div>
     </body>
 </html>
