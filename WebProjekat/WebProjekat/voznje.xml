@@ -67,4 +67,21 @@
 		<KomentarOcena>neocenjen</KomentarOcena>
 		<Iznos>0</Iznos>
 	</Voznja>
+	<Voznja>
+		<DatumPorudzbine>27-Jun-18 16:44:49</DatumPorudzbine>
+		<PocetnaLokacija>Pavla Bakića_2,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Novi Sad_5,Novi Sad_21000</KrajnjaLokacija>
+		<TipVozila>Putnicko</TipVozila>
+		<MusterijaIme>Maja</MusterijaIme>
+		<MusterijaPrezime>Resman</MusterijaPrezime>
+		<VozacIme>Aleksandra</VozacIme>
+		<VozacPrezime>Resman</VozacPrezime>
+		<DispecerIme>Igor</DispecerIme>
+		<DispececrPrezime>Resman</DispececrPrezime>
+		<Status>Uspesna</Status>
+		<KomentarOpis>Brzo stigla ali je vozac bio izuzetno neprijatan</KomentarOpis>
+		<KomentarDatum>27-Jun-18 17:02:54</KomentarDatum>
+		<KomentarOcena>lose</KomentarOcena>
+		<Iznos>450</Iznos>
+	</Voznja>
 </Voznje>

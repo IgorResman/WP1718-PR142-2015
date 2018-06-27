@@ -2024,6 +2024,7 @@ namespace WebProjekat.Controllers
 
         public ActionResult TraziVozaca(string vozacI, string vozacP, string korisnik)
         {
+            bool popunjenaPomocna = false;
             List<Voznja> pomocna = new List<Voznja>();
             Dispecer ret = new Dispecer();
             foreach(Dispecer d in Registrovani.Dispeceri)
@@ -2039,21 +2040,29 @@ namespace WebProjekat.Controllers
             if (ret.Filter)
             {
                 pomocna = ret.Filtrirane;
+                popunjenaPomocna = true;
             }
             else if (ret.Sortiranje)
             {
                 pomocna = ret.Sortirane;
-            }
-            else
-            {
-                foreach (Voznja voz in ret.Voznja)
-                {
-                    pomocna.Add(voz);
-                }
+                popunjenaPomocna = true;
             }
 
             if (vozacI != "" && vozacP != "")
             {
+                if(!popunjenaPomocna)
+                {
+                    foreach(Vozac vozac in Registrovani.Vozaci)
+                    {
+                        if(vozac.Ime == vozacI && vozacP == vozac.Prezime)
+                        {
+                            foreach(Voznja voz in vozac.Voznja)
+                            {
+                                pomocna.Add(voz);
+                            }
+                        }
+                    }
+                }
                 foreach(Voznja v in pomocna)
                 {
                     if(v.Vozac.Ime == vozacI && v.Vozac.Prezime == vozacP)
@@ -2064,6 +2073,19 @@ namespace WebProjekat.Controllers
             }
             else if(vozacP == "" && vozacI !="")
             {
+                if (!popunjenaPomocna)
+                {
+                    foreach (Vozac vozac in Registrovani.Vozaci)
+                    {
+                        if (vozac.Ime == vozacI)
+                        {
+                            foreach (Voznja voz in vozac.Voznja)
+                            {
+                                pomocna.Add(voz);
+                            }
+                        }
+                    }
+                }
                 foreach (Voznja v in pomocna)
                 {
                     if (v.Vozac.Ime == vozacI)
@@ -2074,6 +2096,19 @@ namespace WebProjekat.Controllers
             }
             else if(vozacI == "" && vozacP !="" )
             {
+                if (!popunjenaPomocna)
+                {
+                    foreach (Vozac vozac in Registrovani.Vozaci)
+                    {
+                        if (vozacP == vozac.Prezime)
+                        {
+                            foreach (Voznja voz in vozac.Voznja)
+                            {
+                                pomocna.Add(voz);
+                            }
+                        }
+                    }
+                }
                 foreach (Voznja v in pomocna)
                 {
                     if (v.Vozac.Prezime == vozacP)
@@ -2088,6 +2123,7 @@ namespace WebProjekat.Controllers
 
         public ActionResult TraziMusteriju(string musterijaI,string musterijaP,string korisnik)
         {
+            bool popunjenaPomocna = false;
             List<Voznja> pomocna = new List<Voznja>();
             Dispecer ret = new Dispecer();
             foreach (Dispecer d in Registrovani.Dispeceri)
@@ -2102,49 +2138,89 @@ namespace WebProjekat.Controllers
             if (ret.Filter)
             {
                 pomocna = ret.Filtrirane;
+                popunjenaPomocna = true;
             }
             else if (ret.Sortiranje)
             {
                 pomocna = ret.Sortirane;
+                popunjenaPomocna = true;
             }
             else if(ret.TraziVozac)
             {
                 pomocna = ret.NadjeniVozaci;
+                popunjenaPomocna = true;
             }
-            else
-            {
-                foreach (Voznja voz in ret.Voznja)
-                {
-                    pomocna.Add(voz);
-                }
-            }
+
             if (musterijaI != "" && musterijaP != "")
             {
+                if(!popunjenaPomocna)
+                {
+                    foreach (Musterija m in Registrovani.Musterije)
+                    {
+                        if (m.Ime == musterijaI && m.Prezime == musterijaP)
+                        {
+                            foreach (Voznja v in m.Voznja)
+                            {
+                                pomocna.Add(v);
+                            }
+                        }
+                    }
+                }
+                
+
                 foreach (Voznja v in pomocna)
                 {
                     if (v.Musterija.Ime == musterijaI && v.Musterija.Prezime == musterijaP)
                     {
-                        ret.NadjeniVozaci.Add(v);
+                        ret.NadjeneMusterije.Add(v);
                     }
                 }
             }
             else if (musterijaP == "" && musterijaI != "")
             {
+                if(!popunjenaPomocna)
+                {
+                    foreach (Musterija m in Registrovani.Musterije)
+                    {
+                        if (m.Ime == musterijaI)
+                        {
+                            foreach (Voznja v in m.Voznja)
+                            {
+                                pomocna.Add(v);
+                            }
+                        }
+                    }
+                }
+                
+
                 foreach (Voznja v in pomocna)
                 {
                     if (v.Musterija.Ime == musterijaI)
                     {
-                        ret.NadjeniVozaci.Add(v);
+                        ret.NadjeneMusterije.Add(v);
                     }
                 }
             }
             else if (musterijaI == "" && musterijaP != "")
             {
+                if(!popunjenaPomocna)
+                {
+                    foreach (Musterija m in Registrovani.Musterije)
+                    {
+                        if (m.Prezime == musterijaP)
+                        {
+                            foreach (Voznja v in m.Voznja)
+                            {
+                                pomocna.Add(v);
+                            }
+                        }
+                    }
+                }
                 foreach (Voznja v in pomocna)
                 {
                     if (v.Musterija.Prezime == musterijaP)
                     {
-                        ret.NadjeniVozaci.Add(v);
+                        ret.NadjeneMusterije.Add(v);
                     }
                 }
             }
