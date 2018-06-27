@@ -739,31 +739,6 @@
                     <tr>
                         <td>Početna lokacija</td>
                         <td><label>@v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj ,@v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta</label></td>
-                        @if (v.Status == WebProjekat.Models.StatusVoznje.Uspesna && v.Musterija.KorisnickoIme != null)
-                        {
-                            <td>
-                                <form action="/Taxi/UspesnoOtkazanaVoznja">
-                                    <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
-                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                    <input type="submit" value="Ostavi komentar" />
-                                </form>
-                            </td>
-                        }
-                        @if (v.Status == WebProjekat.Models.StatusVoznje.Kreirana)
-                        {
-                            <td>
-                                <form action="/Taxi/OtazujeMusterija">
-                                    <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
-                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                    <input type="submit" value="Otkaži vožnju!" />
-                                </form>
-                                <form action="/Taxi/IzmeniVoznjuMusterija">
-                                    <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
-                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                    <input type="submit" value="Izmeni vožnju" />
-                                </form>
-                            </td>
-                        }
                         <td>
                             <form action="/Taxi/PrikaziKomentar">
                                 <input type="submit" value="Prikaži vožnju" />

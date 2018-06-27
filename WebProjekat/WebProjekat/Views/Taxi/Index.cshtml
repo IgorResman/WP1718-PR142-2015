@@ -3,11 +3,16 @@
     ViewBag.Title = "Index";
 }
 <html>
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
     <body style="background-color:skyblue">
         <div style="text-align:center">
             <h2 accesskey="">Dobrodošli na stranicu "Plavi taxi"</h2>
 
-            <form method="post" action="/Taxi/Uloguj">
+            <form method="post" id="loginForm" action="/Taxi/Uloguj">
                     <table align="center" border="1">
                         <tr>
                             <td colspan="2" align="center">Ulogujte se</td>
@@ -17,8 +22,9 @@
                                 Korisnicko ime:
                             </td>
                             <td>
-                                <div style="background-color:antiquewhite">
-                                    <input type="text" name="korisnickoIme"/>
+                                <div>
+                                    <input type="text" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 4 karaktera" data-val-length-max="20" data-val-length-min="4" data-val-required="Korisničko ime je obavezno za unos" name="korisnickoIme" />
+                                    <span class="text-danger field-validation-error" data-valmsg-for="korisnickoIme" data-valmsg-replace="true"></span>
                                 </div>
                             </td>
                         </tr>
@@ -27,8 +33,9 @@
                                 Lozinka:
                             </td>
                             <td>
-                                <div style="background-color:antiquewhite">
-                                <input type="password" name="lozinka"/>
+                                <div>
+                                    <input type="password" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 5 karaktera" data-val-length-max="20" data-val-length-min="5" data-val-required="Lozinka je obavezna za unos" name="lozinka" />
+                                    <span class="text-danger field-validation-error" data-valmsg-for="lozinka" data-valmsg-replace="true"></span>
                                 </div>
                             </td>
                         </tr>
@@ -37,6 +44,7 @@
                         </tr>
                     </table>
             </form>
+            <script>validateLogin()</script>
 
             <h3>Nemate nalog?</h3>
             @Html.ActionLink("Registrujte se ovde!", "Registracija")

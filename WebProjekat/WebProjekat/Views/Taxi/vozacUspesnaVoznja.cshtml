@@ -4,18 +4,29 @@
 }
 
 <html>
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
     <body style="background-color:skyblue">
         <div style="text-align:center">
             <h2>Popunite sledeće podatke</h2>
             <form action="/Taxi/UspesnaVoznjaVozac">
-                <table>
+                <table border="1">
                     <tr>
                         <td>Odredište(ulica,broj,grad,poštanski broj)</td>
-                        <td><input type="text" name="ulica" /></td>
-                        <td><input type="text" name="broj" /></td>
-                        <td><input type="text" name="grad" /></td>
-                        <td><input type="text" name="posta" /></td>
-                        
+                        <td><input type="text" name="ulica"  data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 4 karaktera" data-val-length-max="25" data-val-length-min="4" data-val-required="Ovo polje je neophodno popuniti"/></td>
+                        <td><input type="text" name="broj"  data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 1 karaktera" data-val-length-max="25" data-val-length-min="1" data-val-required="Ovo polje je neophodno popuniti"/></td>
+                        <td><input type="text" name="grad"  data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 4 karaktera" data-val-length-max="25" data-val-length-min="4" data-val-required="Ovo polje je neophodno popuniti"/></td>
+                        <td><input type="text" name="posta"  data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 5 karaktera" data-val-length-max="25" data-val-length-min="5" data-val-required="Ovo polje je neophodno popuniti"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><span class="text-danger field-validation-error" data-valmsg-for="ulica" data-valmsg-replace="true"></span></td>
+                        <td><span class="text-danger field-validation-error" data-valmsg-for="broj" data-valmsg-replace="true"></span></td>
+                        <td><span class="text-danger field-validation-error" data-valmsg-for="grad" data-valmsg-replace="true"></span></td>
+                        <td><span class="text-danger field-validation-error" data-valmsg-for="posta" data-valmsg-replace="true"></span></td>
                     </tr>
                     <tr>
                         <td>Iznos</td>

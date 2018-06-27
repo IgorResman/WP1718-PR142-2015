@@ -4,6 +4,11 @@
 }
 
 <html>
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
 <body style="background-color:skyblue">
     <div style="text-align:center">
         <h2><b>Izmena vožnje</b></h2>
@@ -13,13 +18,28 @@
     <br />
 
     <form action="/Taxi/IzmenilaMusterija">
-        <table>
+        <table border="1">
             <tr>
                 <td><b>Vaša lokacija(ulica,broj,mesto,postanški broj)</b></td>
-                <td><input type="text" name="ulica" value="@Model.PocetnaLokacija.Adresa.Naziv" /></td>
-                <td><input type="text" name="broj" value="@Model.PocetnaLokacija.Adresa.Broj"/></td>
-                <td><input type="text" name="mesto" value="@Model.PocetnaLokacija.Adresa.Mesto"/></td>
-                <td><input type="text" name="postanski" value="@Model.PocetnaLokacija.Adresa.BrojMesta"/></td>
+                <td><input type="text" name="ulica" value="@Model.PocetnaLokacija.Adresa.Naziv"  data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 4 karaktera" data-val-length-max="25" data-val-length-min="4" data-val-required="Ovo polje je neophodno popuniti"/></td>
+                <td><input type="text" name="broj" value="@Model.PocetnaLokacija.Adresa.Broj" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 1 karaktera" data-val-length-max="25" data-val-length-min="1" data-val-required="Ovo polje je neophodno popuniti"/></td>
+                <td><input type="text" name="mesto" value="@Model.PocetnaLokacija.Adresa.Mesto" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 4 karaktera" data-val-length-max="25" data-val-length-min="4" data-val-required="Ovo polje je neophodno popuniti"/></td>
+                <td><input type="text" name="postanski" value="@Model.PocetnaLokacija.Adresa.BrojMesta" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 5 karaktera" data-val-length-max="25" data-val-length-min="5" data-val-required="Ovo polje je neophodno popuniti"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <span class="text-danger field-validation-error" data-valmsg-for="ulica" data-valmsg-replace="true"></span>
+                </td>
+                <td>
+                    <span class="text-danger field-validation-error" data-valmsg-for="broj" data-valmsg-replace="true"></span>
+                </td>
+                <td>
+                    <span class="text-danger field-validation-error" data-valmsg-for="mesto" data-valmsg-replace="true"></span>
+                </td>
+                <td>
+                    <span class="text-danger field-validation-error" data-valmsg-for="postanski" data-valmsg-replace="true"></span>
+                </td>
             </tr>
             <tr>
                 <td>

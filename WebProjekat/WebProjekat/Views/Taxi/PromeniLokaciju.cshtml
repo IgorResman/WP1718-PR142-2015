@@ -4,6 +4,11 @@
 }
 
 <html>
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
     <body style="background-color:skyblue">
         <div style="text-align:center">
             <h2>Izmena lokacije</h2>
@@ -15,39 +20,50 @@
                     <tr>
                         <td>X koordinata:</td>
                         <td>
-                            <input type="text" name="x" />
+                            <input type="text" name="x" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 1 karakter" data-val-length-max="25" data-val-length-min="1" data-val-required="Ovo polje je neophodno popuniti" />
+                            <span class="text-danger field-validation-error" data-valmsg-for="x" data-valmsg-replace="true"></span>
+
                         </td>
                     </tr>
                     <tr>
                         <td>Y koordinata:</td>
                         <td>
-                            <input type="text" name="y" />
+                            <input type="text" name="y" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 1 karakter" data-val-length-max="25" data-val-length-min="1" data-val-required="Ovo polje je neophodno popuniti" />
+                            <span class="text-danger field-validation-error" data-valmsg-for="y" data-valmsg-replace="true"></span>
+
                         </td>
                     </tr>
                     <tr>
                         <td>Naziv ulice:</td>
                         <td>
-                            <input type="text" name="ulica" />
+                            <input type="text" name="ulica" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 4 karaktera" data-val-length-max="25" data-val-length-min="4" data-val-required="Ovo polje je neophodno popuniti" />
+                            <span class="text-danger field-validation-error" data-valmsg-for="ulica" data-valmsg-replace="true"></span>
+
                         </td>
                     </tr>
 
                     <tr>
                         <td>Broj:</td>
                         <td>
-                            <input type="text" name="broj" />
+                            <input type="text" name="broj" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 1 karaktera" data-val-length-max="25" data-val-length-min="1" data-val-required="Ovo polje je neophodno popuniti" />
+                            <span class="text-danger field-validation-error" data-valmsg-for="broj" data-valmsg-replace="true"></span>
+
                         </td>
                     </tr>
                     <tr>
                         <td>Grad:</td>
                         <td>
-                            <input type="text" name="grad" />
+                            <input type="text" name="grad" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 4 karaktera" data-val-length-max="25" data-val-length-min="4" data-val-required="Ovo polje je neophodno popuniti" />
+                            <span class="text-danger field-validation-error" data-valmsg-for="grad" data-valmsg-replace="true"></span>
+
                         </td>
                     </tr>
 
                     <tr>
                         <td>Pozivni broj mesta:</td>
                         <td>
-                            <input type="text" name="pozivni" />
+                            <input type="text" name="pozivni" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 5 karaktera" data-val-length-max="25" data-val-length-min="4" data-val-required="Ovo polje je neophodno popuniti" />
+                            <span class="text-danger field-validation-error" data-valmsg-for="pozivni" data-valmsg-replace="true"></span>
                         </td>
                     </tr>
                     <tr>
