@@ -1,18 +1,69 @@
 ﻿<Voznje>
 	<Voznja>
-		<DatumPorudzbine>26-Jun-18 19:06:39</DatumPorudzbine>
-		<PocetnaLokacija>Pavla Bakića_2,Novi Sad_21000</PocetnaLokacija>
+		<DatumPorudzbine>27-Jun-18 14:04:19</DatumPorudzbine>
+		<PocetnaLokacija>Temerinski put_7,Novi Sad_21000</PocetnaLokacija>
 		<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
-		<TipVozila>Putnicko</TipVozila>
+		<TipVozila>Kombi</TipVozila>
 		<MusterijaIme>Bojana</MusterijaIme>
 		<MusterijaPrezime>Babić</MusterijaPrezime>
-		<VozacIme>Aleksandra</VozacIme>
-		<VozacPrezime>Resman</VozacPrezime>
+		<VozacIme>Aleksandar</VozacIme>
+		<VozacPrezime>Jančikin</VozacPrezime>
 		<DispecerIme>Igor</DispecerIme>
 		<DispececrPrezime>Resman</DispececrPrezime>
 		<Status>Obradjena</Status>
 		<KomentarOpis>bez opisa</KomentarOpis>
 		<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
+		<KomentarOcena>neocenjen</KomentarOcena>
+		<Iznos>0</Iznos>
+	</Voznja>
+	<Voznja>
+		<DatumPorudzbine>27-Jun-18 14:04:39</DatumPorudzbine>
+		<PocetnaLokacija>Pavla Bakića_2,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Novi Sad_7,Novi Sad_21000</KrajnjaLokacija>
+		<TipVozila>Putnicko</TipVozila>
+		<MusterijaIme>Bogoljub</MusterijaIme>
+		<MusterijaPrezime>Srdić</MusterijaPrezime>
+		<VozacIme>Aleksandra</VozacIme>
+		<VozacPrezime>Resman</VozacPrezime>
+		<DispecerIme>Luka</DispecerIme>
+		<DispececrPrezime>Bosanac</DispececrPrezime>
+		<Status>Uspesna</Status>
+		<KomentarOpis>Izuzetno prijatna voznja</KomentarOpis>
+		<KomentarDatum>27-Jun-18 14:48:04</KomentarDatum>
+		<KomentarOcena>odlicno</KomentarOcena>
+		<Iznos>450</Iznos>
+	</Voznja>
+	<Voznja>
+		<DatumPorudzbine>27-Jun-18 14:05:07</DatumPorudzbine>
+		<PocetnaLokacija>Narodnog fronta_47,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+		<TipVozila>Putnicko</TipVozila>
+		<MusterijaIme>Maja</MusterijaIme>
+		<MusterijaPrezime>Resman</MusterijaPrezime>
+		<VozacIme>Goran</VozacIme>
+		<VozacPrezime>Resman</VozacPrezime>
+		<DispecerIme>Petar</DispecerIme>
+		<DispececrPrezime>Varga</DispececrPrezime>
+		<Status>Obradjena</Status>
+		<KomentarOpis>bez opisa</KomentarOpis>
+		<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
+		<KomentarOcena>neocenjen</KomentarOcena>
+		<Iznos>0</Iznos>
+	</Voznja>
+	<Voznja>
+		<DatumPorudzbine>27-Jun-18 14:53:58</DatumPorudzbine>
+		<PocetnaLokacija>Bulevar Cara Dušana_2,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+		<TipVozila>Putnicko</TipVozila>
+		<MusterijaIme>Bogoljub</MusterijaIme>
+		<MusterijaPrezime>Srdić</MusterijaPrezime>
+		<VozacIme>Aleksandra</VozacIme>
+		<VozacPrezime>Resman</VozacPrezime>
+		<DispecerIme>nema</DispecerIme>
+		<DispececrPrezime>nema</DispececrPrezime>
+		<Status>Neuspesna</Status>
+		<KomentarOpis>Pukla mi je guma na automobilu u toku voznje</KomentarOpis>
+		<KomentarDatum>27-Jun-18 14:55:30</KomentarDatum>
 		<KomentarOcena>neocenjen</KomentarOcena>
 		<Iznos>0</Iznos>
 	</Voznja>

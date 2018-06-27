@@ -9,7 +9,6 @@
 		<E-Mail>igor.resman@gmail.com</E-Mail>
 		<BrojTelefona>0613764512</BrojTelefona>
 		<Uloga>Dispecer</Uloga>
-		<Voznje />
 	</Korisnik>
 	<Korisnik>
 		<Ime>Petar</Ime>
@@ -21,7 +20,6 @@
 		<E-Mail>petar.varga@hotmail.com</E-Mail>
 		<BrojTelefona>0632154567</BrojTelefona>
 		<Uloga>Dispecer</Uloga>
-		<Voznje />
 	</Korisnik>
 	<Korisnik>
 		<Ime>Luka</Ime>
@@ -33,31 +31,6 @@
 		<E-Mail>lukaBosanac.996@gmail.com</E-Mail>
 		<BrojTelefona>0649546218</BrojTelefona>
 		<Uloga>Dispecer</Uloga>
-		<Voznje />
-	</Korisnik>
-	<Korisnik>
-		<Ime>Bojana</Ime>
-		<Prezime>Babić</Prezime>
-		<Jmbg>29079978001456</Jmbg>
-		<KorisnickoIme>bojana4</KorisnickoIme>
-		<Lozinka>bokacar</Lozinka>
-		<Pol>Zenski</Pol>
-		<E-Mail>babicb@gmail.com</E-Mail>
-		<BrojTelefona>0600239123</BrojTelefona>
-		<Uloga>Musterija</Uloga>
-		<Voznje />
-	</Korisnik>
-	<Korisnik>
-		<Ime>Bogoljub</Ime>
-		<Prezime>Srdić</Prezime>
-		<Jmbg>29079908001456</Jmbg>
-		<KorisnickoIme>BoleDoktor</KorisnickoIme>
-		<Lozinka>bolesaadica</Lozinka>
-		<Pol>Muski</Pol>
-		<E-Mail>b.srdic@gmail.com</E-Mail>
-		<BrojTelefona>0600239123</BrojTelefona>
-		<Uloga>Musterija</Uloga>
-		<Voznje />
 	</Korisnik>
 	<Korisnik>
 		<Ime>Aleksandra</Ime>
@@ -67,21 +40,129 @@
 		<Lozinka>232323</Lozinka>
 		<Pol>Zenski</Pol>
 		<E-Mail>saska.resman@gmail.com</E-Mail>
-		<BrojTelefona>0600239423</BrojTelefona>
+		<BrojTelefona>0600239123</BrojTelefona>
 		<Uloga>Vozac</Uloga>
 		<Automobil>
 			<Godiste>2002</Godiste>
-			<Registracija>NS-1544-AR</Registracija>
+			<Registracija>NS-152-AR</Registracija>
 			<TaxiBroj>2323</TaxiBroj>
 			<TipVozila>Putnicko</TipVozila>
 		</Automobil>
 		<Adresa>
-			<NazivUlice>Narodnog fronta</NazivUlice>
-			<BrojUlice>67</BrojUlice>
+			<NazivUlice>Modene</NazivUlice>
+			<BrojUlice>7</BrojUlice>
+			<Grad>Novi Sad</Grad>
+			<PostanskiBroj>21000</PostanskiBroj>
+			<X>45</X>
+			<Y>88</Y>
+		</Adresa>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Bogdan</Ime>
+		<Prezime>Kovačev</Prezime>
+		<Jmbg>2004996800154</Jmbg>
+		<KorisnickoIme>bosha96</KorisnickoIme>
+		<Lozinka>karavukovo</Lozinka>
+		<Pol>Muski</Pol>
+		<E-Mail>bosha.kovachev@gmail.com</E-Mail>
+		<BrojTelefona>063524892</BrojTelefona>
+		<Uloga>Vozac</Uloga>
+		<Automobil>
+			<Godiste>2009</Godiste>
+			<Registracija>NS-777-BK</Registracija>
+			<TaxiBroj>78</TaxiBroj>
+			<TipVozila>Kombi</TipVozila>
+		</Automobil>
+		<Adresa>
+			<NazivUlice>Temerinski put</NazivUlice>
+			<BrojUlice>22</BrojUlice>
 			<Grad>Novi Sad</Grad>
 			<PostanskiBroj>21000</PostanskiBroj>
 			<X>4</X>
 			<Y>7</Y>
 		</Adresa>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Aleksandar</Ime>
+		<Prezime>Jančikin</Prezime>
+		<Jmbg>2405996800144</Jmbg>
+		<KorisnickoIme>ajsrb</KorisnickoIme>
+		<Lozinka>apialeksandar</Lozinka>
+		<Pol>Muski</Pol>
+		<E-Mail>api.jancikin@hotmail.com</E-Mail>
+		<BrojTelefona>06459484521</BrojTelefona>
+		<Uloga>Vozac</Uloga>
+		<Automobil>
+			<Godiste>2015</Godiste>
+			<Registracija>NS-SRB AJ</Registracija>
+			<TaxiBroj>23</TaxiBroj>
+			<TipVozila>Kombi</TipVozila>
+		</Automobil>
+		<Adresa>
+			<NazivUlice>Beogradski kej</NazivUlice>
+			<BrojUlice>47</BrojUlice>
+			<Grad>Novi Sad</Grad>
+			<PostanskiBroj>21000</PostanskiBroj>
+			<X>1</X>
+			<Y>2</Y>
+		</Adresa>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Goran</Ime>
+		<Prezime>Resman</Prezime>
+		<Jmbg>1802967800456</Jmbg>
+		<KorisnickoIme>gresman</KorisnickoIme>
+		<Lozinka>goranresman</Lozinka>
+		<Pol>Muski</Pol>
+		<E-Mail>g.resman.ns@hotmail.com</E-Mail>
+		<BrojTelefona>0642498155</BrojTelefona>
+		<Uloga>Vozac</Uloga>
+		<Automobil>
+			<Godiste>2014</Godiste>
+			<Registracija>NS-182-GR</Registracija>
+			<TaxiBroj>154</TaxiBroj>
+			<TipVozila>Putnicko</TipVozila>
+		</Automobil>
+		<Adresa>
+			<NazivUlice>Bulevar Cara Lazara</NazivUlice>
+			<BrojUlice>62</BrojUlice>
+			<Grad>Novi Sad</Grad>
+			<PostanskiBroj>21000</PostanskiBroj>
+			<X>3</X>
+			<Y>1</Y>
+		</Adresa>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Bojana</Ime>
+		<Prezime>Babić</Prezime>
+		<Jmbg>2907997866542</Jmbg>
+		<KorisnickoIme>bojana4</KorisnickoIme>
+		<Lozinka>bokacar</Lozinka>
+		<Pol>Zenski</Pol>
+		<E-Mail>babic.bojana@hotmail.com</E-Mail>
+		<BrojTelefona>0654842668</BrojTelefona>
+		<Uloga>Musterija</Uloga>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Bogoljub</Ime>
+		<Prezime>Srdić</Prezime>
+		<Jmbg>1512990854268</Jmbg>
+		<KorisnickoIme>BoleDoktor</KorisnickoIme>
+		<Lozinka>bolesaadica</Lozinka>
+		<Pol>Muski</Pol>
+		<E-Mail>b.srdic@homtail.com</E-Mail>
+		<BrojTelefona>06175612968</BrojTelefona>
+		<Uloga>Musterija</Uloga>
+	</Korisnik>
+	<Korisnik>
+		<Ime>Maja</Ime>
+		<Prezime>Resman</Prezime>
+		<Jmbg>12029668126485</Jmbg>
+		<KorisnickoIme>maja966</KorisnickoIme>
+		<Lozinka>resman</Lozinka>
+		<Pol>Zenski</Pol>
+		<E-Mail>maja.resman@gmail.com</E-Mail>
+		<BrojTelefona>0635498158</BrojTelefona>
+		<Uloga>Musterija</Uloga>
 	</Korisnik>
 </Ulogovani>

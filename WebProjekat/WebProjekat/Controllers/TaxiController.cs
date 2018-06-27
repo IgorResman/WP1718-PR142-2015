@@ -170,9 +170,6 @@ namespace WebProjekat.Controllers
                     ti = TipVozila.Putnicko;
                     break;
             }
-
-
-
             Pol p = Pol.Muski;
             switch (pol)
             {
@@ -183,10 +180,6 @@ namespace WebProjekat.Controllers
                     p = Pol.Zenski;
                     break;
             }
-
-
-
-
             long jmb = long.Parse(jmbg);
 
             Vozac v = new Vozac(korisnicko, lozinka, ime, prezime, p, jmb, broj, mail, Uloga.Vozac);
@@ -441,6 +434,7 @@ namespace WebProjekat.Controllers
                     if(v.Musterija == null)
                     {
                         Musterija m = new Musterija("nema", "nema", "nema", "nema", Pol.Muski, 0000000000, "nema", "nema", Uloga.Musterija);
+                        v.Musterija = m;
                     }
 
                     string odrediste = v.Odrediste.Adresa.Mesto + "_" + v.Odrediste.Adresa.Broj.ToString() + "," + v.Odrediste.Adresa.Mesto + "_" + v.Odrediste.Adresa.BrojMesta.ToString();
@@ -519,6 +513,7 @@ namespace WebProjekat.Controllers
                                 writer.WriteElementString("X", vo.Lokacija.X.ToString());
                                 writer.WriteElementString("Y", vo.Lokacija.Y.ToString());
                                 writer.WriteEndElement();
+                                writer.WriteEndElement();
                             }
                         }
                     }
@@ -534,8 +529,6 @@ namespace WebProjekat.Controllers
                         writer.WriteElementString("E-Mail", m.Mail);
                         writer.WriteElementString("BrojTelefona", m.BrTelefona);
                         writer.WriteElementString("Uloga", m.Uloga.ToString());
-                        writer.WriteStartElement("Voznje");
-                        writer.WriteEndElement();
                         writer.WriteEndElement();
                     }
                 }
@@ -1216,8 +1209,6 @@ namespace WebProjekat.Controllers
 
             v.Vozac = vozac;
             v.Status = StatusVoznje.Kreirana;
-            v.Musterija = new Musterija("", "", "", "", Pol.Muski, 0, "", "", Uloga.Musterija);
-
             Dispecer disp = new Dispecer();
             foreach (Dispecer d in Registrovani.Dispeceri)
             {
@@ -1634,7 +1625,7 @@ namespace WebProjekat.Controllers
             {
                 foreach(Voznja v in k.Voznja)
                 {
-                    if(v.DatumIVremePorudzbine.ToString() == datum && k.KorisnickoIme == korisnik && vozac==v.Vozac.KorisnickoIme && dispecer == v.Dispecer.KorisnickoIme)
+                    if(v.DatumIVremePorudzbine.ToString() == datum && v.Musterija.KorisnickoIme == korisnik && vozac==v.Vozac.KorisnickoIme && dispecer == v.Dispecer.KorisnickoIme)
                     {
                         ret = v;
                         break;

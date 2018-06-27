@@ -7,7 +7,7 @@
     <body style="background-color:skyblue">
         <div style="text-align:center">
             <h1>Uspešno ste zatražili vožnju na adresu: @Model.PocetnaLokacija.Adresa.Naziv @Model.PocetnaLokacija.Adresa.Broj, @Model.PocetnaLokacija.Adresa.Mesto @Model.PocetnaLokacija.Adresa.BrojMesta </h1>
-            @if(Model.Musterija.KorisnickoIme != "")
+            @if(Model.Musterija.KorisnickoIme != "nema")
             {
                 <form action="/Taxi/VratiProfilMusterija">
                     <input type="submit" value="Vrati se na profil" />
