@@ -4,6 +4,11 @@
 }
 
 <html>
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
     <body style="background-color:skyblue">
 
         <h2>Registracija</h2>
@@ -15,11 +20,17 @@
                 </tr>
                 <tr>
                     <td>Ime:</td>
-                    <td><input type="text" name="ime" /></td>
+                    <td>
+                        <input type="text" name="ime" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 2 karaktera" data-val-length-max="25" data-val-length-min="2" data-val-required="Ovo polje je neophodno popuniti" />
+                        <span class="text-danger field-validation-error" data-valmsg-for="ime" data-valmsg-replace="true"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Prezime:</td>
-                    <td><input type="text" name="prezime" /></td>
+                    <td>
+                        <input type="text" name="prezime" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 2 karaktera" data-val-length-max="25" data-val-length-min="2" data-val-required="Ovo polje je neophodno popuniti" />
+                        <span class="text-danger field-validation-error" data-valmsg-for="prezime" data-valmsg-replace="true"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Pol:</td>
@@ -32,23 +43,38 @@
                 </tr>
                 <tr>
                     <td>Jmbg:</td>
-                    <td><input type="text" name="jmbg" /></td>
+                    <td>
+                        <input type="text" name="jmbg" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 13 karaktera" data-val-length-max="25" data-val-length-min="13" data-val-required="Ovo polje je neophodno popuniti" />
+                        <span class="text-danger field-validation-error" data-valmsg-for="jmbg" data-valmsg-replace="true"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Korisnicko ime:</td>
-                    <td><input type="text" name="korisnicko" /></td>
+                    <td>
+                        <input type="text" name="korisnicko" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 4 karaktera" data-val-length-max="25" data-val-length-min="4" data-val-required="Ovo polje je neophodno popuniti" />
+                        <span class="text-danger field-validation-error" data-valmsg-for="korisnicko" data-valmsg-replace="true"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Lozinka:</td>
-                    <td><input type="text" name="lozinka" /></td>
+                    <td>
+                        <input type="text" name="lozinka" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 5 karaktera" data-val-length-max="25" data-val-length-min="5" data-val-required="Ovo polje je neophodno popuniti" />
+                        <span class="text-danger field-validation-error" data-valmsg-for="lozinka" data-valmsg-replace="true"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td><input type="text" name="mail" /></td>
+                    <td>
+                        <input type="text" name="mail" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 11 karaktera" data-val-length-max="25" data-val-length-min="11" data-val-required="Ovo polje je neophodno popuniti" />
+                        <span class="text-danger field-validation-error" data-valmsg-for="mail" data-valmsg-replace="true"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Broj telefona:</td>
-                    <td><input type="text" name="broj" /></td>
+                    <td>
+                        <input type="text" name="broj" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 9 karaktera" data-val-length-max="25" data-val-length-min="9" data-val-required="Ovo polje je neophodno popuniti" />
+                        <span class="text-danger field-validation-error" data-valmsg-for="broj" data-valmsg-replace="true"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Registruj se"/></td>
