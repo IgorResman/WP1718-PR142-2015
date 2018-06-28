@@ -79,8 +79,8 @@
 		<DispecerIme>Igor</DispecerIme>
 		<DispececrPrezime>Resman</DispececrPrezime>
 		<Status>Uspesna</Status>
-		<KomentarOpis>Sporo sam stigla na destinaciju</KomentarOpis>
-		<KomentarDatum>28-Jun-18 1:58:38</KomentarDatum>
+		<KomentarOpis>Dobra usluga ali malo previsoka cena po kilometru</KomentarOpis>
+		<KomentarDatum>28-Jun-18 3:02:05</KomentarDatum>
 		<KomentarOcena>dobro</KomentarOcena>
 		<Iznos>450</Iznos>
 	</Voznja>
@@ -115,6 +115,40 @@
 		<Status>Otkazana</Status>
 		<KomentarOpis>Iskrsao mi je novi zadatak na poslu morala sam ostati</KomentarOpis>
 		<KomentarDatum>28-Jun-18 2:00:12</KomentarDatum>
+		<KomentarOcena>neocenjen</KomentarOcena>
+		<Iznos>0</Iznos>
+	</Voznja>
+	<Voznja>
+		<DatumPorudzbine>28-Jun-18 2:59:56</DatumPorudzbine>
+		<PocetnaLokacija>Narodnog fronta_67,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Novi Sad_7,Novi Sad_21000</KrajnjaLokacija>
+		<TipVozila>Kombi</TipVozila>
+		<MusterijaIme>Maja</MusterijaIme>
+		<MusterijaPrezime>Resman</MusterijaPrezime>
+		<VozacIme>Bogdan</VozacIme>
+		<VozacPrezime>Kovačev</VozacPrezime>
+		<DispecerIme>Petar</DispecerIme>
+		<DispececrPrezime>Varga</DispececrPrezime>
+		<Status>Uspesna</Status>
+		<KomentarOpis>Odlicna usluga! Sve preporuke</KomentarOpis>
+		<KomentarDatum>28-Jun-18 3:03:02</KomentarDatum>
+		<KomentarOcena>odlicno</KomentarOcena>
+		<Iznos>650</Iznos>
+	</Voznja>
+	<Voznja>
+		<DatumPorudzbine>28-Jun-18 3:04:27</DatumPorudzbine>
+		<PocetnaLokacija>Balzakova_8,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+		<TipVozila>Putnicko</TipVozila>
+		<MusterijaIme>nema</MusterijaIme>
+		<MusterijaPrezime>nema</MusterijaPrezime>
+		<VozacIme>Goran</VozacIme>
+		<VozacPrezime>Resman</VozacPrezime>
+		<DispecerIme>Petar</DispecerIme>
+		<DispececrPrezime>Varga</DispececrPrezime>
+		<Status>Neuspesna</Status>
+		<KomentarOpis>Blaži sudar sprečio me je da dovezem mušteriju na određenu lokaciju. Srećom kolega je pomogao i preuzeo vožnju!</KomentarOpis>
+		<KomentarDatum>28-Jun-18 3:05:30</KomentarDatum>
 		<KomentarOcena>neocenjen</KomentarOcena>
 		<Iznos>0</Iznos>
 	</Voznja>

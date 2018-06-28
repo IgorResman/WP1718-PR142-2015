@@ -119,49 +119,64 @@
                 </tr>
                 @foreach (WebProjekat.Models.Voznja v in @Model.Filtrirane)
                 {
-                    <tr>
-                        <td>Datum i vreme porudžbine</td>
-                        <td><lable>@v.DatumIVremePorudzbine</lable></td>
-                    </tr>
-                    <tr>
-                        <td>Status vožnje</td>
-                        <td>@v.Status.ToString()</td>
-                    </tr>
-                    <tr>
-                        <td>Početna lokacija</td>
-                        <td><label>@v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj ,@v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta</label></td>
-                        @if (v.Vozac.Ime == "nema")
-                        {
-                            <td>
-                                @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
-                                {
-                                    <form action="/Taxi/DodeljivanjeVozaca">
-                                        <input type="hidden" value="@v.DatumIVremePorudzbine" name="date" />
-                                        <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
-                                        <input type="hidden" value="@Model.KorisnickoIme" name="disp" />
-                                        <input type="submit" value="Dodeli vozača" />
-                                    </form>
+                <tr>
+                    <td>
+                        @v.DatumIVremePorudzbine
+                    </td>
+                    <td>
+                        @v.Musterija.Ime @v.Musterija.Prezime
+                    </td>
+                    <td>
+                        @v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj @v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta
+                    </td>
+                    <td>
+                        @v.Status.ToString()
+                    </td>
+                    @if (v.Vozac.Ime == "nema")
+                    {
+                        <td>
+                            @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
+                            {
+                                <form action="/Taxi/DodeljivanjeVozaca">
+                                    <input type="hidden" value="@v.DatumIVremePorudzbine" name="date" />
+                                    <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
+                                    <input type="hidden" value="@Model.KorisnickoIme" name="disp" />
+                                    <input type="submit" value="Dodeli vozača" />
+                                </form>
 
-                                    <form action="/Taxi/PrikaziKomentar">
-                                        <input type="submit" value="Prikaži vožnju" />
-                                        <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
-                                        <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
-                                        <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
-                                    </form>
-                                }
-                                else
-                                {
-                                    <form action="/Taxi/PrikaziKomentar">
-                                        <input type="submit" value="Prikaži vožnju" />
-                                        <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
-                                    </form>
-                                }
-                            </td>
-
-                        }
-                    </tr>
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            }
+                            else
+                            {
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            }
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <form action="/Taxi/PrikaziKomentar">
+                                <input type="submit" value="Prikaži vožnju" />
+                                <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                            </form>
+                        </td>
+                    }
+                </tr>
                 }
             </table>
             <form action="/Taxi/PonistiFilter">
@@ -204,49 +219,64 @@
                 </tr>
                 @foreach (WebProjekat.Models.Voznja v in @Model.Pretrazene)
                 {
-                    <tr>
-                        <td>Datum i vreme porudžbine</td>
-                        <td><lable>@v.DatumIVremePorudzbine</lable></td>
-                    </tr>
-                    <tr>
-                        <td>Status vožnje</td>
-                        <td>@v.Status.ToString()</td>
-                    </tr>
-                    <tr>
-                        <td>Početna lokacija</td>
-                        <td><label>@v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj ,@v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta</label></td>
-                        @if (v.Vozac.Ime == "nema")
-                        {
-                            <td>
-                                @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
-                                {
-                                    <form action="/Taxi/DodeljivanjeVozaca">
-                                        <input type="hidden" value="@v.DatumIVremePorudzbine" name="date" />
-                                        <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
-                                        <input type="hidden" value="@Model.KorisnickoIme" name="disp" />
-                                        <input type="submit" value="Dodeli vozača" />
-                                    </form>
+                <tr>
+                    <td>
+                        @v.DatumIVremePorudzbine
+                    </td>
+                    <td>
+                        @v.Musterija.Ime @v.Musterija.Prezime
+                    </td>
+                    <td>
+                        @v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj @v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta
+                    </td>
+                    <td>
+                        @v.Status.ToString()
+                    </td>
+                    @if (v.Vozac.Ime == "nema")
+                    {
+                        <td>
+                            @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
+                            {
+                                <form action="/Taxi/DodeljivanjeVozaca">
+                                    <input type="hidden" value="@v.DatumIVremePorudzbine" name="date" />
+                                    <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
+                                    <input type="hidden" value="@Model.KorisnickoIme" name="disp" />
+                                    <input type="submit" value="Dodeli vozača" />
+                                </form>
 
-                                    <form action="/Taxi/PrikaziKomentar">
-                                        <input type="submit" value="Prikaži vožnju" />
-                                        <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
-                                        <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
-                                        <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
-                                    </form>
-                                }
-                                else
-                                {
-                                    <form action="/Taxi/PrikaziKomentar">
-                                        <input type="submit" value="Prikaži vožnju" />
-                                        <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
-                                    </form>
-                                }
-                            </td>
-
-                        }
-                    </tr>
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            }
+                            else
+                            {
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            }
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <form action="/Taxi/PrikaziKomentar">
+                                <input type="submit" value="Prikaži vožnju" />
+                                <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                            </form>
+                        </td>
+                    }
+                </tr>
                 }
             </table>
             <form action="/Taxi/PonistiFilter">
@@ -298,49 +328,64 @@
                 </tr>
                 @foreach (WebProjekat.Models.Voznja v in @Model.Sortirane)
                 {
-                    <tr>
-                        <td>Datum i vreme porudžbine</td>
-                        <td><lable>@v.DatumIVremePorudzbine</lable></td>
-                    </tr>
-                    <tr>
-                        <td>Status vožnje</td>
-                        <td>@v.Status.ToString()</td>
-                    </tr>
-                    <tr>
-                        <td>Početna lokacija</td>
-                        <td><label>@v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj ,@v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta</label></td>
-                        @if (v.Vozac.Ime == "nema")
-                        {
-                            <td>
-                                @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
-                                {
-                                    <form action="/Taxi/DodeljivanjeVozaca">
-                                        <input type="hidden" value="@v.DatumIVremePorudzbine" name="date" />
-                                        <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
-                                        <input type="hidden" value="@Model.KorisnickoIme" name="disp" />
-                                        <input type="submit" value="Dodeli vozača" />
-                                    </form>
+                <tr>
+                    <td>
+                        @v.DatumIVremePorudzbine
+                    </td>
+                    <td>
+                        @v.Musterija.Ime @v.Musterija.Prezime
+                    </td>
+                    <td>
+                        @v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj @v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta
+                    </td>
+                    <td>
+                        @v.Status.ToString()
+                    </td>
+                    @if (v.Vozac.Ime == "nema")
+                    {
+                        <td>
+                            @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
+                            {
+                                <form action="/Taxi/DodeljivanjeVozaca">
+                                    <input type="hidden" value="@v.DatumIVremePorudzbine" name="date" />
+                                    <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
+                                    <input type="hidden" value="@Model.KorisnickoIme" name="disp" />
+                                    <input type="submit" value="Dodeli vozača" />
+                                </form>
 
-                                    <form action="/Taxi/PrikaziKomentar">
-                                        <input type="submit" value="Prikaži vožnju" />
-                                        <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
-                                        <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
-                                        <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
-                                    </form>
-                                }
-                                else
-                                {
-                                    <form action="/Taxi/PrikaziKomentar">
-                                        <input type="submit" value="Prikaži vožnju" />
-                                        <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
-                                    </form>
-                                }
-                            </td>
-
-                        }
-                    </tr>
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            }
+                            else
+                            {
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            }
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <form action="/Taxi/PrikaziKomentar">
+                                <input type="submit" value="Prikaži vožnju" />
+                                <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                            </form>
+                        </td>
+                    }
+                </tr>
                 }
             </table>
             <form action="/Taxi/PonistiFilter">
@@ -414,19 +459,20 @@
                 </tr>
                 @foreach (WebProjekat.Models.Voznja v in @Model.NadjeniVozaci)
                 {
-
                     <tr>
-                        <td>Datum i vreme porudžbine</td>
-                        <td><lable>@v.DatumIVremePorudzbine</lable></td>
-                    </tr>
-                    <tr>
-                        <td>Status vožnje</td>
-                        <td>@v.Status.ToString()</td>
-                    </tr>
-                    <tr>
-                        <td>Početna lokacija</td>
-                        <td><label>@v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj ,@v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta</label></td>
-                       @if (v.Vozac.Ime == "nema")
+                        <td>
+                            @v.DatumIVremePorudzbine
+                        </td>
+                        <td>
+                            @v.Musterija.Ime @v.Musterija.Prezime
+                        </td>
+                        <td>
+                            @v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj @v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta
+                        </td>
+                        <td>
+                            @v.Status.ToString()
+                        </td>
+                        @if (v.Vozac.Ime == "nema")
                         {
                             <td>
                                 @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
@@ -451,11 +497,24 @@
                                     <form action="/Taxi/PrikaziKomentar">
                                         <input type="submit" value="Prikaži vožnju" />
                                         <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
+                                        <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                        <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                        <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
                                     </form>
                                 }
                             </td>
-
+                        }
+                        else
+                        {
+                            <td>
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            </td>
                         }
                     </tr>
                 }
@@ -531,50 +590,64 @@
                 </tr>
                 @foreach (WebProjekat.Models.Voznja v in @Model.NadjeneMusterije)
                 {
+                <tr>
+                    <td>
+                        @v.DatumIVremePorudzbine
+                    </td>
+                    <td>
+                        @v.Musterija.Ime @v.Musterija.Prezime
+                    </td>
+                    <td>
+                        @v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj @v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta
+                    </td>
+                    <td>
+                        @v.Status.ToString()
+                    </td>
+                    @if (v.Vozac.Ime == "nema")
+                    {
+                        <td>
+                            @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
+                            {
+                                <form action="/Taxi/DodeljivanjeVozaca">
+                                    <input type="hidden" value="@v.DatumIVremePorudzbine" name="date" />
+                                    <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
+                                    <input type="hidden" value="@Model.KorisnickoIme" name="disp" />
+                                    <input type="submit" value="Dodeli vozača" />
+                                </form>
 
-                    <tr>
-                        <td>Datum i vreme porudžbine</td>
-                        <td><lable>@v.DatumIVremePorudzbine</lable></td>
-                    </tr>
-                    <tr>
-                        <td>Status vožnje</td>
-                        <td>@v.Status.ToString()</td>
-                    </tr>
-                    <tr>
-                        <td>Početna lokacija</td>
-                        <td><label>@v.PocetnaLokacija.Adresa.Naziv @v.PocetnaLokacija.Adresa.Broj ,@v.PocetnaLokacija.Adresa.Mesto @v.PocetnaLokacija.Adresa.BrojMesta</label></td>
-                        @if (v.Vozac.Ime == "nema")
-                        {
-                            <td>
-                                @if (v.Status != WebProjekat.Models.StatusVoznje.Otkazana)
-                                {
-                                    <form action="/Taxi/DodeljivanjeVozaca">
-                                        <input type="hidden" value="@v.DatumIVremePorudzbine" name="date" />
-                                        <input type="hidden" value="@v.Musterija.KorisnickoIme" name="musterija" />
-                                        <input type="hidden" value="@Model.KorisnickoIme" name="disp" />
-                                        <input type="submit" value="Dodeli vozača" />
-                                    </form>
-
-                                    <form action="/Taxi/PrikaziKomentar">
-                                        <input type="submit" value="Prikaži vožnju" />
-                                        <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
-                                        <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
-                                        <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
-                                    </form>
-                                }
-                                else
-                                {
-                                    <form action="/Taxi/PrikaziKomentar">
-                                        <input type="submit" value="Prikaži vožnju" />
-                                        <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
-                                        <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
-                                    </form>
-                                }
-                            </td>
-
-                        }
-                    </tr>
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            }
+                            else
+                            {
+                                <form action="/Taxi/PrikaziKomentar">
+                                    <input type="submit" value="Prikaži vožnju" />
+                                    <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                    <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                    <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                    <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                                </form>
+                            }
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <form action="/Taxi/PrikaziKomentar">
+                                <input type="submit" value="Prikaži vožnju" />
+                                <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
+                                <input type="hidden" name="korisnik" value="@v.Musterija.KorisnickoIme" />
+                                <input type="hidden" name="vozac" value="@v.Vozac.KorisnickoIme" />
+                                <input type="hidden" name="dispecer" value="@v.Dispecer.KorisnickoIme" />
+                            </form>
+                        </td>
+                    }
+                </tr>
                 }
             </table>
             <form action="/Taxi/PonistiFilter">

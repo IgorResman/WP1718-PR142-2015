@@ -1657,6 +1657,7 @@ namespace WebProjekat.Controllers
                 if(must.KorisnickoIme == musterija)
                 {
                     ret = must;
+                    break;
                 }
             }
             ret.Filter = true;
@@ -1688,11 +1689,24 @@ namespace WebProjekat.Controllers
                     break;
             }
 
-            foreach(Voznja voz in ret.Voznja)
+            if(ret.Uloga == Uloga.Dispecer)
             {
-                if(voz.Status == status)
+                foreach(Voznja voz in Voznje.SveVoznje)
                 {
-                    ret.Filtrirane.Add(voz);
+                    if(voz.Status == status)
+                    {
+                        ret.Filtrirane.Add(voz);
+                    }
+                }
+            }
+            else
+            {
+                foreach(Voznja voz in ret.Voznja)
+                {
+                    if(voz.Status == status)
+                    {
+                        ret.Filtrirane.Add(voz);
+                    }
                 }
             }
             Dispecer d = new Dispecer();
@@ -1752,6 +1766,7 @@ namespace WebProjekat.Controllers
                 if (must.KorisnickoIme == musterija)
                 {
                     ret = must;
+                    break;
                 }
             }
 
@@ -1767,9 +1782,19 @@ namespace WebProjekat.Controllers
             }
             else
             {
-                foreach (Voznja voz in ret.Voznja)
+                if(ret.Uloga == Uloga.Dispecer)
                 {
-                    ret.Sortirane.Add(voz);
+                    foreach (Voznja voz in Voznje.SveVoznje)
+                    {
+                        ret.Sortirane.Add(voz);
+                    }
+                }
+                else
+                {
+                    foreach (Voznja voz in ret.Voznja)
+                    {
+                        ret.Sortirane.Add(voz);
+                    }
                 }
             }
 
@@ -1785,16 +1810,17 @@ namespace WebProjekat.Controllers
             {
                 oc = true;
             }
-
+            List<Voznja> pomocna = new List<Voznja>();
             if(dat)
             {
-                ret.Sortirane = ret.Voznja.OrderBy(o => o.DatumIVremePorudzbine).ToList();
+                pomocna = ret.Sortirane.OrderBy(o => o.DatumIVremePorudzbine).ToList();
             }
             else if(oc)
             {
-                ret.Sortirane = ret.Voznja.OrderBy(o => o.Komentar.Ocena).ToList();
+                pomocna = ret.Sortirane.OrderBy(o => o.Komentar.Ocena).ToList();
             }
 
+            ret.Sortirane = pomocna;
             Dispecer d = new Dispecer();
             Musterija m = new Musterija();
             Vozac v = new Vozac();
@@ -1970,9 +1996,19 @@ namespace WebProjekat.Controllers
             }
             else
             {
-                foreach (Voznja voz in ret.Voznja)
+                if (ret.Uloga == Uloga.Dispecer)
                 {
-                    pomocna.Add(voz);
+                    foreach (Voznja voz in Voznje.SveVoznje)
+                    {
+                        ret.Sortirane.Add(voz);
+                    }
+                }
+                else
+                {
+                    foreach (Voznja voz in ret.Voznja)
+                    {
+                        ret.Sortirane.Add(voz);
+                    }
                 }
             }
 

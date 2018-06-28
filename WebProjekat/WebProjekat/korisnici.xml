@@ -7,7 +7,7 @@
 		<Lozinka>2408995</Lozinka>
 		<Pol>Muski</Pol>
 		<E-Mail>igor.resman@gmail.com</E-Mail>
-		<BrojTelefona>0613764512</BrojTelefona>
+		<BrojTelefona>06412485188</BrojTelefona>
 		<Uloga>Dispecer</Uloga>
 	</Korisnik>
 	<Korisnik>
@@ -49,8 +49,8 @@
 			<TipVozila>Putnicko</TipVozila>
 		</Automobil>
 		<Adresa>
-			<NazivUlice>Modene</NazivUlice>
-			<BrojUlice>7</BrojUlice>
+			<NazivUlice>Pavla Bakića</NazivUlice>
+			<BrojUlice>2</BrojUlice>
 			<Grad>Novi Sad</Grad>
 			<PostanskiBroj>21000</PostanskiBroj>
 			<X>45</X>
@@ -135,7 +135,7 @@
 	<Korisnik>
 		<Ime>Bojana</Ime>
 		<Prezime>Babić</Prezime>
-		<Jmbg>2907997866542</Jmbg>
+		<Jmbg>2907997866544</Jmbg>
 		<KorisnickoIme>bojana4</KorisnickoIme>
 		<Lozinka>bokacar</Lozinka>
 		<Pol>Zenski</Pol>
