@@ -1632,8 +1632,6 @@ namespace WebProjekat.Controllers
 
         public ActionResult PrikaziKomentar(string datum,string korisnik,string vozac,string dispecer)
         {
-
-
             Voznja ret = new Voznja();
             foreach(Korisnik k in Registrovani.SviZajedno)
             {
