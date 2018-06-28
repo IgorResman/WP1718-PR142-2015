@@ -1597,9 +1597,23 @@ namespace WebProjekat.Controllers
         }
         #endregion
 
+        public ActionResult OstavljanjeKomentara(string korisnik,string datum)
+        {
+            Voznja v = new Voznja();
+
+            foreach (Voznja voznja in Voznje.SveVoznje)
+            {
+                if (voznja.DatumIVremePorudzbine.ToString() == datum && voznja.Musterija.KorisnickoIme == korisnik)
+                {
+                    v = voznja;
+                    break;
+                }
+            }
+            return View("OstavljanjeKomentara", v);
+        }
 
 
-       
+
 
         public ActionResult UspesnoOtkazanaVoznja(string korisnik,string datum)
         {

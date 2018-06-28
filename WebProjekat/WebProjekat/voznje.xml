@@ -36,7 +36,7 @@
 	<Voznja>
 		<DatumPorudzbine>27-Jun-18 14:05:07</DatumPorudzbine>
 		<PocetnaLokacija>Narodnog fronta_47,Novi Sad_21000</PocetnaLokacija>
-		<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+		<KrajnjaLokacija>Novi Sad_2,Novi Sad_21000</KrajnjaLokacija>
 		<TipVozila>Putnicko</TipVozila>
 		<MusterijaIme>Maja</MusterijaIme>
 		<MusterijaPrezime>Resman</MusterijaPrezime>
@@ -44,11 +44,11 @@
 		<VozacPrezime>Resman</VozacPrezime>
 		<DispecerIme>Petar</DispecerIme>
 		<DispececrPrezime>Varga</DispececrPrezime>
-		<Status>Obradjena</Status>
-		<KomentarOpis>bez opisa</KomentarOpis>
-		<KomentarDatum>01-Jan-01 0:00:00</KomentarDatum>
-		<KomentarOcena>neocenjen</KomentarOcena>
-		<Iznos>0</Iznos>
+		<Status>Uspesna</Status>
+		<KomentarOpis>Izuzetna voznja</KomentarOpis>
+		<KomentarDatum>28-Jun-18 1:58:08</KomentarDatum>
+		<KomentarOcena>odlicno</KomentarOcena>
+		<Iznos>450</Iznos>
 	</Voznja>
 	<Voznja>
 		<DatumPorudzbine>27-Jun-18 14:53:58</DatumPorudzbine>
@@ -79,9 +79,9 @@
 		<DispecerIme>Igor</DispecerIme>
 		<DispececrPrezime>Resman</DispececrPrezime>
 		<Status>Uspesna</Status>
-		<KomentarOpis>Brzo stigla ali je vozac bio izuzetno neprijatan</KomentarOpis>
-		<KomentarDatum>27-Jun-18 17:02:54</KomentarDatum>
-		<KomentarOcena>lose</KomentarOcena>
+		<KomentarOpis>Sporo sam stigla na destinaciju</KomentarOpis>
+		<KomentarDatum>28-Jun-18 1:58:38</KomentarDatum>
+		<KomentarOcena>dobro</KomentarOcena>
 		<Iznos>450</Iznos>
 	</Voznja>
 	<Voznja>
@@ -98,6 +98,23 @@
 		<Status>Otkazana</Status>
 		<KomentarOpis>Ipak mi ne treba taksi</KomentarOpis>
 		<KomentarDatum>28-Jun-18 0:17:37</KomentarDatum>
+		<KomentarOcena>neocenjen</KomentarOcena>
+		<Iznos>0</Iznos>
+	</Voznja>
+	<Voznja>
+		<DatumPorudzbine>28-Jun-18 1:59:49</DatumPorudzbine>
+		<PocetnaLokacija>Pavla Bakića_2,Novi Sad_21000</PocetnaLokacija>
+		<KrajnjaLokacija>Nepoznato_0,Nepoznato_0</KrajnjaLokacija>
+		<TipVozila>Putnicko</TipVozila>
+		<MusterijaIme>Maja</MusterijaIme>
+		<MusterijaPrezime>Resman</MusterijaPrezime>
+		<VozacIme>nema</VozacIme>
+		<VozacPrezime>nema</VozacPrezime>
+		<DispecerIme>nema</DispecerIme>
+		<DispececrPrezime>nema</DispececrPrezime>
+		<Status>Otkazana</Status>
+		<KomentarOpis>Iskrsao mi je novi zadatak na poslu morala sam ostati</KomentarOpis>
+		<KomentarDatum>28-Jun-18 2:00:12</KomentarDatum>
 		<KomentarOcena>neocenjen</KomentarOcena>
 		<Iznos>0</Iznos>
 	</Voznja>

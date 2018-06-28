@@ -30,8 +30,8 @@
                     </tr>
                     <tr>
                         <td>Iznos</td>
-                        <td><input type="text" name="iznos"/></td>
-                        
+                        <td><input type="number" name="iznos" data-val="true" data-val-length="Ovo polje morate popuniti sa najmanje 1 karakterom" data-val-length-max="25" data-val-length-min="1" data-val-required="Ovo polje je neophodno popuniti" /></td>
+                        <td><span class="text-danger field-validation-error" data-valmsg-for="ulica" data-valmsg-replace="true"></span></td>
                     </tr>
                 </table>
                 <input type="hidden" value="@Model.DatumIVremePorudzbine" name="datum"/>

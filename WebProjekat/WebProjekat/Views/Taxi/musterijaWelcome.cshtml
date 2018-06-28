@@ -120,7 +120,7 @@
                         @if (v.Status == WebProjekat.Models.StatusVoznje.Uspesna && v.Musterija.KorisnickoIme != null)
                         {
                             <td rowspan="2">
-                                <form action="/Taxi/UspesnoOtkazanaVoznja">
+                                <form action="/Taxi/OstavljanjeKomentara">
                                     <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
                                     <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
                                     <input type="submit" value="Ostavi komentar" />
@@ -208,7 +208,7 @@
                         @if (v.Status == WebProjekat.Models.StatusVoznje.Uspesna && v.Musterija.KorisnickoIme != null)
                         {
                             <td rowspan="2">
-                                <form action="/Taxi/UspesnoOtkazanaVoznja">
+                                <form action="/Taxi/OstavljanjeKomentara">
                                     <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
                                     <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
                                     <input type="submit" value="Ostavi komentar" />
@@ -305,7 +305,7 @@
                         @if (v.Status == WebProjekat.Models.StatusVoznje.Uspesna && v.Musterija.KorisnickoIme != null)
                         {
                             <td rowspan="2">
-                                <form action="/Taxi/UspesnoOtkazanaVoznja">
+                                <form action="/Taxi/OstavljanjeKomentara">
                                     <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
                                     <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
                                     <input type="submit" value="Ostavi komentar" />
@@ -417,7 +417,7 @@
                         @if (v.Status == WebProjekat.Models.StatusVoznje.Uspesna && v.Musterija.KorisnickoIme != null)
                         {
                             <td>
-                                <form action="/Taxi/UspesnoOtkazanaVoznja">
+                                <form action="/Taxi/OstavljanjeKomentara">
                                     <input type="hidden" name="korisnik" value="@Model.KorisnickoIme" />
                                     <input type="hidden" name="datum" value="@v.DatumIVremePorudzbine" />
                                     <input type="submit" value="Ostavi komentar" />
